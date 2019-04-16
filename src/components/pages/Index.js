@@ -1,23 +1,15 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-
+import {BrowserRouter as Router} from 'react-router-dom';
 //Partials
 import Header from '../partials/Header'
 import Footer from '../partials/Footer'
 import SideNav from '../partials/SideNav'
 import Modal from '../partials/Modal'
-
 //Routes
 import {routes} from '../../routes/routes';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
-
 //Home
-import Home from './Home'
-
 //Users
-import ReadUsers from './users/ReadUsers'
-import AddUser from './users/AddUser'
-import EditUser from './users/EditUser'
 
 
 class Index extends Component {

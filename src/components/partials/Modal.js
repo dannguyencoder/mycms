@@ -3,40 +3,40 @@ import React, {Component} from 'react';
 class Modal extends Component {
     render() {
         return (
-            <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+            <div className="modal fade" id="addPage" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
                         <form>
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Add Page</h4>
+                            <div className="modal-header">
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 className="modal-title" id="myModalLabel">Add Page</h4>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
+                            <div className="modal-body">
+                                <div className="form-group">
                                     <label>Page Title</label>
-                                    <input type="text" class="form-control" placeholder="Page Title"/>
+                                    <input type="text" className="form-control" placeholder="Page Title"/>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label>Page Body</label>
-                                    <textarea name="editor1" class="form-control" placeholder="Page Body"></textarea>
+                                    <textarea name="editor1" className="form-control" placeholder="Page Body"></textarea>
                                 </div>
-                                <div class="checkbox">
+                                <div className="checkbox">
                                     <label>
                                         <input type="checkbox"/> Published
                                     </label>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label>Meta Tags</label>
-                                    <input type="text" class="form-control" placeholder="Add Some Tags..."/>
+                                    <input type="text" className="form-control" placeholder="Add Some Tags..."/>
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label>Meta Description</label>
-                                    <input type="text" class="form-control" placeholder="Add Meta Description..."/>
+                                    <input type="text" className="form-control" placeholder="Add Meta Description..."/>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" className="btn btn-primary">Save changes</button>
                             </div>
                         </form>
                     </div>

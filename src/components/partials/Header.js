@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class AdminHeader extends Component {
     render() {
@@ -14,18 +15,18 @@ class AdminHeader extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <a className="navbar-brand" href="#">AdminStrap</a>
+                            <Link className="navbar-brand" to="#">AdminStrap</Link>
                         </div>
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><a href="pages.html">Pages</a></li>
-                                <li><a href="posts.html">Posts</a></li>
+                                <li><Link to="index.html">Dashboard</Link></li>
+                                <li><Link to="pages.html">Pages</Link></li>
+                                <li><Link to="posts.html">Posts</Link></li>
                                 <li className="active"><a href="users.html">Users</a></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><a href="#">Welcome, Brad</a></li>
-                                <li><a href="login.html">Logout</a></li>
+                                <li><Link to="#">Welcome, Brad</Link></li>
+                                <li><Link to="login.html">Logout</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -47,10 +48,10 @@ class AdminHeader extends Component {
                                         <span className="caret"></span>
                                     </button>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a type="button" data-toggle="modal" data-target="#addPage">Add Page</a>
+                                        <li><Link type="button" data-toggle="modal" data-target="#addPage" to="/">Add Page</Link>
                                         </li>
-                                        <li><a href="#">Add Post</a></li>
-                                        <li><a href="#">Add User</a></li>
+                                        <li><Link to="#">Add Post</Link></li>
+                                        <li><Link to="#">Add User</Link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -61,7 +62,7 @@ class AdminHeader extends Component {
                 <section id="breadcrumb">
                     <div className="container">
                         <ol className="breadcrumb">
-                            <li><a href="index.html">Dashboard</a></li>
+                            <li><Link to="index.html">Dashboard</Link></li>
                             <li className="active">Users</li>
                         </ol>
                     </div>
