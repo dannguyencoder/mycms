@@ -6,8 +6,11 @@ import {Route} from 'react-router-dom';
 function RouteWithSubRoutes(route) {
     return (
         <Route
+            exact
             path={route.path}
             render={function (props) {
+                console.log('=========================')
+                console.log( <route.component {...props} routes={route.routes}/>)
                 return <route.component {...props} routes={route.routes}/>;
             }}
         />

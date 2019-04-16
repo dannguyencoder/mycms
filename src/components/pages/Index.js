@@ -26,9 +26,10 @@ class Index extends Component {
 
                             <div className="col-md-9">
 
-                                {routes.map((route, i) => (
-                                    <RouteWithSubRoutes key={i} {...route} />
-                                ))}
+                                {routes.map(function (route, i) {
+                                    console.log(<RouteWithSubRoutes key={i} {...route} />)
+                                    return <RouteWithSubRoutes key={i} {...route} />;
+                                })}
 
                             </div>
 

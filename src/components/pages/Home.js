@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 class Home extends Component {
     render() {
+        // console.log(Math.random())
         return (
             <React.Fragment>
                 {/*Website Overview*/}
