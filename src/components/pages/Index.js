@@ -5,6 +5,7 @@ import Header from '../partials/Header'
 import Footer from '../partials/Footer'
 import SideNav from '../partials/SideNav'
 import Modal from '../partials/Modal'
+
 //Routes
 import { routes } from '../../routes/routes';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
