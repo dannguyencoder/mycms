@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 class ReadUsers extends Component {
     render() {
-        console.log('yytytt');
         return (
 
             <div className="panel panel-default">
@@ -30,7 +29,7 @@ class ReadUsers extends Component {
                             <td>Jill Smith</td>
                             <td>jillsmith@gmail.com</td>
                             <td>Dec 12, 2016</td>
-                            <td><Link className="btn btn-default" to="edit.html">Edit</Link> <Link
+                            <td><Link className="btn btn-default" to="/users/editUser">Edit</Link> <Link
                                 className="btn btn-danger" to="#">Delete</Link></td>
                         </tr>
                         <tr>

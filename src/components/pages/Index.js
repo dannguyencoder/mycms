@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 //Partials
 import Header from '../partials/Header'
 import Footer from '../partials/Footer'
 import SideNav from '../partials/SideNav'
 import Modal from '../partials/Modal'
 //Routes
-import {routes} from '../../routes/routes';
+import { routes } from '../../routes/routes';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
 //Home
 //Users
@@ -16,18 +16,18 @@ class Index extends Component {
     render() {
         return (
             <Router>
-                <Header/>
+                <Header />
                 <section id="main">
                     < div className="container">
                         <div className="row">
                             <div className="col-md-3">
-                                <SideNav/>
+                                <SideNav />
                             </div>
 
                             <div className="col-md-9">
 
                                 {routes.map(function (route, i) {
-                                    console.log(<RouteWithSubRoutes key={i} {...route} />)
+                                    console.log(route)
                                     return <RouteWithSubRoutes key={i} {...route} />;
                                 })}
 
@@ -36,8 +36,8 @@ class Index extends Component {
                         </div>
                     </div>
                 </section>
-                <Modal/>
-                <Footer/>
+                <Modal />
+                <Footer />
             </Router>
         );
     }
