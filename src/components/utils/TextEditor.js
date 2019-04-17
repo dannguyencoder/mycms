@@ -2,16 +2,15 @@ import 'braft-editor/dist/index.css'
 import React from 'react'
 import BraftEditor from 'braft-editor'
 
-export default class BasicDemo extends React.Component {
+export default class TextEditor extends React.Component {
 
     state = {
-        editorState: BraftEditor.createEditorState('<p>Hello <b>World!</b></p>'), // 设置编辑器初始内容
+        editorState: BraftEditor.createEditorState('<p>Enter your post here <b>...!</b></p>'),
         outputHTML: '<p></p>'
     }
 
     componentDidMount () {
         this.isLivinig = true
-        // 3秒后更改编辑器内容
         setTimeout(this.setEditorContentAsync, 3000)
     }
 
@@ -28,7 +27,7 @@ export default class BasicDemo extends React.Component {
 
     setEditorContentAsync = () => {
         this.isLivinig && this.setState({
-            editorState: BraftEditor.createEditorState('<p>你好，<b>世界!</b><p>')
+            editorState: BraftEditor.createEditorState('<p>Your <b>post...!</b><p>')
         })
     }
 
@@ -40,11 +39,12 @@ export default class BasicDemo extends React.Component {
             <div>
                 <div className="editor-wrapper">
                     <BraftEditor
+                        language="en"
                         value={editorState}
                         onChange={this.handleChange}
                     />
                 </div>
-                <h5>输出内容</h5>
+                <h5>HTML Output</h5>
                 <div className="output-content">{outputHTML}</div>
             </div>
         )
