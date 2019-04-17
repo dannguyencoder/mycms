@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import TextEditor from '../../utils/TextEditor';
 import FormComponent from "../../partials/form_component";
+import DropDown from '../../partials/dropdown_simple';
+
 class EditUser extends Component {
 
     constructor(props) {
@@ -32,7 +34,7 @@ class EditUser extends Component {
     render() {
         return (
             <React.Fragment>
-                
+
                 <div className="panel panel-default">
                     <div className="panel-heading main-color-bg">
                         <h3 className="panel-title">Edit Page</h3>
@@ -97,7 +99,8 @@ class EditUser extends Component {
                                     <label>Role</label></div>
                                 <div className="col-md-10">
 
-                                   <FormComponent />
+                                    <DropDown />
+                                    {/* <FormComponent /> */}
                                     {/* <select class="form-control">
                                         <option value="+47">Supper Admin</option>
                                         <option value="+46">Admin</option>
