@@ -18,13 +18,16 @@ class ReadUsers extends Component {
                     </div>
                     <br/>
                     <table className="table table-striped table-hover">
-                        <tbody>
+                        <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Joined</th>
                             <th></th>
                         </tr>
+                        </thead>
+                        <tbody>
+
                         <tr>
                             <td>Jill Smith</td>
                             <td>jillsmith@gmail.com</td>

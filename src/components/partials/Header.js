@@ -19,10 +19,10 @@ class AdminHeader extends Component {
                         </div>
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
-                                <li><Link to="index.html">Dashboard</Link></li>
-                                <li><Link to="pages.html">Pages</Link></li>
-                                <li><Link to="posts.html">Posts</Link></li>
-                                <li className="active"><a href="users.html">Users</a></li>
+                                <li><Link to="/">Dashboard</Link></li>
+                                <li><Link to="/">Pages</Link></li>
+                                <li><Link to="/posts/readPosts">Posts</Link></li>
+                                <li className="active"><Link to="/users/readUsers">Users</Link></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <li><Link to="#">Welcome, Brad</Link></li>

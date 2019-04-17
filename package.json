@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+<<<<<<< HEAD
+=======
+    "braft-editor": "^2.2.9",
+>>>>>>> 0f925fb5acdbce2ddba0aa5da4db145ffb0848e4
     "draft-js": "^0.10.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
