@@ -9,9 +9,6 @@ class AdminSideNav extends Component {
                     <Link to="/" className="list-group-item active main-color-bg">
                         <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
                     </Link>
-                    <Link to="/" className="list-group-item"><span
-                        className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span
-                        className="badge">12</span></Link>
                     <Link to="/posts/readPosts" className="list-group-item"><span
                         className="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span
                         className="badge">33</span></Link>

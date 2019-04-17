@@ -40,21 +40,21 @@ class ReadUsers extends Component {
                             <td>Eve Jackson</td>
                             <td>ejackson@yahoo.com</td>
                             <td>Dec 13, 2016</td>
-                            <td><Link className="btn btn-default" to="edit.html">Edit</Link> <Link
+                            <td><Link className="btn btn-default" to="/users/editUser">Edit</Link> <Link
                                 className="btn btn-danger" to="#">Delete</Link></td>
                         </tr>
                         <tr>
                             <td>Stephanie Landon</td>
                             <td>landon@yahoo.com</td>
                             <td>Dec 14, 2016</td>
-                            <td><Link className="btn btn-default" to="edit.html">Edit</Link> <Link
+                            <td><Link className="btn btn-default" to="/users/editUser">Edit</Link> <Link
                                 className="btn btn-danger" to="#">Delete</Link></td>
                         </tr>
                         <tr>
                             <td>Mike Johnson</td>
                             <td>mjohnson@gmail.com</td>
                             <td>Dec 15, 2016</td>
-                            <td><Link className="btn btn-default" to="edit.html">Edit</Link> <Link
+                            <td><Link className="btn btn-default" to="/users/editUser">Edit</Link> <Link
                                 className="btn btn-danger" to="#">Delete</Link></td>
                         </tr>
                         </tbody>

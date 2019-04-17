@@ -19,14 +19,13 @@ class AdminHeader extends Component {
                         </div>
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
-                                <li><Link to="/">Dashboard</Link></li>
-                                <li><Link to="/">Pages</Link></li>
+                                <li className="active"><Link to="/">Dashboard</Link></li>
                                 <li><Link to="/posts/readPosts">Posts</Link></li>
-                                <li className="active"><Link to="/users/readUsers">Users</Link></li>
+                                <li><Link to="/users/readUsers">Users</Link></li>
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link to="#">Welcome, Brad</Link></li>
-                                <li><Link to="login.html">Logout</Link></li>
+                                <li><Link to="/">Welcome, Vinh</Link></li>
+                                <li><Link to="/">Logout</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -48,10 +47,8 @@ class AdminHeader extends Component {
                                         <span className="caret"></span>
                                     </button>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><Link type="button" data-toggle="modal" data-target="#addPage" to="/">Add Page</Link>
-                                        </li>
-                                        <li><Link to="#">Add Post</Link></li>
-                                        <li><Link to="#">Add User</Link></li>
+                                        <li><Link to="/posts/addPost">Add Post</Link></li>
+                                        <li><Link to="/users/addUser">Add User</Link></li>
                                     </ul>
                                 </div>
                             </div>
