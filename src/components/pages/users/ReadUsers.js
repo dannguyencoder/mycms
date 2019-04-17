@@ -19,18 +19,21 @@ class ReadUsers extends Component {
                     </div>
                     <br/>
                     <table className="table table-striped table-hover">
-                        <tbody>
+                        <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Joined</th>
                             <th></th>
                         </tr>
+                        </thead>
+                        <tbody>
+
                         <tr>
                             <td>Jill Smith</td>
                             <td>jillsmith@gmail.com</td>
                             <td>Dec 12, 2016</td>
-                            <td><Link className="btn btn-default" to="edit.html">Edit</Link> <Link
+                            <td><Link className="btn btn-default" to="/users/editUser">Edit</Link> <Link
                                 className="btn btn-danger" to="#">Delete</Link></td>
                         </tr>
                         <tr>

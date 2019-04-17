@@ -9,8 +9,8 @@ function RouteWithSubRoutes(route) {
             exact
             path={route.path}
             render={function (props) {
-                console.log('=========================')
-                console.log( <route.component {...props} routes={route.routes}/>)
+                console.log('=========================');
+                console.log( <route.component {...props} routes={route.routes}/>);
                 return <route.component {...props} routes={route.routes}/>;
             }}
         />

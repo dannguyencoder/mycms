@@ -1,5 +1,7 @@
 import Home from '../components/pages/Home';
-import ReadUser from '../components/pages/users/ReadUsers';
+import ReadUsers from '../components/pages/users/ReadUsers';
+import EditUsers from '../components/pages/users/EditUser';
+import ReadPosts from '../components/pages/posts/ReadPosts';
 
 export const routes = [
     {
@@ -8,8 +10,16 @@ export const routes = [
     },
     {
         path: "/users/readUsers",
-        component: ReadUser
+        component: ReadUsers
     },
+    {
+        path: "/posts/readPosts",
+        component: ReadPosts
+    },
+    {
+        path: "/users/editUser",
+        component: EditUsers
+    }
     // {
     //     path: "/users",
     //     component: ReadUser,
