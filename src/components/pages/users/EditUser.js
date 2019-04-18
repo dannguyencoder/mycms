@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import TextEditor from '../../utils/TextEditor';
 import FormComponent from "../../partials/form_component";
 import DropDown from '../../partials/dropdown_simple';
+import ComponentUpload from '../../partials/upload-image-partial/component-upload';
 
 class EditUser extends Component {
 
@@ -51,9 +52,10 @@ class EditUser extends Component {
                             </div>
                             <div className="form-group col-md-12">
                                 <div className="col-md-2">
-                                    <label>Avatar</label></div>
+                                    <label>Avatar: </label></div>
                                 <div className="col-md-10">
-                                    <input type="file" className="form-control-file" id="exampleFormControlFile1"></input>
+                                    {/* <input type="file" className="form-control-file" id="exampleFormControlFile1"></input> */}
+                                    <ComponentUpload />
                                 </div>
                             </div>
                             {/* <div className="form-group">
