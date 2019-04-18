@@ -7,10 +7,16 @@ import Buttons from './Buttons'
 
 export default class ComponentUpload extends Component {
 
-  state = {
-    uploading: false,
-    images: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      uploading: false,
+      images: []
+    };
+
+    this.onChange = this.onChange.bind(this);
   }
+
 
   onChange = e => {
     const files = Array.from(e.target.files)
@@ -19,7 +25,7 @@ export default class ComponentUpload extends Component {
       console.log(msg)
       return false;
     }
-    var formData = new FormData()
+    var data = new FormData()
     const types = ['image/png', 'image/jpeg', 'image/gif']
     files.forEach((file, i) => {
 
@@ -40,34 +46,19 @@ export default class ComponentUpload extends Component {
 
 
 
-    formData.append('files', files)
-    formData.append('asdas', 'asdsadas')
+    data.append('file', this.files)
+    data.append('asdas', 'asdsadas')
 
-
-    for (var key of formData.keys()) {
-      console.log(key);
-    }
-
-    for (var value of formData.values()) {
-      console.log(value.length);
-    }
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-
-    console.log('data')
-    console.log(formData)
+    console.log(data.file)
     fetch('http://localhost:3010/image/image-upload', {
       mode: 'no-cors',
       method: 'POST',
-      body: formData
+      body: data,
+      'htc': data
     })
       .then(response => response.json())
       .catch(error => console.error('Error:', error))
       .then(response => console.log('Success:', JSON.stringify(response)));
-
-
-
   }
 
   removeImage = id => {

@@ -18,8 +18,6 @@ class EditUser extends Component {
                 'Post Member'
             ]
         };
-
-
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
