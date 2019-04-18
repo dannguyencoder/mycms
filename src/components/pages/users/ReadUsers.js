@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 
 class ReadUsers extends Component {
     render() {
-        console.log('yytytt');
         return (
 
             <div className="panel panel-default">
