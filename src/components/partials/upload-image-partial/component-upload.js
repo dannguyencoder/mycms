@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Spinner from './Spinner'
 import Images from './Images'
 import Buttons from './Buttons'
-import { API_URL } from '../../../config'
+// import { API_URL } from '../../../config'
 // import './App.css'
 
 export default class ComponentUpload extends Component {
@@ -19,6 +19,7 @@ export default class ComponentUpload extends Component {
       console.log(msg)
       return false;
     }
+    var formData = new FormData()
     const types = ['image/png', 'image/jpeg', 'image/gif']
     files.forEach((file, i) => {
 
@@ -31,27 +32,39 @@ export default class ComponentUpload extends Component {
         console.log('file size is too large')
         return false
       }
+
     })
 
 
     this.setState({ uploading: true })
 
-    const formData = new FormData()
 
 
+    formData.append('files', files)
+    formData.append('asdas', 'asdsadas')
 
 
-    fetch(`http://localhost:3001/image/image-upload`, {
+    for (var key of formData.keys()) {
+      console.log(key);
+    }
+
+    for (var value of formData.values()) {
+      console.log(value.length);
+    }
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    }
+
+    console.log('data')
+    console.log(formData)
+    fetch('http://localhost:3010/image/image-upload', {
+      mode: 'no-cors',
       method: 'POST',
       body: formData
     })
-      .then(res => res.json())
-      .then(images => {
-        this.setState({
-          uploading: false,
-          images
-        })
-      })
+      .then(response => response.json())
+      .catch(error => console.error('Error:', error))
+      .then(response => console.log('Success:', JSON.stringify(response)));
 
 
 
