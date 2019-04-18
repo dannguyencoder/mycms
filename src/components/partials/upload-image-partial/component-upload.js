@@ -45,18 +45,15 @@ export default class ComponentUpload extends Component {
     this.setState({ uploading: true })
 
 
-
-    data.append('file', this.files)
+    data.append('file', files[0], 'abc.jpg')
     data.append('asdas', 'asdsadas')
-
-    console.log(data.file)
+    console.log(data.getAll('file')[0])
     fetch('http://localhost:3010/image/image-upload', {
       mode: 'no-cors',
       method: 'POST',
-      body: data,
-      'htc': data
+      body: data
     })
-      .then(response => response.json())
+      // 
       .catch(error => console.error('Error:', error))
       .then(response => console.log('Success:', JSON.stringify(response)));
   }
