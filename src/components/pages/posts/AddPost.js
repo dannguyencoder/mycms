@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TextEditor from "../../utils/TextEditor";
+import ImageUpload from "../../utils/ImageUpload";
 
 class AddPost extends Component {
 
@@ -28,7 +29,8 @@ class AddPost extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlFile1">Avatar</label>
-                                <input type="file" className="form-control-file" id="exampleFormControlFile1"/>
+                                {/*<input type="file" className="form-control-file" id="exampleFormControlFile1"/>*/}
+                                <ImageUpload/>
                             </div>
                             <div className="form-group">
                                 <label>Language</label>
