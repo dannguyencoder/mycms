@@ -1,0 +1,12 @@
+.ImageUploadPreview {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-top: 10px;
+    background: no-repeat center center;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    overflow: hidden;
+}

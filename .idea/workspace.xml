@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56e78033-a4b5-4be6-994d-1a12a586ccc1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/utils/ImageUpload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles/ImageUploadPreview.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/posts/AddPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/posts/AddPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/partials/upload-image-partial/component-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/upload-image-partial/component-upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/utils/ImageUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/utils/ImageUpload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/utils/TextEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/utils/TextEditor.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -28,10 +27,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="8" />
+          <entry key="css" value="9" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="14" />
-          <entry key="js" value="80" />
+          <entry key="js" value="82" />
           <entry key="json" value="4" />
           <entry key="svg" value="1" />
           <entry key="ts" value="1" />
@@ -39,10 +38,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="8" />
+          <entry key="CSS" value="9" />
           <entry key="HTML" value="14" />
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="80" />
+          <entry key="JavaScript" value="82" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="SVG" value="1" />
           <entry key="TypeScript" value="1" />
@@ -55,16 +54,18 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="css" value="119" />
           <entry key="html" value="34" />
-          <entry key="js" value="3802" />
-          <entry key="txt" value="132" />
+          <entry key="js" value="4383" />
+          <entry key="txt" value="143" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="CSS" value="119" />
           <entry key="HTML" value="34" />
-          <entry key="JavaScript" value="3802" />
-          <entry key="PLAIN_TEXT" value="132" />
+          <entry key="JavaScript" value="4383" />
+          <entry key="PLAIN_TEXT" value="143" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -79,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/pages/posts/AddPost.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+            <state relative-caret-position="221">
+              <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -88,22 +89,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pages/users/EditUser.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/utils/TextEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="77" selection-start-line="5" selection-start-column="77" selection-end-line="5" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/partials/upload-image-partial/Buttons.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+            <state relative-caret-position="330">
+              <caret line="127" column="22" lean-forward="true" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#0#36#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+            <state relative-caret-position="357">
+              <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -130,11 +122,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/utils/ImageUpload.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+            <state relative-caret-position="466">
+              <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="64" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/styles/ImageUploadPreview.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -171,24 +184,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/utils/TextEditor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -202,6 +204,7 @@
       <find>editor</find>
       <find>checked</find>
       <find>class</find>
+      <find>console.lo</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -239,10 +242,11 @@
         <option value="$PROJECT_DIR$/src/routes/routes.js" />
         <option value="$PROJECT_DIR$/src/components/utils/axiosConfig.js" />
         <option value="$PROJECT_DIR$/src/components/utils/apis.js" />
-        <option value="$PROJECT_DIR$/src/components/utils/TextEditor.js" />
         <option value="$PROJECT_DIR$/src/components/partials/upload-image-partial/component-upload.js" />
         <option value="$PROJECT_DIR$/src/components/pages/posts/AddPost.js" />
+        <option value="$PROJECT_DIR$/src/styles/ImageUploadPreview.css" />
         <option value="$PROJECT_DIR$/src/components/utils/ImageUpload.js" />
+        <option value="$PROJECT_DIR$/src/components/utils/TextEditor.js" />
       </list>
     </option>
   </component>
@@ -263,8 +267,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="792" />
-    <option name="y" value="9" />
+    <option name="x" value="286" />
+    <option name="y" value="23" />
     <option name="width" value="1182" />
     <option name="height" value="1012" />
   </component>
@@ -322,37 +326,13 @@
               <item name="viettelpay_baohiem_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="viettelpay_baohiem_cms_frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="viettelpay_baohiem_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="viettelpay_baohiem_cms_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="viettelpay_baohiem_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="viettelpay_baohiem_cms_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-              <item name="upload-image-partial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="viettelpay_baohiem_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="viettelpay_baohiem_cms_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="viettelpay_baohiem_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="viettelpay_baohiem_cms_frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettelpay_baohiem_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettelpay_baohiem_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -365,6 +345,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="10.15.3" />
     <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="F:\Web_Team\1.Code\viettelpay_baohiem_cms_frontend\node_modules\eslint" />
@@ -405,7 +386,7 @@
       <option name="presentableId" value="Default" />
       <updated>1554371782390</updated>
       <workItem from="1554371784109" duration="48849000" />
-      <workItem from="1554888765329" duration="55507000" />
+      <workItem from="1554888765329" duration="66651000" />
     </task>
     <task id="LOCAL-00001" summary="set-up routes">
       <created>1554709320580</created>
@@ -449,17 +430,24 @@
       <option name="project" value="LOCAL" />
       <updated>1555497769757</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="upload file">
+      <created>1555583497661</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555583497689</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104356000" />
+    <option name="totallyTimeSpent" value="115500000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15068494" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15068494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -473,7 +461,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31344903" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31344903" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -492,7 +480,8 @@
     <MESSAGE value="add braft-editor to edit users" />
     <MESSAGE value="edit braft-editor to edit users" />
     <MESSAGE value="make add post page" />
-    <option name="LAST_COMMIT_MESSAGE" value="make add post page" />
+    <MESSAGE value="upload file" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload file" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/logo.svg" />
@@ -573,13 +562,6 @@
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1523" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
@@ -750,23 +732,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/utils/TextEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/users/EditUser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -820,10 +785,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/ImageUploadPreview.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="19" lean-forward="true" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/posts/AddPost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+        <state relative-caret-position="221">
+          <caret line="43" column="40" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -832,8 +818,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/utils/ImageUpload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+        <state relative-caret-position="466">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/utils/TextEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="127" column="22" lean-forward="true" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

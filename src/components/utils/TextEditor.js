@@ -4,15 +4,20 @@ import BraftEditor from 'braft-editor'
 
 const myUploadFn = (param) => {
 
-    const serverURL = 'http://upload-server'
+    const serverURL = 'http://localhost:3001/images/upload'
     const xhr = new XMLHttpRequest
     const fd = new FormData()
 
     const successFn = (response) => {
         // 假设服务端直接返回文件上传后的地址
         // 上传成功后调用param.success并传入上传后的文件地址
+        console.log("responseText-------------------------")
+        console.log(xhr.responseText);
+        const responseImageJSON = JSON.parse(xhr.responseText);
+        console.log("file ---------------------");
+        console.log(responseImageJSON.file);
         param.success({
-            url: xhr.responseText,
+            url: `http://localhost:3001/${responseImageJSON.file}`,
             meta: {
                 id: 'xxx',
                 title: 'xxx',
@@ -51,8 +56,8 @@ const myUploadFn = (param) => {
 const myValidateFn = (file) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            file.size < 1024 * 100 ? resolve() : reject()
-        }, 2000)
+            file.size < 4096 * 100 ? resolve() : reject()
+        }, 0)
     })
 }
 
@@ -117,7 +122,8 @@ export default class TextEditor extends React.Component {
                         language="en"
                         value={editorState}
                         onChange={this.handleChange}
-                        // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
+                        media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
+                        // media={{uploadFn: myUploadFn}}
                         // imageControls={mImageControls}
                     />
                 </div>
