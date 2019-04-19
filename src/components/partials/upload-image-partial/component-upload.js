@@ -4,14 +4,14 @@ import Images from './Images'
 import Buttons from './Buttons'
 // import { API_URL } from '../../../config'
 // import './App.css'
+const fetch = require("node-fetch")
 
 export default class ComponentUpload extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       uploading: false,
-      images: []
+      images: ''
     };
 
     this.onChange = this.onChange.bind(this);
@@ -43,19 +43,32 @@ export default class ComponentUpload extends Component {
 
 
     this.setState({ uploading: true })
-
-
-    data.append('file', files[0], 'abc.jpg')
-    data.append('asdas', 'asdsadas')
-    console.log(data.getAll('file')[0])
-    fetch('http://localhost:3010/image/image-upload', {
-      mode: 'no-cors',
-      method: 'POST',
-      body: data
+    var dataMap = []
+    files.map((file, i) => {
+      data.append('file', file)
+      console.log(file)
     })
-      // 
-      .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', JSON.stringify(response)));
+    data.append('category', 'User')
+    const url = "http://localhost:3001/image/image-upload";
+    const getData = async url => {
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: data,
+
+        });
+        const json = await response.json();
+        const image = 'http://localhost:3001/images/' + json.image
+
+        this.setState({
+          image: image
+        })
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData(url);
+
   }
 
   removeImage = id => {
@@ -82,6 +95,7 @@ export default class ComponentUpload extends Component {
       <div>
         <div className='buttons'>
           {content()}
+          <img src={this.state.image} className="image" />
         </div>
       </div >
     )
