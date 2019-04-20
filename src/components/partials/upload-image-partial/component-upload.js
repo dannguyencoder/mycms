@@ -25,7 +25,7 @@ export default class ComponentUpload extends Component {
       console.log(msg)
       return false;
     }
-    var data = new FormData()
+
     const types = ['image/png', 'image/jpeg', 'image/gif']
     files.forEach((file, i) => {
 
@@ -41,9 +41,8 @@ export default class ComponentUpload extends Component {
 
     })
 
-
+    var data = new FormData()
     this.setState({ uploading: true })
-    var dataMap = []
     files.map((file, i) => {
       data.append('file', file)
       console.log(file)
@@ -58,11 +57,19 @@ export default class ComponentUpload extends Component {
 
         });
         const json = await response.json();
-        const image = 'http://localhost:3001/images/' + json.image
-
-        this.setState({
-          image: image
+        console.log(json)
+        const lstImage = []
+        json.images.map((image, i) => {
+          const imageObj = {}
+          imageObj.src = 'http://localhost:3001/images/' + image
+          imageObj.public_id = 'id_' + i
+          lstImage[i] = imageObj
         })
+        console.log(lstImage)
+        this.setState({
+          images: lstImage
+        })
+        console.log(this.state.images)
       } catch (error) {
         console.log(error);
       }
@@ -82,10 +89,10 @@ export default class ComponentUpload extends Component {
 
     const content = () => {
       switch (true) {
-        case uploading:
-          return <Spinner />
-        case images.length > 0:
-          return <Images images={images} removeImage={this.removeImage} />
+        // case uploading:
+        //   return <Spinner />
+        case this.state.images.length > 0:
+          return <Images images={this.state.images} removeImage={this.removeImage} />
         default:
           return <Buttons onChange={this.onChange} />
       }
@@ -95,7 +102,6 @@ export default class ComponentUpload extends Component {
       <div>
         <div className='buttons'>
           {content()}
-          <img src={this.state.image} className="image" />
         </div>
       </div >
     )
