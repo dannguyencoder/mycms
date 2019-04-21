@@ -43,7 +43,6 @@ export default class ComponentUpload extends Component {
 
 
     this.setState({ uploading: true })
-    var dataMap = []
     files.map((file, i) => {
       data.append('file', file)
       console.log(file)
