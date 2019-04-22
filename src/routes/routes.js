@@ -5,34 +5,39 @@ import AddUser from '../components/pages/users/AddUser';
 import ReadPosts from '../components/pages/posts/ReadPosts';
 import EditPost from '../components/pages/posts/EditPost';
 import AddPost from '../components/pages/posts/AddPost';
+import Register from '../components/partials/Register';
 
 export const routes = [
     {
-        path: "/",
+        path: "/admin",
         component: Home
     },
     {
-        path: "/users/readUsers",
+        path: "/register",
+        component: Register
+    },
+    {
+        path: "/admin/users/readUsers",
         component: ReadUsers
     },
     {
-        path: "/users/editUser",
+        path: "/admin/users/editUser",
         component: EditUsers
     },
     {
-        path: "/users/addUser",
+        path: "/admin/users/addUser",
         component: AddUser
     },
     {
-        path: "/posts/readPosts",
+        path: "/admin/posts/readPosts",
         component: ReadPosts
     },
     {
-        path: "/posts/editPost",
+        path: "/admin/posts/editPost",
         component: EditPost
     },
     {
-        path: "/posts/addPost",
+        path: "/admin/posts/addPost",
         component: AddPost
     }
     // {

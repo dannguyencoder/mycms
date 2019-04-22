@@ -3,40 +3,29 @@ import { BrowserRouter as Router } from 'react-router-dom';
 //Partials
 import Header from '../partials/Header'
 import Footer from '../partials/Footer'
-import SideNav from '../partials/SideNav'
-import Modal from '../partials/Modal'
 
-//Routes
-import { routes } from '../../routes/routes';
-import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
+import Modal from '../partials/Modal'
+import AdminView from '../partials/AdminView';
+import Register from '../partials/Register';
+
 //Home
 //Users
 
 
 class Index extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        };
+        // this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
     render() {
         return (
             <Router>
                 <Header />
-                <section id="main">
-                    < div className="container">
-                        <div className="row">
-                            <div className="col-md-3">
-                                <SideNav />
-                            </div>
-
-                            <div className="col-md-9">
-
-                                {routes.map(function (route, i) {
-                                    console.log(route)
-                                    return <RouteWithSubRoutes key={i} {...route} />;
-                                })}
-
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
+                <AdminView />
                 <Modal />
                 <Footer />
             </Router>
