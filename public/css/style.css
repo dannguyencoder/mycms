@@ -156,3 +156,6 @@ body{
   float: left;
   padding:10px;
 }
+.errorMessage{
+  color: red;
+}
