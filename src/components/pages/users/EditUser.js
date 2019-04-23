@@ -24,14 +24,20 @@ class EditUser extends Component {
         const email = document.getElementById('email').value;
         const role = document.getElementsByName('role')[0].value;
         // validateEmail(email)
-        this.state.messageListErrorForm = []
+        this.setState({
+            messageListErrorForm: []
+        })
         if (!validateEmail(email)) {
-            this.setState.messageListErrorForm = this.state.messageListErrorForm.push('Email is not correct Type')
+            this.setState({
+                messageListErrorForm: this.messageListErrorForm.push('Email is not correct Type')
+            })
             alert('Email is not correct format')
             return false
         }
         if (role === '') {
-            this.setState.messageListErrorForm = this.state.messageListErrorForm.push('You must select Role')
+            this.setState({
+                messageListErrorForm: this.messageListErrorForm.push('You must select Role')
+            })
             alert('You must select Role')
             return false
         }

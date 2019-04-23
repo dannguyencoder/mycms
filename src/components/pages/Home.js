@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import SideNav from '../partials/SideNav'
 
 class Home extends Component {
     render() {
         // console.log(Math.random())
         return (
             <React.Fragment>
+
                 {/*Website Overview*/}
                 <div className="panel panel-default">
                     <div className="panel-heading main-color-bg">
@@ -46,41 +48,41 @@ class Home extends Component {
                     <div className="panel-body">
                         <table className="table table-striped table-hover">
                             <tbody>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Joined</th>
-                            </tr>
-                            <tr>
-                                <td>Jill Smith</td>
-                                <td>jillsmith@gmail.com</td>
-                                <td>Dec 12, 2016</td>
-                            </tr>
-                            <tr>
-                                <td>Eve Jackson</td>
-                                <td>ejackson@yahoo.com</td>
-                                <td>Dec 13, 2016</td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>jdoe@gmail.com</td>
-                                <td>Dec 13, 2016</td>
-                            </tr>
-                            <tr>
-                                <td>Stephanie Landon</td>
-                                <td>landon@yahoo.com</td>
-                                <td>Dec 14, 2016</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Johnson</td>
-                                <td>mjohnson@gmail.com</td>
-                                <td>Dec 15, 2016</td>
-                            </tr>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Joined</th>
+                                </tr>
+                                <tr>
+                                    <td>Jill Smith</td>
+                                    <td>jillsmith@gmail.com</td>
+                                    <td>Dec 12, 2016</td>
+                                </tr>
+                                <tr>
+                                    <td>Eve Jackson</td>
+                                    <td>ejackson@yahoo.com</td>
+                                    <td>Dec 13, 2016</td>
+                                </tr>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>jdoe@gmail.com</td>
+                                    <td>Dec 13, 2016</td>
+                                </tr>
+                                <tr>
+                                    <td>Stephanie Landon</td>
+                                    <td>landon@yahoo.com</td>
+                                    <td>Dec 14, 2016</td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Johnson</td>
+                                    <td>mjohnson@gmail.com</td>
+                                    <td>Dec 15, 2016</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }

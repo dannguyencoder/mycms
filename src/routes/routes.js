@@ -5,7 +5,7 @@ import AddUser from '../components/pages/users/AddUser';
 import ReadPosts from '../components/pages/posts/ReadPosts';
 import EditPost from '../components/pages/posts/EditPost';
 import AddPost from '../components/pages/posts/AddPost';
-import Register from '../components/partials/Register';
+import Login from '../components/partials/Login';
 
 export const routes = [
     {
@@ -13,8 +13,9 @@ export const routes = [
         component: Home
     },
     {
-        path: "/register",
-        component: Register
+        path: "/login",
+        component: Login,
+        type: "login"
     },
     {
         path: "/admin/users/readUsers",

@@ -20,7 +20,6 @@ class AdminView extends Component {
                         <div className="col-md-9">
 
                         {routes.map(function (route, i) {
-                                console.log(route.path == '/register')
                                 return <RouteWithSubRoutes key={i} {...route} />;
                             })}
 

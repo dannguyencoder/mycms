@@ -159,3 +159,10 @@ body{
 .errorMessage{
   color: red;
 }
+.loading-image{
+  width: 20%;
+}
+.img-loading{
+  text-align: center;
+  display: none;
+}
