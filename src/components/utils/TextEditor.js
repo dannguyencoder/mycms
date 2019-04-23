@@ -2,6 +2,12 @@ import 'braft-editor/dist/index.css'
 import React from 'react'
 import BraftEditor from 'braft-editor'
 
+import * as apis from './apis.js';
+
+const mediaItems = apis.getAllImages();
+console.log("media Items outside----------");
+console.log(apis.getAllImages());
+
 const myUploadFn = (param) => {
 
     const serverURL = 'http://localhost:3001/images/upload'
@@ -11,11 +17,11 @@ const myUploadFn = (param) => {
     const successFn = (response) => {
         // 假设服务端直接返回文件上传后的地址
         // 上传成功后调用param.success并传入上传后的文件地址
-        console.log("responseText-------------------------")
-        console.log(xhr.responseText);
+        // console.log("responseText-------------------------")
+        // console.log(xhr.responseText);
         const responseImageJSON = JSON.parse(xhr.responseText);
-        console.log("file ---------------------");
-        console.log(responseImageJSON.file);
+        // console.log("file ---------------------");
+        // console.log(responseImageJSON.file);
         param.success({
             url: `http://localhost:3001/${responseImageJSON.file}`,
             meta: {
@@ -82,11 +88,9 @@ const mImageControls = [
 
 export default class TextEditor extends React.Component {
 
-
-
     state = {
         editorState: BraftEditor.createEditorState('<p>Enter your post here <b>...!</b></p>'),
-        outputHTML: '<p></p>'
+        outputHTML: ''
     }
 
     componentDidMount () {
@@ -103,6 +107,14 @@ export default class TextEditor extends React.Component {
             editorState: editorState,
             outputHTML: editorState.toHTML()
         })
+
+        // console.log("props--------------------")
+        // console.log(this.props.changeHandler);
+        // console.log("-----------------------")
+
+        this.props.changeHandler({outputHTML: editorState.toHTML()});
+
+        // console.log(this.state);
     }
 
     setEditorContentAsync = () => {
@@ -113,7 +125,11 @@ export default class TextEditor extends React.Component {
 
     render () {
 
-        const { editorState, outputHTML } = this.state
+        const {editorState, outputHTML} = this.state;
+
+        console.log("media items=================")
+        // console.log(apis.getAllImages());
+        console.log(mediaItems);
 
         return (
             <div>
@@ -122,6 +138,7 @@ export default class TextEditor extends React.Component {
                         language="en"
                         value={editorState}
                         onChange={this.handleChange}
+                        // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes, items: mediaItems}}
                         media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
                         // media={{uploadFn: myUploadFn}}
                         // imageControls={mImageControls}
