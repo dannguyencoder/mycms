@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Spinner from './Spinner'
+// import Spinner from './Spinner'
 import Images from './Images'
 import Buttons from './Buttons'
+
 // import { API_URL } from '../../../config'
 // import './App.css'
 const fetch = require("node-fetch")
@@ -10,7 +11,7 @@ export default class ComponentUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uploading: false,
+      // uploading: false,
       images: ''
     };
 
@@ -45,10 +46,9 @@ export default class ComponentUpload extends Component {
     this.setState({ uploading: true })
     files.map((file, i) => {
       data.append('file', file)
-      console.log(file)
     })
     data.append('category', 'User')
-    const url = "http://localhost:3001/image/image-upload";
+    const url = "http://localhost:3002/image/image-upload";
     const getData = async url => {
       try {
         const response = await fetch(url, {
@@ -57,15 +57,13 @@ export default class ComponentUpload extends Component {
 
         });
         const json = await response.json();
-        console.log(json)
         const lstImage = []
         json.images.map((image, i) => {
           const imageObj = {}
-          imageObj.src = 'http://localhost:3001/images/' + image
+          imageObj.src = 'http://localhost:3002/images/' + image
           imageObj.public_id = 'id_' + i
           lstImage[i] = imageObj
         })
-        console.log(lstImage)
         this.setState({
           images: lstImage
         })

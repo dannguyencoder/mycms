@@ -8,13 +8,13 @@ export default props =>
       <label htmlFor='single'>
         <FontAwesomeIcon icon={faImage} color='#3B5998' size='10x' />
       </label>
-      <input type='file' id='single' onChange={props.onChange} />
+      <input type='file' id='single-avatar' name='single-avatar' onChange={props.onChange} />
     </div>
 
-    <div className='button col-md-6'>
+    {/* <div className='button col-md-6'>
       <label htmlFor='multi'>
         <FontAwesomeIcon icon={faImages} color='#6d84b4' size='10x' />
       </label>
-      <input type='file' id='multi' onChange={props.onChange} multiple />
-    </div>
+      <input type='file' id='multi-avarta' name='multi-avarta' onChange={props.onChange} multiple />
+    </div> */}
   </div>
