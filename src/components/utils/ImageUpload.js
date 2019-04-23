@@ -18,10 +18,10 @@ class ImageUpload extends React.Component {
         const data = new FormData();
         data.append('file', this.uploadInput.files[0]);
         // data.append('filename', this.uploadInput.files[0].name);
-        console.log("file--------------------");
-        console.log(this.uploadInput.files[0]);
-        console.log("data--------------------");
-        console.log(data);
+        // console.log("file--------------------");
+        // console.log(this.uploadInput.files[0]);
+        // console.log("data--------------------");
+        // console.log(data);
 
         fetch('http://localhost:3001/images/upload', {
             method: 'POST',
@@ -31,6 +31,7 @@ class ImageUpload extends React.Component {
                 console.log(body);
                 this.setState({imageURL: `http://localhost:3001/${body.file}`});
                 console.log(this.state);
+                this.props.changeHandler({imageURL: `http://localhost:3001/${body.file}`});
             });
         });
     }

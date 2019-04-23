@@ -16,7 +16,7 @@ export const globalAxiosConfig = {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
-    baseURL: 'https://some-domain.com/api/',
+    baseURL: 'http://localhost:3001/',
 
     // `transformRequest` allows changes to the request data before it is sent to the server
     // This is only applicable for request methods 'PUT', 'POST', and 'PATCH'
@@ -59,7 +59,7 @@ export const globalAxiosConfig = {
     // - Browser only: FormData, File, Blob
     // - Node only: Stream, Buffer
     data: {
-        firstName: 'Fred'
+        firstName: 'Vinh'
     },
 
     // `timeout` specifies the number of milliseconds before the request times out.
@@ -72,16 +72,16 @@ export const globalAxiosConfig = {
 
     // `adapter` allows custom handling of requests which makes testing easier.
     // Return a promise and supply a valid response (see lib/adapters/README.md).
-    adapter: function (config) {
-        /* ... */
-    },
+    // adapter: function (config) {
+    //     /* ... */
+    // },
 
     // `auth` indicates that HTTP Basic auth should be used, and supplies credentials.
     // This will set an `Authorization` header, overwriting any existing
     // `Authorization` custom headers you have set using `headers`.
     auth: {
-        username: 'janedoe',
-        password: 's00pers3cret'
+        username: 'my_username',
+        password: 'my_password'
     },
 
     // `responseType` indicates the type of data that the server will respond with
@@ -138,12 +138,12 @@ export const globalAxiosConfig = {
     // This will set an `Proxy-Authorization` header, overwriting any existing
     // `Proxy-Authorization` custom headers you have set using `headers`.
     proxy: {
-        host: '127.0.0.1',
-        port: 9000,
-        auth: {
-            username: 'mikeymike',
-            password: 'rapunz3l'
-        }
+        // host: '127.0.0.1',
+        // port: 9000,
+        // auth: {
+        //     username: 'mikeymike',
+        //     password: 'rapunz3l'
+        // }
     },
 
     // `cancelToken` specifies a cancel token that can be used to cancel the request
