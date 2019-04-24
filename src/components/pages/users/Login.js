@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 
-import { validateEmail } from '../../components/utils/validateForm';
+import { validateEmail } from '../../utils/validateForm';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -11,10 +11,10 @@ class Login extends Component {
             token: ''
 
         };
-        
+
         this.loginUser = this.loginUser.bind(this);
     }
-    loginUser = (event) => {
+    loginUser = async (event) => {
         const cookies = new Cookies();
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
@@ -55,7 +55,9 @@ class Login extends Component {
                     cookies.set('token', this.state.token, { path: '/' })
                     cookies.set('user_id', this.state.user_id, { path: '/' })
                     cookies.set('email', this.state.email, { path: '/' })
-                    window.location.href = this.state.redirectPage
+                    if (this.state.redirectPage != undefined) {
+                        window.location.href = this.state.redirectPage
+                    }
                 }
 
                 await setTimeout(function () { loading_image.style.display = 'none' }, 1000);
@@ -70,7 +72,7 @@ class Login extends Component {
                 })
             }
         };
-        login(url);
+        await login(url)
     }
     render() {
 

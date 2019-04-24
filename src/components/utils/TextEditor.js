@@ -5,8 +5,6 @@ import BraftEditor from 'braft-editor'
 import * as apis from './apis.js';
 
 const mediaItems = apis.getAllImages();
-console.log("media Items outside----------");
-console.log(apis.getAllImages());
 
 const myUploadFn = (param) => {
 
@@ -17,11 +15,7 @@ const myUploadFn = (param) => {
     const successFn = (response) => {
         // 假设服务端直接返回文件上传后的地址
         // 上传成功后调用param.success并传入上传后的文件地址
-        // console.log("responseText-------------------------")
-        // console.log(xhr.responseText);
         const responseImageJSON = JSON.parse(xhr.responseText);
-        // console.log("file ---------------------");
-        // console.log(responseImageJSON.file);
         param.success({
             url: `http://localhost:3001/${responseImageJSON.file}`,
             meta: {
@@ -108,13 +102,8 @@ export default class TextEditor extends React.Component {
             outputHTML: editorState.toHTML()
         })
 
-        // console.log("props--------------------")
-        // console.log(this.props.changeHandler);
-        // console.log("-----------------------")
-
         this.props.changeHandler({outputHTML: editorState.toHTML()});
 
-        // console.log(this.state);
     }
 
     setEditorContentAsync = () => {
@@ -127,9 +116,6 @@ export default class TextEditor extends React.Component {
 
         const {editorState, outputHTML} = this.state;
 
-        console.log("media items=================")
-        // console.log(apis.getAllImages());
-        console.log(mediaItems);
 
         return (
             <div>

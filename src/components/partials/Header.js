@@ -1,15 +1,56 @@
-import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class AdminHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            lstDomain: []
+        };
+        this.getDomains = this.getDomains.bind(this);
+        this.getDomains();
+    }
+
+    getDomains = async (event) => {
+        const formData = new FormData()
+        // formData.append('email', email)
+        const url = 'http://localhost:3002/domain/getDomains'
+        const lstDomain = async url => {
+            try {
+                console.log('get Domains')
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+                console.log(data)
+                if (data.errorMessage != undefined) {
+                    alert(data.errorMessage)
+                } else {
+                    this.setState({
+                        lstDomain: data
+                    })
+                }
+            } catch (error) {
+                console.log(error);
+                this.setState({
+                    lstDomain: []
+                })
+            }
+        };
+        await lstDomain(url)
+    }
+
     render() {
+
         return (
             <React.Fragment>
                 <nav className="navbar navbar-default">
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
@@ -20,8 +61,14 @@ class AdminHeader extends Component {
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
                                 <li className="active"><Link to="/">Dashboard</Link></li>
-                                <li><Link to="/posts/readPosts">Posts</Link></li>
-                                <li><Link to="/users/readUsers">Users</Link></li>
+                                {/* foreach Domain */}
+                                {
+                                    this.state.lstDomain.map((domain) => {
+                                        return <li><Link to={domain.url}>{domain.name}</Link></li>
+
+                                    })
+                                }
+
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <li><Link to="/">Welcome, Vinh</Link></li>
@@ -42,7 +89,7 @@ class AdminHeader extends Component {
                             <div className="col-md-2">
                                 <div className="dropdown create">
                                     <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         Create Content
                                         <span className="caret"></span>
                                     </button>

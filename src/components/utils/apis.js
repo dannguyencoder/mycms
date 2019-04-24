@@ -7,17 +7,11 @@ import {globalAxiosConfig} from './axiosConfig'
 const axiosInstance = axios.create(globalAxiosConfig);
 
 export function getAllImages() {
-    // console.log("axiosInstance=========")
-    // console.log(axiosInstance);
     axiosInstance.get('/images/getAllImages')
         .then(response => {
-            console.log("response-------------");
-            console.log(response.data);
             return response.data;
         })
         .catch(error => {
-            console.log("error-----------------");
-            console.log(error);
             return error;
         });
     return 'fuck data';
