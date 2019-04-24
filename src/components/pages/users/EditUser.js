@@ -60,9 +60,11 @@ class EditUser extends Component {
         this.setState({ uploading: true })
 
         data.append('user_id', '1')
+        
         const url = "http://localhost:3002/user/getRoles";
         const getData = async url => {
             try {
+                console.log(data.user_id)
                 const response = await fetch(url, {
                     method: 'POST',
                     body: data,
@@ -79,6 +81,10 @@ class EditUser extends Component {
             }
         };
         getData(url);
+
+        //lay tu cookie user_id va token => gui len server de lay thong tin user hien thi
+        // var data = new FormData()
+        // data.append('user_id',)
 
     }
     render() {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cookies from 'universal-cookie';
 
 import { validateEmail } from '../../components/utils/validateForm';
 class Login extends Component {
@@ -10,12 +11,13 @@ class Login extends Component {
             token: ''
 
         };
+        
         this.loginUser = this.loginUser.bind(this);
     }
     loginUser = (event) => {
+        const cookies = new Cookies();
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
-
 
         if (!validateEmail(email)) {
             alert('Email is not correct Type')
@@ -28,39 +30,44 @@ class Login extends Component {
         const loading_image = document.getElementById('loading-image')
         loading_image.style.display = 'block'
         //fetch data roles
-        var data = new FormData()
-        data.append('email', email)
-        data.append('password', password)
+        const formData = new FormData()
+        formData.append('email', email)
+        formData.append('password', password)
         const url = "http://localhost:3002/user/login";
         const login = async url => {
             try {
-                await fetch(url, {
+                const response = await fetch(url, {
                     method: 'POST',
-                    body: data,
-
-                }).then((json) => {
-                    const data = json.json();
-                    this.setState({
-                        token: data.token
-
-                    })
-
-                }).catch(error => {
-                    alert(error)
-                    alert('not found user')
-                    this.setState({
-                        token: ''
-
-                    })
-
+                    body: formData,
                 });
 
+                const data = await response.json();
+                if (data.errorMessage != undefined) {
+                    alert(data.errorMessage)
+                } else {
+                    this.setState({
+                        redirectPage: data.redirect,
+                        token: data.token,
+                        user_id: data.id,
+                        email: data.email
+                    })
+                    //set user_id, token vao cookie
+                    cookies.set('token', this.state.token, { path: '/' })
+                    cookies.set('user_id', this.state.user_id, { path: '/' })
+                    cookies.set('email', this.state.email, { path: '/' })
+                    window.location.href = this.state.redirectPage
+                }
 
-                console.log(loading_image)
-                setTimeout(function () { loading_image.style.display = 'none' }, 1000);
+                await setTimeout(function () { loading_image.style.display = 'none' }, 1000);
 
             } catch (error) {
                 console.log(error);
+                alert(error)
+                alert('not found user')
+                this.setState({
+                    token: ''
+
+                })
             }
         };
         login(url);
