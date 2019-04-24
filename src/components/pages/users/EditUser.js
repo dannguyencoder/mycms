@@ -53,6 +53,7 @@ class EditUser extends Component {
             [name]: value
         });
     }
+
     componentWillMount() {
         //check user login
         

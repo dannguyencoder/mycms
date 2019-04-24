@@ -3,6 +3,9 @@ import TextEditor from "../../utils/TextEditor";
 import ImageUpload from "../../utils/ImageUpload";
 import axios from 'axios';
 
+import * as apis from '../../utils/apis';
+
+
 class AddPost extends Component {
 
     constructor(props) {
@@ -63,7 +66,17 @@ class AddPost extends Component {
         console.log(this.state);
         event.preventDefault();
 
+        const postData = this.state;
 
+        apis.addPost(postData)
+            .then(response => {
+                console.log("my response------------------");
+                console.log(response);
+            })
+            .catch(error => {
+                console.log("my error----------------------");
+                console.log(error);
+            });
     }
 
     render() {
