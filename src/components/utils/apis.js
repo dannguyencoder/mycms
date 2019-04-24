@@ -6,24 +6,37 @@ import {globalAxiosConfig} from './axiosConfig'
 
 const axiosInstance = axios.create(globalAxiosConfig);
 
-export function getAllImages() {
+export async function getAllImages() {
     // console.log("axiosInstance=========")
     // console.log(axiosInstance);
-    axiosInstance.get('/images/getAllImages')
-        .then(response => {
-            console.log("response-------------");
-            console.log(response.data);
-            return response.data;
-        })
-        .catch(error => {
-            console.log("error-----------------");
-            console.log(error);
-            return error;
-        });
-    return 'fuck data';
+    let returnData;
+    try {
+        const response = await axiosInstance.get('/images/getAllImages');
+        returnData = response.data;
+        return returnData;
+    } catch (error) {
+        return error;
+    }
+    // axiosInstance.get('/images/getAllImages')
+    //     .then(response => {
+    //         returnData = response.data;
+    //         console.log("response-------------");
+    //         console.log(returnData);
+    //
+    //         return returnData;
+    //     })
+    //     .catch(error => {
+    //         returnData = error;
+    //         console.log("error-----------------");
+    //         console.log(returnData);
+    //         return returnData;
+    //     });
+    console.log("returnData------------");
+    console.log(returnData);
+    return returnData;
 }
 
-function addPost(postObject) {
+export async function addPost(postObject) {
 
     const postData = {
         title: postObject.title,
@@ -41,10 +54,13 @@ function addPost(postObject) {
 
     axiosInstance.post('/post/addPost', postData)
         .then((response) => {
+
             console.log(response);
+            return response;
         })
         .catch((error) => {
             console.log(error);
+            return error;
         });
 
 }

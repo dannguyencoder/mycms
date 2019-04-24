@@ -32,7 +32,7 @@ class ReadUsers extends Component {
                             <td>Jill Smith</td>
                             <td>jillsmith@gmail.com</td>
                             <td>Dec 12, 2016</td>
-                            <td><Link className="btn btn-default" to="/users/editUser">Edit</Link> <Link
+                            <td><Link className="btn btn-default" to="/admin/users/editUser">Edit</Link> <Link
                                 className="btn btn-danger" to="#">Delete</Link></td>
                         </tr>
                         <tr>

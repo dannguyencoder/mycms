@@ -4,9 +4,47 @@ import BraftEditor from 'braft-editor'
 
 import * as apis from './apis.js';
 
-const mediaItems = apis.getAllImages();
-console.log("media Items outside----------");
-console.log(apis.getAllImages());
+// const dummyData = [
+//     {
+//         "id": 0,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/imgpsh_fullsize.jpg"
+//     },
+//     {
+//         "id": 1,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/imgpsh_fullsize_2.jpg"
+//     },
+//     {
+//         "id": 2,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/imgpsh_fullsize_3.jpg"
+//     },
+//     {
+//         "id": 3,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/imgpsh_fullsize_4.jpg"
+//     },
+//     {
+//         "id": 4,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/imgpsh_fullsize_5.jpg"
+//     },
+//     {
+//         "id": 5,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/Screenshot_2019-01-21 Home.png"
+//     },
+//     {
+//         "id": 6,
+//         "type": "IMAGE",
+//         "url": "http://localhost:3001/images/undefined"
+//     }
+// ];
+
+    // apis.getAllImages();
+// console.log("media Items outside----------");
+// console.log(apis.getAllImages());
 
 const myUploadFn = (param) => {
 
@@ -102,6 +140,19 @@ export default class TextEditor extends React.Component {
         this.isLivinig = false
     }
 
+    componentWillMount(){
+        const mediaItems = async ()=>{
+            // console.log("dataResponse--------------");
+            const dataResponse = await apis.getAllImages();
+            this.setState({
+                mediaItems: dataResponse
+            });
+            // console.log(dataResponse)
+        }
+        mediaItems();
+
+        // this.setState({mediaItems: dummyData});
+    }
     handleChange = (editorState) => {
         this.setState({
             editorState: editorState,
@@ -127,9 +178,16 @@ export default class TextEditor extends React.Component {
 
         const {editorState, outputHTML} = this.state;
 
-        console.log("media items=================")
+        // console.log("media items=================")
         // console.log(apis.getAllImages());
-        console.log(mediaItems);
+        // console.log(mediaItems());
+        // console.log("Promise resolve media items------------")
+        // const mediaContent = Promise.resolve(mediaItems);
+        // console.log(mediaContent);
+
+
+        // console.log("media items-----------------   ")
+        // console.log(this.state.mediaItems);
 
         return (
             <div>
@@ -138,8 +196,8 @@ export default class TextEditor extends React.Component {
                         language="en"
                         value={editorState}
                         onChange={this.handleChange}
-                        // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes, items: mediaItems}}
-                        media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
+                        media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes, items: this.state.mediaItems}}
+                        // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
                         // media={{uploadFn: myUploadFn}}
                         // imageControls={mImageControls}
                     />
