@@ -15,6 +15,9 @@ class AdminSideNav extends Component {
                     <Link to="/admin/users/readUsers" className="list-group-item"><span
                         className="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span
                         className="badge">203</span></Link>
+                    <Link to="/admin/category/readCategories" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Categories <span
+                        className="badge">203</span></Link>
                 </div>
 
                 <div className="well">

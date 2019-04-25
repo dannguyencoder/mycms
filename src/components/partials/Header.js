@@ -49,6 +49,7 @@ class AdminHeader extends Component {
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li><Link to="/admin/posts/addPost">Add Post</Link></li>
                                         <li><Link to="/admin/users/addUser">Add User</Link></li>
+                                        <li><Link to="/admin/category/addCategory">Add Category</Link></li>
                                     </ul>
                                 </div>
                             </div>

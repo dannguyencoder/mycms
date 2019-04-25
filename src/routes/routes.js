@@ -5,6 +5,9 @@ import AddUser from '../components/pages/users/AddUser';
 import ReadPosts from '../components/pages/posts/ReadPosts';
 import EditPost from '../components/pages/posts/EditPost';
 import AddPost from '../components/pages/posts/AddPost';
+import ReadCategories from '../components/pages/category/ReadCategories';
+import EditCategory from '../components/pages/category/EditCategory';
+import AddCategory from '../components/pages/category/AddCategory';
 import Login from '../components/partials/Login';
 
 export const routes = [
@@ -40,6 +43,18 @@ export const routes = [
     {
         path: "/admin/posts/addPost",
         component: AddPost
+    },
+    {
+        path: "/admin/category/addCategory",
+        component: AddCategory
+    },
+    {
+        path: "/admin/category/editCategory",
+        component: EditCategory
+    },
+    {
+        path: "/admin/category/readCategories",
+        component: ReadCategories
     }
     // {
     //     path: "/users",

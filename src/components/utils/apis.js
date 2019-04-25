@@ -65,5 +65,57 @@ export async function addPost(postObject) {
 
 }
 
+export async function addCategory(categoryObject) {
+
+    const categoryData = {
+        name: categoryObject.name,
+        parentId: categoryObject.parentId,
+        friendlyUrl: categoryObject.friendlyUrl,
+        order: categoryObject.order,
+        avatar: categoryObject.avatar,
+        isActive: categoryObject.isActive,
+        isVisible: categoryObject.isVisible,
+        metaKeywords: categoryObject.metaKeywords,
+        metaDescription: categoryObject.metaDescription,
+        userId: categoryObject.userId,
+        template: categoryObject.template,
+        languageId: categoryObject.languageId,
+        domainId: categoryObject.domainId
+    };
+
+    console.log("upload data--------------");
+    console.log(categoryData);
+
+    axiosInstance.post('/category/addCategory', categoryData)
+        .then((response) => {
+
+            console.log(response);
+            return response;
+        })
+        .catch((error) => {
+            console.log(error);
+            return error;
+        });
+
+}
+
+export async function getAllCategories() {
+    try {
+        const data = await axiosInstance.get('/category/getCategories');
+        return data;
+    } catch (error) {
+        throw error;
+    }
+
+    // .then((response) => {
+    //     console.log("from backend---------------")
+    //     console.log(response);
+    //     return response
+    // })
+    // .catch((error) => {
+    //     console.log(error);
+    //     return error
+    // });
+}
 
 
