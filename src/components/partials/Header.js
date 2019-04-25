@@ -4,42 +4,7 @@ import { Link } from "react-router-dom";
 class AdminHeader extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            lstDomain: []
-        };
-        this.getDomains = this.getDomains.bind(this);
-        this.getDomains();
-    }
 
-    getDomains = async (event) => {
-        const formData = new FormData()
-        // formData.append('email', email)
-        const url = 'http://localhost:3002/domain/getDomains'
-        const lstDomain = async url => {
-            try {
-                console.log('get Domains')
-                const response = await fetch(url, {
-                    method: 'POST',
-                    body: formData,
-                });
-
-                const data = await response.json();
-                console.log(data)
-                if (data.errorMessage != undefined) {
-                    alert(data.errorMessage)
-                } else {
-                    this.setState({
-                        lstDomain: data
-                    })
-                }
-            } catch (error) {
-                console.log(error);
-                this.setState({
-                    lstDomain: []
-                })
-            }
-        };
-        await lstDomain(url)
     }
 
     render() {
@@ -62,12 +27,7 @@ class AdminHeader extends Component {
                             <ul className="nav navbar-nav">
                                 <li className="active"><Link to="/">Dashboard</Link></li>
                                 {/* foreach Domain */}
-                                {
-                                    this.state.lstDomain.map((domain) => {
-                                        return <li><Link to={domain.url}>{domain.name}</Link></li>
-
-                                    })
-                                }
+                                <li><Link to="/">Home</Link></li>
 
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
