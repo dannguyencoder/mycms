@@ -100,12 +100,12 @@ export async function addCategory(categoryObject) {
 }
 
 export async function getAllCategories() {
-    try {
-        const data = await axiosInstance.get('/category/getCategories');
-        return data;
-    } catch (error) {
-        throw error;
-    }
+    // try {
+    //     const data = ;
+        return await axiosInstance.get('/category/getCategories');
+    // } catch (error) {
+    //     throw error;
+    // }
 
     // .then((response) => {
     //     console.log("from backend---------------")
