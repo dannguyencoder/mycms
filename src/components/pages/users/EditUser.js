@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import DropDown from '../../partials/dropdown_simple';
+import DropDown from '../../partials/user-component/dropdown_simple';
 import { validateEmail } from '../../utils/validateForm';
 
 import ComponentUpload from '../../partials/upload-image-partial/component-upload';
@@ -55,6 +55,8 @@ class EditUser extends Component {
     }
 
     componentWillMount() {
+        //check user login
+        
         //fetch data roles
         var data = new FormData()
         this.setState({ uploading: true })

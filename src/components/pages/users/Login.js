@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
+import DropDown from '../../partials/user-component/dropdown_component'
 
-import { validateEmail } from '../../components/utils/validateForm';
+import { validateEmail } from '../../utils/validateForm';
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
             password: '',
-            token: ''
+            token: '',
+            lstDomain: []
 
         };
-        
+        this.callbackFn = this.callbackFn.bind(this);
         this.loginUser = this.loginUser.bind(this);
     }
-    loginUser = (event) => {
+
+    loginUser = async (event) => {
         const cookies = new Cookies();
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
@@ -55,7 +58,9 @@ class Login extends Component {
                     cookies.set('token', this.state.token, { path: '/' })
                     cookies.set('user_id', this.state.user_id, { path: '/' })
                     cookies.set('email', this.state.email, { path: '/' })
-                    window.location.href = this.state.redirectPage
+                    if (this.state.redirectPage != undefined) {
+                        window.location.href = this.state.redirectPage
+                    }
                 }
 
                 await setTimeout(function () { loading_image.style.display = 'none' }, 1000);
@@ -70,7 +75,44 @@ class Login extends Component {
                 })
             }
         };
-        login(url);
+        await login(url)
+    }
+
+    componentWillMount() {
+        const getDomains = async (event) => {
+            const formData = new FormData()
+            // formData.append('email', email)
+            const url = 'http://localhost:3002/domain/getDomains'
+            const lstDomain = async url => {
+                try {
+                    console.log('get Domains')
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        body: formData,
+                    });
+
+                    const data = await response.json();
+                    console.log(data)
+                    if (data.errorMessage != undefined) {
+                        alert(data.errorMessage)
+                    } else {
+                        this.setState({
+                            lstDomain: data
+                        })
+                    }
+                } catch (error) {
+                    console.log(error);
+                    this.setState({
+                        lstDomain: []
+                    })
+                }
+            };
+            await lstDomain(url)
+        }
+        getDomains();
+    }
+    callbackFn(res) {
+        alert(res)
     }
     render() {
 
@@ -90,6 +132,10 @@ class Login extends Component {
                                 <div className="form-group">
                                     <label>Password</label>
                                     <input id="password" name="password" type="password" className="form-control" placeholder="Password" />
+                                </div>
+                                <div className="form-group">
+                                    <label>Domain</label>
+                                    <DropDown data={this.state.lstDomain} callbackFn={this.callbackFn}/>
                                 </div>
                                 <button type="button" onClick={this.loginUser} className="btn btn-default btn-block">Login</button>
                             </form>

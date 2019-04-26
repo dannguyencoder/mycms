@@ -5,14 +5,18 @@ import AddUser from '../components/pages/users/AddUser';
 import ReadPosts from '../components/pages/posts/ReadPosts';
 import EditPost from '../components/pages/posts/EditPost';
 import AddPost from '../components/pages/posts/AddPost';
+
 import ReadCategories from '../components/pages/category/ReadCategories';
 import EditCategory from '../components/pages/category/EditCategory';
 import AddCategory from '../components/pages/category/AddCategory';
-import Login from '../components/partials/Login';
+
+import Login from '../components/pages/users/Login';
+import AddDomain from '../components/pages/domains/AddDomain';
+
 
 export const routes = [
     {
-        path: "/admin",
+        path: "/",
         component: Home
     },
     {
@@ -21,30 +25,31 @@ export const routes = [
         type: "login"
     },
     {
-        path: "/admin/users/readUsers",
+        path: "/users/readUsers",
         component: ReadUsers
     },
     {
-        path: "/admin/users/editUser",
+        path: "/users/editUser",
         component: EditUsers
     },
     {
-        path: "/admin/users/addUser",
+        path: "/users/addUser",
         component: AddUser
     },
     {
-        path: "/admin/posts/readPosts",
+        path: "/posts/readPosts",
         component: ReadPosts
     },
     {
-        path: "/admin/posts/editPost",
+        path: "/posts/editPost",
         component: EditPost
     },
     {
-        path: "/admin/posts/addPost",
+        path: "/posts/addPost",
         component: AddPost
     },
     {
+
         path: "/admin/category/addCategory",
         component: AddCategory
     },
@@ -55,6 +60,10 @@ export const routes = [
     {
         path: "/admin/category/readCategories",
         component: ReadCategories
+
+        path: "/domain/addDomain",
+        component: AddDomain
+
     }
     // {
     //     path: "/users",

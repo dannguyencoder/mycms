@@ -2,9 +2,10 @@ import axios from 'axios';
 import Qs from 'qs';
 import http from 'http';
 import https from 'https';
-import {globalAxiosConfig} from './axiosConfig'
+import { globalAxiosConfig } from './axiosConfig'
 
 const axiosInstance = axios.create(globalAxiosConfig);
+
 
 export async function getAllImages() {
     // console.log("axiosInstance=========")

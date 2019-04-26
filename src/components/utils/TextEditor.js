@@ -4,48 +4,7 @@ import BraftEditor from 'braft-editor'
 
 import * as apis from './apis.js';
 
-// const dummyData = [
-//     {
-//         "id": 0,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/imgpsh_fullsize.jpg"
-//     },
-//     {
-//         "id": 1,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/imgpsh_fullsize_2.jpg"
-//     },
-//     {
-//         "id": 2,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/imgpsh_fullsize_3.jpg"
-//     },
-//     {
-//         "id": 3,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/imgpsh_fullsize_4.jpg"
-//     },
-//     {
-//         "id": 4,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/imgpsh_fullsize_5.jpg"
-//     },
-//     {
-//         "id": 5,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/Screenshot_2019-01-21 Home.png"
-//     },
-//     {
-//         "id": 6,
-//         "type": "IMAGE",
-//         "url": "http://localhost:3001/images/undefined"
-//     }
-// ];
-
-    // apis.getAllImages();
-// console.log("media Items outside----------");
-// console.log(apis.getAllImages());
-
+const mediaItems = apis.getAllImages();
 const myUploadFn = (param) => {
 
     const serverURL = 'http://localhost:3001/images/upload'
@@ -55,11 +14,7 @@ const myUploadFn = (param) => {
     const successFn = (response) => {
         // 假设服务端直接返回文件上传后的地址
         // 上传成功后调用param.success并传入上传后的文件地址
-        // console.log("responseText-------------------------")
-        // console.log(xhr.responseText);
         const responseImageJSON = JSON.parse(xhr.responseText);
-        // console.log("file ---------------------");
-        // console.log(responseImageJSON.file);
         param.success({
             url: `http://localhost:3001/${responseImageJSON.file}`,
             meta: {
@@ -116,8 +71,8 @@ const mImageControls = [
     'float-right',
     {
         text: 'Foo', // 指定控件文字，可传入jsx
-        render: (mediaData) => {}, // 控件渲染函数，该属性指定时，text和onClick属性将被忽略
-        onClick: (block) => {} // 指定控件点击后的回调，参数为当前图片的block对象
+        render: (mediaData) => { }, // 控件渲染函数，该属性指定时，text和onClick属性将被忽略
+        onClick: (block) => { } // 指定控件点击后的回调，参数为当前图片的block对象
     },
     'link',
     'size',
@@ -131,17 +86,17 @@ export default class TextEditor extends React.Component {
         outputHTML: ''
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.isLivinig = true
         setTimeout(this.setEditorContentAsync, 3000)
     }
 
-    componentWillUnmount () {
+    componentWillUnmount() {
         this.isLivinig = false
     }
 
-    componentWillMount(){
-        const mediaItems = async ()=>{
+    componentWillMount() {
+        const mediaItems = async () => {
             // console.log("dataResponse--------------");
             const dataResponse = await apis.getAllImages();
             this.setState({
@@ -159,13 +114,8 @@ export default class TextEditor extends React.Component {
             outputHTML: editorState.toHTML()
         })
 
-        // console.log("props--------------------")
-        // console.log(this.props.changeHandler);
-        // console.log("-----------------------")
+        this.props.changeHandler({ outputHTML: editorState.toHTML() });
 
-        this.props.changeHandler({outputHTML: editorState.toHTML()});
-
-        // console.log(this.state);
     }
 
     setEditorContentAsync = () => {
@@ -174,20 +124,10 @@ export default class TextEditor extends React.Component {
         })
     }
 
-    render () {
+    render() {
 
-        const {editorState, outputHTML} = this.state;
+        const { editorState, outputHTML } = this.state;
 
-        // console.log("media items=================")
-        // console.log(apis.getAllImages());
-        // console.log(mediaItems());
-        // console.log("Promise resolve media items------------")
-        // const mediaContent = Promise.resolve(mediaItems);
-        // console.log(mediaContent);
-
-
-        // console.log("media items-----------------   ")
-        // console.log(this.state.mediaItems);
 
         return (
             <div>
@@ -196,10 +136,10 @@ export default class TextEditor extends React.Component {
                         language="en"
                         value={editorState}
                         onChange={this.handleChange}
-                        media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes, items: this.state.mediaItems}}
-                        // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
-                        // media={{uploadFn: myUploadFn}}
-                        // imageControls={mImageControls}
+                        media={{ uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes, items: this.state.mediaItems }}
+                    // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
+                    // media={{uploadFn: myUploadFn}}
+                    // imageControls={mImageControls}
                     />
                 </div>
                 <h5>HTML Output</h5>

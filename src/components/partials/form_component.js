@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import DropDown from "./dropdown_component";
+import DropDown from "../partials/user-component/dropdown_component";
 
 class FormComponent extends React.Component {
   constructor() {

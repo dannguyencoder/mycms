@@ -10,14 +10,14 @@ class DropDown extends React.Component {
     console.log(e.target.value);
     this.props.callbackFn(e.target.value);
   };
-
+  
   render() {
     const makeDropDown = () => {
       console.log(this.data);
       return this.props.data.map(x => {
         return (
-          <option key={x.seo_val} value={x.seo_val}>
-            {x.text_val}
+          <option key={x.value} value={x.label}>
+            {x.label}
           </option>
         );
       });

@@ -6,7 +6,7 @@ import Footer from '../partials/Footer'
 
 import Modal from '../partials/Modal'
 import AdminView from '../partials/AdminView';
-import Register from '../partials/Login';
+import Login from '../pages/users/Login'
 
 
 //Home
@@ -33,7 +33,7 @@ class Index extends Component {
         return (
             <Router>
                 <Header />
-                {this.state.login === false ? <AdminView /> : <Register />}
+                {this.state.login === false ? <AdminView /> : <Login />}
                 <Modal />
                 <Footer />
             </Router>
