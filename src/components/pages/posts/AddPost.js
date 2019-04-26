@@ -12,22 +12,49 @@ class AddPost extends Component {
         super(props);
         this.state = {
             postTitle: '',
-            postCategory: 0,
-            imageURL: '',
+            categoryId: 0,
+            avatar: '',
             languageId: 0,
-            outputHTML: '',
+            postContent: '',
             isActive: 1,
             isVisible: 1,
-            metaTags: '',
-            metaDesc: '',
+            metaKeywords: '',
+            metaDescription: '',
             domainId: 0,
-            contentId: 0
+            contentId: 0,
+            allCategories: []
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleComponentChange = this.handleComponentChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidMount() {
+        this.getAllCategories();
+    }
+
+    getAllCategories() {
+        apis.getAllCategories()
+            .then(response => {
+                const allCategories = response.data;
+                if (allCategories.length > 0) {
+                    this.setState({
+                        allCategories: allCategories,
+                        postCategory: allCategories[0].id
+                    });
+                }
+
+            })
+            .catch((error) => {
+                console.log("error-------------")
+                console.log(error);
+                this.setState({
+                    allCategories: []
+                })
+            });
+
+    };
 
     handleInputChange(event) {
         const target = event.target;
@@ -67,6 +94,7 @@ class AddPost extends Component {
         event.preventDefault();
 
         const postData = this.state;
+        postData.postContent = postData.outputHTML;
 
         apis.addPost(postData)
             .then(response => {
@@ -90,25 +118,35 @@ class AddPost extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label>Post Title</label>
-                                <input name="postTitle" value={this.state.postTitle} onChange={this.handleInputChange} type="text" className="form-control" placeholder="Post Title"/>
+                                <input name="postTitle" value={this.state.postTitle} onChange={this.handleInputChange}
+                                       type="text" className="form-control" placeholder="Post Title"/>
                             </div>
                             <div className="form-group">
                                 <label>Post Category</label>
-                                <select name="postCategory" value={this.state.value} onChange={this.handleInputChange} className="form-control" id="postCategory">
-                                    <option value="0">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
+                                <select name="postCategory" value={this.state.postCategory} onChange={this.handleInputChange}
+                                        className="form-control" id="postCategory">
+                                    {/*<option value="0">1</option>*/}
+                                    {/*<option value="1">2</option>*/}
+                                    {/*<option value="2">3</option>*/}
+                                    {/*<option value="3">4</option>*/}
+                                    {
+                                        this.state.allCategories.map(category => {
+                                            return (
+                                                <option key={category.id} value={category.id}>{category.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlFile1">Avatar</label>
                                 {/*<input type="file" className="form-control-file" id="exampleFormControlFile1"/>*/}
-                                <ImageUpload changeHandler={this.handleComponentChange} />
+                                <ImageUpload changeHandler={this.handleComponentChange}/>
                             </div>
                             <div className="form-group">
                                 <label>Language</label>
-                                <select name="language" value={this.state.language} onChange={this.handleInputChange} className="form-control" id="language">
+                                <select name="languageId" value={this.state.languageId} onChange={this.handleInputChange}
+                                        className="form-control" id="language">
                                     <option value="0">Tiếng Việt</option>
                                     <option value="1">English</option>
                                 </select>
@@ -122,32 +160,39 @@ class AddPost extends Component {
                             </div>
                             <div className="checkbox">
                                 <label>
-                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange} type="checkbox" defaultChecked/> <b>isActive</b>
+                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange}
+                                           type="checkbox" defaultChecked/> <b>isActive</b>
                                 </label>
                             </div>
                             <div className="checkbox">
                                 <label>
-                                    <input name="isVisible" value={this.state.isVisible} onChange={this.handleInputChange} type="checkbox" defaultChecked/> <b>isVisible</b>
+                                    <input name="isVisible" value={this.state.isVisible}
+                                           onChange={this.handleInputChange} type="checkbox" defaultChecked/>
+                                    <b>isVisible</b>
                                 </label>
                             </div>
                             <div className="form-group">
                                 <label>Meta Tags</label>
-                                <input name="metaTags" value={this.state.metaTags} onChange={this.handleInputChange} type="text" className="form-control" placeholder="Add Some Tags..." />
+                                <input name="metaKeywords" value={this.state.metaKeywords} onChange={this.handleInputChange}
+                                       type="text" className="form-control" placeholder="Add Some Tags..."/>
                             </div>
                             <div className="form-group">
                                 <label>Meta Description</label>
-                                <input name="metaDesc" value={this.state.metaDesc} onChange={this.handleInputChange} type="text" className="form-control" placeholder="Add Meta Description..." />
+                                <input name="metaDescription" value={this.state.metaDescription} onChange={this.handleInputChange}
+                                       type="text" className="form-control" placeholder="Add Meta Description..."/>
                             </div>
                             <div className="form-group">
                                 <label>Domain</label>
-                                <select name="domainId" value={this.state.domainId} onChange={this.handleInputChange} className="form-control" id="domain">
+                                <select name="domainId" value={this.state.domainId} onChange={this.handleInputChange}
+                                        className="form-control" id="domain">
                                     <option value="0">ViettelPay.vn</option>
                                     <option value="1">Bảo Hiểm</option>
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label>Content Type</label>
-                                <select name="contentId" value={this.state.contentId} onChange={this.handleInputChange} className="form-control" id="contentType">
+                                <select name="contentId" value={this.state.contentId} onChange={this.handleInputChange}
+                                        className="form-control" id="contentType">
                                     <option value="0">Bài Viết</option>
                                     <option value="1">Video</option>
                                     <option value="2">Ảnh</option>
