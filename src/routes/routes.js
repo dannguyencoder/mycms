@@ -60,7 +60,8 @@ export const routes = [
     {
         path: "/admin/category/readCategories",
         component: ReadCategories
-
+    },
+    {
         path: "/domain/addDomain",
         component: AddDomain
 
