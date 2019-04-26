@@ -103,7 +103,7 @@ export async function addCategory(categoryObject) {
 export async function getAllCategories() {
     // try {
     //     const data = ;
-        return await axiosInstance.get('/category/getCategories');
+    return await axiosInstance.get('/category/getCategories');
     // } catch (error) {
     //     throw error;
     // }
@@ -120,3 +120,24 @@ export async function getAllCategories() {
 }
 
 
+export function getRoles(userId) {
+    var data = new FormData()
+    data.append('user_id', '1')
+    return axiosInstance.post('/user/getRoles', data);
+
+}
+
+export function login(formData) {
+    return axiosInstance.post('/user/login', formData);
+}
+
+export function getDomain(formData) {
+    return axiosInstance.post('/domain/getDomains', formData)
+}
+export function getUsersByAdminId(formData) {
+    return axiosInstance.get('/user/getUsers', formData)
+}
+
+export function getUserInformation(id){
+    return axiosInstance.get('/user/getUser/'+id)
+}

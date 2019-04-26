@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import DropDown from '../../partials/user-component/dropdown_simple';
 import { validateEmail } from '../../utils/validateForm';
+import * as apis from '../../utils/apis'
 
 import ComponentUpload from '../../partials/upload-image-partial/component-upload';
 
@@ -13,14 +14,15 @@ class EditUser extends Component {
             isAdmin: true,
             isActive: true,
             roles: [],
-            messageListErrorForm: []
+            messageListErrorForm: [],
+            user: {}
         };
+
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.postData = this.postData.bind(this)
+        this.submit = this.submit.bind(this)
     }
 
-
-    postData = (event) => {
+    validateForm = () => {
         const email = document.getElementById('email').value;
         const role = document.getElementsByName('role')[0].value;
         // validateEmail(email)
@@ -44,6 +46,14 @@ class EditUser extends Component {
         return true
     }
 
+    submit = (event) => {
+        if (this.validateForm()) {
+
+        } else {
+            alert('form is not illegal ')
+        }
+    }
+
     handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -54,39 +64,37 @@ class EditUser extends Component {
         });
     }
 
-    componentWillMount() {
-        //check user login
-        
-        //fetch data roles
-        var data = new FormData()
-        this.setState({ uploading: true })
+    getUserInformation = () => {
+        const id = this.props.location.state.userID;
+        return apis.getUserInformation(id).then(res => {
+            this.setState({
+                user: res.data
+            })
 
-        data.append('user_id', '1')
-        
-        const url = "http://localhost:3002/user/getRoles";
-        const getData = async url => {
-            try {
-                console.log(data.user_id)
-                const response = await fetch(url, {
-                    method: 'POST',
-                    body: data,
+        }).catch(error => {
+            console.log('ERROR: ' + error)
+        })
+    }
 
-                });
-                const json = await response.json();
+    componentDidMount() {
+        try {
+            apis.getRoles(1).then(res => {
                 this.setState({
-                    roles: json.listRolesSelect
-
+                    roles: res.data.listRolesSelect
                 })
-                console.log(this.state.roles)
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getData(url);
+            }).catch(e => {
+                console.log('Error: ' + e)
+            })
+        } catch (error) {
+            console.log('Error: ' + error)
+        }
 
-        //lay tu cookie user_id va token => gui len server de lay thong tin user hien thi
-        // var data = new FormData()
-        // data.append('user_id',)
+        try {
+            this.getUserInformation()
+        } catch (error) {
+            console.log('Error: ' + error)
+        }
+        //get User Information
 
     }
     render() {
@@ -104,7 +112,7 @@ class EditUser extends Component {
                                     <label>Email: </label></div>
                                 <div className="col-md-10">
                                     <input type="text" className="form-control" placeholder="Email"
-                                        id="email" name="email" defaultValue="" />
+                                        id="email" name="email" defaultValue={this.state.user.email} />
                                 </div>
                             </div>
                             <div className="form-group col-md-12">
@@ -123,23 +131,24 @@ class EditUser extends Component {
                             <div className="form-group col-md-12">
                                 <div className="checkbox col-md-2">
                                     <label>
-                                        <input name="isActive" id="active" name="active"
-                                            type="checkbox"
-                                            checked={this.state.isActive}
-                                            onChange={this.handleInputChange} /> Active
+
+                                        {this.state.user.isAdmin === 1 ?
+                                            <input id="admin" name="admin" type="checkbox" checked value={this.state.user.isAdmin} onChange={this.handleInputChange} /> :
+                                            <input id="admin" name="admin" type="checkbox" value={this.state.user.isAdmin} onChange={this.handleInputChange} />}
+                                        Admin
                                     </label>
                                 </div>
 
                                 <div className="checkbox col-md-10">
                                     <label>
-                                        <input name="isAdmin"
-                                            type="checkbox" id="admin" name="admin"
-                                            checked={this.state.isAdmin}
-                                            onChange={this.handleInputChange} /> Admin
+                                        {this.state.user.isActive === 1 ?
+                                            <input id="active" name="active" type="checkbox" checked value={this.state.user.isActive} onChange={this.handleInputChange} /> :
+                                            <input id="active" name="active" type="checkbox" value={this.state.user.isActive} onChange={this.handleInputChange} />}
+                                        Active
                                     </label>
                                 </div>
                             </div>
-                            <div className="form-group col-md-12">
+                            {/* <div className="form-group col-md-12">
                                 <div className="col-md-2">
                                     <label>PassWord: </label>
                                 </div>
@@ -152,13 +161,13 @@ class EditUser extends Component {
                                 </div>
                                 <div className="col-md-10">
                                     <input type="password" className="form-control" id="re-password" name="re-password" /></div>
-                            </div>
+                            </div> */}
                             <div className="form-group col-md-12">
                                 <div className="col-md-2">
                                     <label>Role</label></div>
                                 <div className="col-md-10">
 
-                                    <DropDown roles={this.state.roles} />
+                                    <DropDown roles={this.state.roles} roleUser={this.state.user.roleId} />
                                     {/* <FormComponent /> */}
                                     {/* <select class="form-control">
                                         <option value="+47">Supper Admin</option>
@@ -171,7 +180,7 @@ class EditUser extends Component {
 
                             <div className="col-md-12 btn-submit-style" >
                                 <input type="button" className="btn btn-success" value="Submit"
-                                    onClick={this.postData} />
+                                    onClick={this.submit} />
                             </div>
                         </form>
                     </div>

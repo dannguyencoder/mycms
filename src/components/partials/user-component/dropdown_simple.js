@@ -5,9 +5,21 @@ import Select from 'react-select';
 // Create a ES6 class component
 class DropDown extends React.Component {
     // Use the render function to return JSX component
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //         defaultChoose: ''
+    //     }
+    // }
+    // componentDidMount() {
+    //     this.setState({
+    //         defaultChoose: this.props.roleUser
+    //     })
+    //     console.log('xxx: ' + this.props.roleUser)
+    // }
     render() {
         return (
-            <Select id="role" name="role" options={this.props.roles}  />
+            <Select id="role" name="role" options={this.props.roles} />
         );
     }
 }
