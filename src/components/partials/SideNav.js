@@ -6,14 +6,17 @@ class AdminSideNav extends Component {
         return (
             <React.Fragment>
                 <div className="list-group">
-                    <Link to="/admin" className="list-group-item active main-color-bg">
+                    <Link to="" className="list-group-item active main-color-bg">
                         <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
                     </Link>
-                    <Link to="/admin/posts/readPosts" className="list-group-item"><span
+                    <Link to="/posts/readPosts" className="list-group-item"><span
                         className="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span
                         className="badge">33</span></Link>
-                    <Link to="/admin/users/readUsers" className="list-group-item"><span
+                    <Link to="/users/readUsers" className="list-group-item"><span
                         className="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span
+                        className="badge">203</span></Link>
+                    <Link to="/admin/category/readCategories" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Categories <span
                         className="badge">203</span></Link>
                 </div>
 

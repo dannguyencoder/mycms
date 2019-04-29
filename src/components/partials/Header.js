@@ -1,15 +1,21 @@
-import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 class AdminHeader extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
     render() {
+
         return (
             <React.Fragment>
                 <nav className="navbar navbar-default">
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                 <span className="sr-only">Toggle navigation</span>
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
@@ -20,8 +26,9 @@ class AdminHeader extends Component {
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
                                 <li className="active"><Link to="/">Dashboard</Link></li>
-                                <li><Link to="/posts/readPosts">Posts</Link></li>
-                                <li><Link to="/users/readUsers">Users</Link></li>
+                                {/* foreach Domain */}
+                                <li><Link to="/">Home</Link></li>
+
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
                                 <li><Link to="/">Welcome, Vinh</Link></li>
@@ -42,13 +49,14 @@ class AdminHeader extends Component {
                             <div className="col-md-2">
                                 <div className="dropdown create">
                                     <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         Create Content
                                         <span className="caret"></span>
                                     </button>
                                     <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><Link to="/posts/addPost">Add Post</Link></li>
-                                        <li><Link to="/users/addUser">Add User</Link></li>
+                                        <li><Link to="/admin/posts/addPost">Add Post</Link></li>
+                                        <li><Link to="/admin/users/addUser">Add User</Link></li>
+                                        <li><Link to="/admin/category/addCategory">Add Category</Link></li>
                                     </ul>
                                 </div>
                             </div>

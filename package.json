@@ -12,6 +12,7 @@
     "body-parser": "^1.18.3",
     "braft-editor": "^2.2.9",
     "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
     "draft-js": "^0.10.5",
     "express-fileupload": "^1.1.4",
     "node-fetch": "^2.3.0",
@@ -37,5 +38,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "env-cmd": "^8.0.2"
+  }
 }
