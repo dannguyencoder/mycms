@@ -11,7 +11,7 @@ class Login extends Component {
             token: ''
 
         };
-        
+
         this.loginUser = this.loginUser.bind(this);
     }
     loginUser = (event) => {
@@ -55,7 +55,9 @@ class Login extends Component {
                     cookies.set('token', this.state.token, { path: '/' })
                     cookies.set('user_id', this.state.user_id, { path: '/' })
                     cookies.set('email', this.state.email, { path: '/' })
-                    window.location.href = this.state.redirectPage
+                    if (this.state.redirectPage != undefined) {
+                        window.location.href = this.state.redirectPage
+                    }
                 }
 
                 await setTimeout(function () { loading_image.style.display = 'none' }, 1000);
