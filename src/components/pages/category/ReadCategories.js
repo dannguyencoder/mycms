@@ -12,6 +12,17 @@ class ReadCategories extends Component {
         }
     }
 
+    deleteCategory(categoryId) {
+        apis.deleteCategory(categoryId)
+            .then(response => {
+                console.log(response);
+                this.getAllCategories();
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+
     getAllCategories() {
         // const getDataCategories = async () => {
         //    try {
@@ -31,15 +42,9 @@ class ReadCategories extends Component {
         // }
         //
         // getDataCategories();
+
         apis.getAllCategories()
             .then(response => {
-                console.log(typeof (response))
-                // if (!response.data) {
-                //     this.setState({
-                //         allCategories: []
-                //     })
-                //     return;
-                // }
                 this.setState({
                     allCategories: response.data
                 });
@@ -52,7 +57,6 @@ class ReadCategories extends Component {
                 })
             });
 
-
     };
 
     componentDidMount() {
@@ -61,7 +65,6 @@ class ReadCategories extends Component {
 
     render() {
         return (
-
             <div className="panel panel-default">
                 <div className="panel-heading main-color-bg">
                     <h3 className="panel-title">Users</h3>
@@ -90,16 +93,22 @@ class ReadCategories extends Component {
                                 return (
                                     <tr key={category.id}>
                                         <td>{category.name}</td>
-                                        <td>mjohnson@gmail.com</td>
-                                        <td>Dec 15, 2016</td>
-                                        <td><Link className="btn btn-default" to="/admin/users/editUser">Edit</Link>
+                                        <td>{category.friendlyUrl}</td>
+                                        <td>{category.isActive}</td>
+                                        <td><Link
+                                            className="btn btn-default"
+                                            to={{
+                                                pathname: "/admin/category/editCategory",
+                                                state: {
+                                                    categoryId: category.id
+                                                }
+                                            }}>Edit</Link>
                                             <Link
-                                                className="btn btn-danger" to="#">Delete</Link></td>
+                                                className="btn btn-danger" to="#" onClick={() => this.deleteCategory(category.id)}>Delete</Link></td>
                                     </tr>
                                 );
                             })
                         }
-
 
                         </tbody>
                     </table>

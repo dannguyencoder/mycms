@@ -71,8 +71,10 @@ const mImageControls = [
     'float-right',
     {
         text: 'Foo', // 指定控件文字，可传入jsx
-        render: (mediaData) => { }, // 控件渲染函数，该属性指定时，text和onClick属性将被忽略
-        onClick: (block) => { } // 指定控件点击后的回调，参数为当前图片的block对象
+        render: (mediaData) => {
+        }, // 控件渲染函数，该属性指定时，text和onClick属性将被忽略
+        onClick: (block) => {
+        } // 指定控件点击后的回调，参数为当前图片的block对象
     },
     'link',
     'size',
@@ -83,51 +85,49 @@ export default class TextEditor extends React.Component {
 
     state = {
         editorState: BraftEditor.createEditorState('<p>Enter your post here <b>...!</b></p>'),
-        outputHTML: ''
+        outputHTML: '',
+        mediaItems: []
     }
 
     componentDidMount() {
-        this.isLivinig = true
-        setTimeout(this.setEditorContentAsync, 3000)
+        this.isLivinig = true;
+        this.getAllImages();
     }
 
-    componentWillUnmount() {
-        this.isLivinig = false
-    }
-
-    componentWillMount() {
-        const mediaItems = async () => {
-            // console.log("dataResponse--------------");
-            const dataResponse = await apis.getAllImages();
-            this.setState({
-                mediaItems: dataResponse
+    getAllImages() {
+        apis.getAllImages()
+            .then(response => {
+                this.setState({
+                    mediaItems: response.data
+                });
+            })
+            .catch(error => {
+                console.log(error);
             });
-            // console.log(dataResponse)
-        }
-        mediaItems();
 
-        // this.setState({mediaItems: dummyData});
     }
+
     handleChange = (editorState) => {
         this.setState({
             editorState: editorState,
             outputHTML: editorState.toHTML()
         })
 
-        this.props.changeHandler({ outputHTML: editorState.toHTML() });
+        this.props.changeHandler({outputHTML: editorState.toHTML()});
 
     }
 
-    setEditorContentAsync = () => {
-        this.isLivinig && this.setState({
-            editorState: BraftEditor.createEditorState('<p>Your <b>post...!</b><p>')
-        })
-    }
+    // setEditorContentAsync = () => {
+    //     this.isLivinig && this.setState({
+    //         editorState: BraftEditor.createEditorState('<p>Your <b>post...!</b><p>')
+    //     })
+    // }
 
     render() {
 
-        const { editorState, outputHTML } = this.state;
-
+        const {editorState, outputHTML, mediaItems} = this.state;
+        console.log("media items---------------");
+        console.log(mediaItems);
 
         return (
             <div>
@@ -136,10 +136,16 @@ export default class TextEditor extends React.Component {
                         language="en"
                         value={editorState}
                         onChange={this.handleChange}
-                        media={{ uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes, items: this.state.mediaItems }}
-                    // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
-                    // media={{uploadFn: myUploadFn}}
-                    // imageControls={mImageControls}
+                        media={{
+                            uploadFn: myUploadFn,
+                            validateFn: myValidateFn,
+                            pasteImage: true,
+                            accepts: acceptedMediaTypes,
+                            items: mediaItems
+                        }}
+                        // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
+                        // media={{uploadFn: myUploadFn}}
+                        // imageControls={mImageControls}
                     />
                 </div>
                 <h5>HTML Output</h5>

@@ -25,31 +25,30 @@ export const routes = [
         type: "login"
     },
     {
-        path: "/users/readUsers",
+        path: "/admin/users/readUsers",
         component: ReadUsers
     },
     {
-        path: "/users/editUser",
+        path: "/admin/users/editUser",
         component: EditUsers
     },
     {
-        path: "/users/addUser",
+        path: "/admin/users/addUser",
         component: AddUser
     },
     {
-        path: "/posts/readPosts",
+        path: "/admin/posts/readPosts",
         component: ReadPosts
     },
     {
-        path: "/posts/editPost",
+        path: "/admin/posts/editPost",
         component: EditPost
     },
     {
-        path: "/posts/addPost",
+        path: "/admin/posts/addPost",
         component: AddPost
     },
     {
-
         path: "/admin/category/addCategory",
         component: AddCategory
     },
@@ -60,7 +59,8 @@ export const routes = [
     {
         path: "/admin/category/readCategories",
         component: ReadCategories
-    }, {
+    },
+    {
         path: "/domain/addDomain",
         component: AddDomain
     }

@@ -15,7 +15,6 @@ class AddCategory extends Component {
             parentId: 0,
             friendlyUrl: '',
             order: 0,
-            avatar: '',
             isActive: 1,
             isVisible: 1,
             metaKeywords: '',
@@ -64,12 +63,11 @@ class AddCategory extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
+        const categoryData = this.state;
+        categoryData.friendlyUrl = "/" + categoryData.friendlyUrl.replace("/", "");
         console.log("submit data-----------");
         console.log(this.state);
-        event.preventDefault();
-
-        const categoryData = this.state;
-        categoryData.friendlyUrl = "/" + categoryData.friendlyUrl;
 
         apis.addCategory(categoryData)
             .then(response => {
@@ -108,8 +106,11 @@ class AddCategory extends Component {
                             </div>
                             <div className="form-group">
                                 <label>Category "Friendly" URL</label>
-                                <input name="friendlyUrl" value={"/" + this.state.friendlyUrl.replace("/", "")} onChange={this.handleInputChange}
-                                       type="text" className="form-control" placeholder="Category &quot;Friendly&quot; URL"/>
+                                <div className="input-group">
+                                    <span className="input-group-addon">/</span>
+                                    <input name="friendlyUrl" value={this.state.friendlyUrl.replace("/", "")} onChange={this.handleInputChange}
+                                           type="text" className="form-control" placeholder="Category &quot;Friendly&quot; URL"/>
+                                </div>
                             </div>
                             <div className="form-group">
                                 <label>Order</label>
@@ -121,11 +122,11 @@ class AddCategory extends Component {
                                     <option value="3">3</option>
                                 </select>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleFormControlFile1">Avatar</label>
-                                {/*<input type="file" className="form-control-file" id="exampleFormControlFile1"/>*/}
-                                <ImageUpload changeHandler={this.handleComponentChange}/>
-                            </div>
+                            {/*<div className="form-group">*/}
+                                {/*<label htmlFor="exampleFormControlFile1">Avatar</label>*/}
+                                {/*/!*<input type="file" className="form-control-file" id="exampleFormControlFile1"/>*!/*/}
+                                {/*<ImageUpload changeHandler={this.handleComponentChange}/>*/}
+                            {/*</div>*/}
                             <div className="checkbox">
                                 <label>
                                     <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange}
