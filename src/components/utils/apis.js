@@ -138,6 +138,10 @@ export function getUsersByAdminId(formData) {
     return axiosInstance.get('/user/getUsers', formData)
 }
 
-export function getUserInformation(id){
-    return axiosInstance.get('/user/getUser/'+id)
+export function getUserInformation(id) {
+    return axiosInstance.get('/user/getUser/' + id)
+}
+
+export async function  getDataImage(data) {
+    return  axiosInstance.post('/utils/image-upload', data)
 }

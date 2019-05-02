@@ -18,8 +18,9 @@ class DropDown extends React.Component {
     //     console.log('xxx: ' + this.props.roleUser)
     // }
     render() {
+        console.log(this.props.roleUser)
         return (
-            <Select id="role" name="role" options={this.props.roles}   />
+            <Select id="role" name="role" options={this.props.roles} defaultInputValue={this.props.roleUser} />
         );
     }
 }

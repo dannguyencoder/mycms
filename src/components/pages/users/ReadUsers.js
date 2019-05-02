@@ -19,11 +19,16 @@ class ReadUsers extends Component {
             formData.append('user_id', userId)
             return apis.getUsersByAdminId(formData)
                 .then(response => {
+                    console.log('response: ' + response)
                     this.setState({
                         users: response.data
                     })
                 })
-                .catch(error => { })
+                .catch(error => {
+                    console.log(error)
+                })
+        }else{
+            console.log('You must login to continue!')
         }
     }
     componentDidMount() {

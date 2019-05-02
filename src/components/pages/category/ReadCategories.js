@@ -33,7 +33,6 @@ class ReadCategories extends Component {
         // getDataCategories();
         apis.getAllCategories()
             .then(response => {
-                console.log('htccccccccccccc')
                 console.log(typeof (response))
                 // if (!response.data) {
                 //     this.setState({

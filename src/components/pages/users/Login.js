@@ -54,8 +54,8 @@ class Login extends Component {
                 cookies.set('user_id', this.state.user_id, { path: '/' })
                 cookies.set('email', this.state.email, { path: '/' })
                 console.log('--------------Redirect : => ' + this.state.redirectPage)
-                if (this.state.redirectPage != undefined) {
-                    window.location.href = this.state.redirectPage
+                if (this.state.redirectPage !== undefined) {
+                    // window.location.href = this.state.redirectPage
                 }
                 setTimeout(function () { loading_image.style.display = 'none' }, 1000);
             }).catch(error => { console.log('Error: ' + error) })

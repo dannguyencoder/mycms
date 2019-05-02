@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 // import Spinner from './Spinner'
 import Images from './Images'
 import Buttons from './Buttons'
+import * as apis from '../../utils/apis'
 
 // import { API_URL } from '../../../config'
 // import './App.css'
-const fetch = require("node-fetch")
 
 export default class ComponentUpload extends Component {
   constructor(props) {
@@ -16,8 +16,27 @@ export default class ComponentUpload extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
-  }
+    this.getDataImage = this.getDataImage.bind(this);
+    console.log(process.env)
 
+  }
+  getDataImage = async (data) => {
+    return await apis.getDataImage(data).then(response => {
+      const lstImage = []
+      console.log(response)
+      response.data.images.map((image, i) => {
+        const imageObj = {}
+        imageObj.src = 'http://localhost:3001/images/' + image
+        imageObj.public_id = 'id_' + i
+        lstImage[i] = imageObj
+      })
+      this.setState({
+        images: lstImage
+      })
+    }).catch(error => {
+      console.log(error);
+    })
+  }
 
   onChange = e => {
     const files = Array.from(e.target.files)
@@ -48,33 +67,12 @@ export default class ComponentUpload extends Component {
       data.append('file', file)
     })
     data.append('category', 'User')
-    const url = "http://localhost:3002/image/image-upload";
-    const getData = async url => {
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          body: data,
 
-        });
-        const json = await response.json();
-        const lstImage = []
-        json.images.map((image, i) => {
-          const imageObj = {}
-          imageObj.src = 'http://localhost:3002/images/' + image
-          imageObj.public_id = 'id_' + i
-          lstImage[i] = imageObj
-        })
-        this.setState({
-          images: lstImage
-        })
-        console.log(this.state.images)
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData(url);
 
+    this.getDataImage(data);
   }
+
+
 
   removeImage = id => {
     this.setState({
@@ -84,6 +82,7 @@ export default class ComponentUpload extends Component {
 
   render() {
     const { uploading, images } = this.state
+    console.log(this.props)
 
     const content = () => {
       switch (true) {

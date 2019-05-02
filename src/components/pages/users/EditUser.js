@@ -120,7 +120,7 @@ class EditUser extends Component {
                                     <label>Avatar: </label></div>
                                 <div className="col-md-10">
                                     {/* <input type="file" className="form-control-file" id="exampleFormControlFile1"></input> */}
-                                    <ComponentUpload />
+                                    <ComponentUpload avarta={this.state.user.avarta} />
                                 </div>
                             </div>
                             {/* <div className="form-group">
@@ -133,7 +133,7 @@ class EditUser extends Component {
                                     <label>
 
                                         {this.state.user.isAdmin === 1 ?
-                                            <input id="admin" name="admin" type="checkbox" checked value={this.state.user.isAdmin} onChange={this.handleInputChange} /> :
+                                            <input id="admin" name="admin" type="checkbox" defaultChecked value={this.state.user.isAdmin} onChange={this.handleInputChange} /> :
                                             <input id="admin" name="admin" type="checkbox" value={this.state.user.isAdmin} onChange={this.handleInputChange} />}
                                         Admin
                                     </label>
@@ -142,7 +142,7 @@ class EditUser extends Component {
                                 <div className="checkbox col-md-10">
                                     <label>
                                         {this.state.user.isActive === 1 ?
-                                            <input id="active" name="active" type="checkbox" checked value={this.state.user.isActive} onChange={this.handleInputChange} /> :
+                                            <input id="active" name="active" type="checkbox" defaultChecked value={this.state.user.isActive} onChange={this.handleInputChange} /> :
                                             <input id="active" name="active" type="checkbox" value={this.state.user.isActive} onChange={this.handleInputChange} />}
                                         Active
                                     </label>
