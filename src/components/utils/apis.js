@@ -46,7 +46,7 @@ export function addCategory(categoryObject) {
 export function getAllCategories() {
     // try {
     //     const data = ;
-    return await axiosInstance.get('/category/getCategories');
+    return axiosInstance.get('/category/getCategories');
     // } catch (error) {
     //     throw error;
     // }
