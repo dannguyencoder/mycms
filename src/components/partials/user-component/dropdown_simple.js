@@ -19,7 +19,7 @@ class DropDown extends React.Component {
     // }
     render() {
         return (
-            <Select id="role" name="role" options={this.props.roles} />
+            <Select id="role" name="role" options={this.props.roles}   />
         );
     }
 }
