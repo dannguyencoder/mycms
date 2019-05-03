@@ -9,10 +9,10 @@ class AdminSideNav extends Component {
                     <Link to="" className="list-group-item active main-color-bg">
                         <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
                     </Link>
-                    <Link to="/posts/readPosts" className="list-group-item"><span
+                    <Link to="/admin/posts/readPosts" className="list-group-item"><span
                         className="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span
                         className="badge">33</span></Link>
-                    <Link to="/users/readUsers" className="list-group-item"><span
+                    <Link to="/admin/users/readUsers" className="list-group-item"><span
                         className="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span
                         className="badge">203</span></Link>
                     <Link to="/admin/category/readCategories" className="list-group-item"><span

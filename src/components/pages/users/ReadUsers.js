@@ -18,8 +18,7 @@ class ReadUsers extends Component {
         if (userId != undefined) {
             formData.append('user_id', userId)
             return apis.getUsersByAdminId(formData)
-                .then(response => {
-                    console.log('response: ' + response)
+                .then(response => { 
                     this.setState({
                         users: response.data
                     })
@@ -74,7 +73,7 @@ class ReadUsers extends Component {
                                             <td>
                                                 <Link className="btn btn-default"
                                                     to={{
-                                                        pathname: "/users/editUser/",
+                                                        pathname: "/admin/users/editUser/",
                                                         state: {
                                                             userID: user.id
                                                         }

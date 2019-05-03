@@ -17,13 +17,11 @@ export default class ComponentUpload extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.getDataImage = this.getDataImage.bind(this);
-    console.log(process.env)
 
   }
   getDataImage = async (data) => {
     return await apis.getDataImage(data).then(response => {
       const lstImage = []
-      console.log(response)
       response.data.images.map((image, i) => {
         const imageObj = {}
         imageObj.src = 'http://localhost:3001/images/' + image
@@ -42,7 +40,7 @@ export default class ComponentUpload extends Component {
     const files = Array.from(e.target.files)
     if (files.length > 3) {
       const msg = 'Only 3 images can be uploaded at a time'
-      console.log(msg)
+      alert(msg)
       return false;
     }
 
@@ -51,11 +49,11 @@ export default class ComponentUpload extends Component {
 
       // #2 Catching wrong file types on the client
       if (types.every(type => file.type !== type)) {
-        console.log('file type is illegal ')
+        alert('file type is illegal ')
         return false
       }
       if (file.size > 150000) {
-        console.log('file size is too large')
+        alert('file size is too large')
         return false
       }
 
@@ -82,7 +80,6 @@ export default class ComponentUpload extends Component {
 
   render() {
     const { uploading, images } = this.state
-    console.log(this.props)
 
     const content = () => {
       switch (true) {

@@ -5,22 +5,33 @@ import Select from 'react-select';
 // Create a ES6 class component
 class DropDown extends React.Component {
     // Use the render function to return JSX component
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         defaultChoose: ''
-    //     }
-    // }
-    // componentDidMount() {
-    //     this.setState({
-    //         defaultChoose: this.props.roleUser
-    //     })
-    //     console.log('xxx: ' + this.props.roleUser)
-    // }
+    constructor(props) {
+        super(props)
+        this.state = {
+            label: this.props.label,
+            value: this.props.value
+
+        }
+    }
+    componentDidMount() {
+        if (this.props.dataDefault !== undefined) {
+            this.setState({
+                value: this.props.dataDefault
+            })
+
+        }
+    }
+    componentDidUpdate() {
+
+    }
+
     render() {
-        console.log(this.props.roleUser)
+
         return (
-            <Select id="role" name="role" options={this.props.roles} defaultInputValue={this.props.roleUser} />
+            <div>
+                <Select id="role-select" name="role-select" options={this.props.data} />
+                <div id="w40">Now Role: {this.props.label}</div>
+               </div>
         );
     }
 }

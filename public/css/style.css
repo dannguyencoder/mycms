@@ -166,3 +166,13 @@ body{
   text-align: center;
   display: none;
 }
+#role-select{
+  width: 100%;
+  float:left;
+}
+#w40{
+  text-align: left;
+  padding-top: 2%;
+  width: 40%;
+  float:left;
+}

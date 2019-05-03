@@ -10,6 +10,6 @@ export default props =>
         className='delete'>
         <FontAwesomeIcon icon={faTimesCircle} size='2x' />
       </div>
-      <img className="image" src={image.src} alt='' />
+      <img id='avarta' className="image" src={image.src} alt='' />
     </div>
   )

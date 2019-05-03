@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import TextEditor from "../../utils/TextEditor";
 import ImageUpload from "../../utils/ImageUpload";
-import axios from 'axios';
 
 import * as apis from '../../utils/apis';
 
