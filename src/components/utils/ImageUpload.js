@@ -5,11 +5,23 @@ class ImageUpload extends React.Component {
     constructor(props) {
         super(props);
 
+        console.log("props");
+        console.log(props);
         this.state = {
-            avatar: '',
+            avatar: props.initialImage
         };
 
         this.handleUploadImage = this.handleUploadImage.bind(this);
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (prevState.avatar !== nextProps.initialImage) {
+            return {
+                ...prevState,
+                avatar: nextProps.initialImage
+            }
+        }
+        return prevState;
     }
 
     handleUploadImage(ev) {

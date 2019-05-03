@@ -18,13 +18,13 @@ const myUploadFn = (param) => {
         param.success({
             url: `http://localhost:3001/${responseImageJSON.file}`,
             meta: {
-                id: 'xxx',
-                title: 'xxx',
-                alt: 'xxx',
+                id: 'Replace this video id',
+                title: 'Replace this video title',
+                alt: 'Replace this video alt',
                 loop: true, // 指定音视频是否循环播放
                 autoPlay: true, // 指定音视频是否自动播放
                 controls: true, // 指定音视频是否显示控制栏
-                poster: 'http://xxx/xx.png', // 指定视频播放器的封面
+                poster: 'http://replace.this.video.poster/image.png', // 指定视频播放器的封面
             }
         })
     }
@@ -83,15 +83,41 @@ const mImageControls = [
 
 export default class TextEditor extends React.Component {
 
-    state = {
-        editorState: BraftEditor.createEditorState('<p>Enter your post here <b>...!</b></p>'),
-        outputHTML: '',
-        mediaItems: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            editorState: BraftEditor.createEditorState(props.initialContent),
+            outputHTML: props.initialContent,
+            mediaItems: []
+        }
     }
 
     componentDidMount() {
         this.isLivinig = true;
         this.getAllImages();
+    }
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+
+        console.log("get derived state from props condition-------");
+        console.log(prevState.outputHTML !== nextProps.initialContent);
+        if (prevState.outputHTML !== nextProps.initialContent) {
+            return {
+                ...prevState,
+                outputHTML: nextProps.initialContent
+            }
+        }
+        return prevState;
+
+        // console.log("get derived state from props condition-------");
+        // console.log(prevState.editorState !== BraftEditor.createEditorState(nextProps.initialContent));
+        // if (prevState.editorState !== BraftEditor.createEditorState(nextProps.initialContent)) {
+        //     return {
+        //         ...prevState,
+        //         editorState: BraftEditor.createEditorState(nextProps.initialContent)
+        //     }
+        // }
+        // return prevState;
     }
 
     getAllImages() {
@@ -126,8 +152,8 @@ export default class TextEditor extends React.Component {
     render() {
 
         const {editorState, outputHTML, mediaItems} = this.state;
-        console.log("media items---------------");
-        console.log(mediaItems);
+        // console.log("media items---------------");
+        // console.log(mediaItems);
 
         return (
             <div>

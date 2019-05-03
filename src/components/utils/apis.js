@@ -35,6 +35,22 @@ export function addPost(postObject) {
     return axiosInstance.post('/post/addPost', postObject);
 }
 
+export function getAllPosts() {
+    return axiosInstance.get('/post/getPosts');
+}
+
+export function getSinglePost(postId) {
+    return axiosInstance.get(`/post/getPost/${postId}`);
+}
+
+export function updatePost(postData) {
+    return axiosInstance.patch(`/post/updatePost/${postData.id}`, postData);
+}
+
+export function deletePost(postId) {
+    return axiosInstance.delete(`/deletePost/${postId}`);
+}
+
 export function addCategory(categoryObject) {
 
     console.log("upload data--------------");

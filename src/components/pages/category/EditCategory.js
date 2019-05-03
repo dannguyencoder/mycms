@@ -108,10 +108,12 @@ class EditCategory extends Component {
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
+                this.props.history.push("/admin/category/readCategories")
             })
             .catch(error => {
                 console.log("my error----------------------");
                 console.log(error);
+                alert(error);
             });
     }
 
