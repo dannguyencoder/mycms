@@ -97,28 +97,24 @@ export default class TextEditor extends React.Component {
         this.getAllImages();
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-
-        console.log("get derived state from props condition-------");
-        console.log(prevState.outputHTML !== nextProps.initialContent);
-        if (prevState.outputHTML !== nextProps.initialContent) {
-            return {
-                ...prevState,
-                outputHTML: nextProps.initialContent
-            }
-        }
-        return prevState;
-
-        // console.log("get derived state from props condition-------");
-        // console.log(prevState.editorState !== BraftEditor.createEditorState(nextProps.initialContent));
-        // if (prevState.editorState !== BraftEditor.createEditorState(nextProps.initialContent)) {
-        //     return {
-        //         ...prevState,
-        //         editorState: BraftEditor.createEditorState(nextProps.initialContent)
-        //     }
-        // }
-        // return prevState;
-    }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //
+    //     // if (prevState.outputHTML !== nextProps.initialContent) {
+    //     //     return {
+    //     //         ...prevState,
+    //     //         outputHTML: nextProps.initialContent
+    //     //     }
+    //     // }
+    //     // return prevState;
+    //
+    //     // if (prevState.editorState !== BraftEditor.createEditorState(nextProps.initialContent)) {
+    //     //     return {
+    //     //         ...prevState,
+    //     //         editorState: BraftEditor.createEditorState(nextProps.initialContent)
+    //     //     }
+    //     // }
+    //     // return prevState;
+    // }
 
     getAllImages() {
         apis.getAllImages()
@@ -155,6 +151,11 @@ export default class TextEditor extends React.Component {
         // console.log("media items---------------");
         // console.log(mediaItems);
 
+        console.log("current props");
+        console.log(this.props.initialContent);
+        console.log("current editor state");
+        console.log(this.state.editorState.toHTML());
+
         return (
             <div>
                 <div className="editor-wrapper">
@@ -178,7 +179,6 @@ export default class TextEditor extends React.Component {
                 <div className="output-content">{outputHTML}</div>
             </div>
         )
-
     }
 
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import TextEditor from "../../utils/TextEditor";
 import ImageUpload from "../../utils/ImageUpload";
 import * as apis from "../../utils/apis";
@@ -19,7 +19,9 @@ class EditPost extends Component {
             metaDescription: '',
             domainId: 1,
             contentId: 0,
-            allCategories: []
+            allCategories: [],
+            allDomains: [],
+            allLanguages: []
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -69,6 +71,13 @@ class EditPost extends Component {
 
     componentDidMount() {
         this.getAllCategories();
+        this.getAllDomains();
+        this.getAllLanguages();
+        /*
+        * vinhnq21: màn add và edit chỉ khác nhau ở 2 chổ:
+        * 1. gọi api nào khi submit
+        * 2. có fetch item hiện tại không
+        * */
         this.fetchCurrentPost();
     }
 
@@ -94,15 +103,60 @@ class EditPost extends Component {
 
     };
 
+    getAllDomains() {
+        apis.getAllDomains()
+            .then(response => {
+                console.log("domains-----------");
+                console.log(response);
+                const allDomains = response.data;
+                if (allDomains.length > 0) {
+                    this.setState({
+                        allDomains: allDomains,
+                        domainId: allDomains[0].id
+                    })
+                }
+            })
+            .catch(error => {
+                console.log("error getting domains----------");
+                console.log(error);
+                this.setState({
+                    allDomains: []
+                });
+            });
+    }
+
+    getAllLanguages() {
+        apis.getAllLanguages()
+            .then(response => {
+                console.log("languages------------");
+                console.log(response);
+                const allLanguages = response.data;
+                if (allLanguages.length > 0) {
+                    this.setState({
+                        allLanguages: allLanguages,
+                        languageId: allLanguages[0].id
+                    })
+                }
+            })
+            .catch(error => {
+                console.log("error getting languages------------");
+                console.log(error);
+                this.setState({
+                    allLanguages: []
+                });
+            });
+    }
+
     handleInputChange(event) {
         const target = event.target;
+        console.log("checked");
         console.log(target.checked);
         let value;
         if (target.type === 'checkbox') {
             if (target.checked) {
-                value = 0;
-            } else {
                 value = 1;
+            } else {
+                value = 0;
             }
         } else {
             value = target.value;
@@ -112,8 +166,10 @@ class EditPost extends Component {
         this.setState({
             [name]: value
         });
-        console.log("current state");
-        console.log(this.state);
+        setTimeout(() => {
+            console.log("current state");
+            console.log(this.state);
+        }, 2000);
     }
 
     handleComponentChange(componentData) {
@@ -134,21 +190,26 @@ class EditPost extends Component {
         const postData = this.state;
         postData.postContent = postData.outputHTML;
 
-        this.setState({
-            avatar: 'https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-        });
+        delete postData.allDomains;
+        delete postData.allLanguages;
+        delete postData.allCategories;
 
-        // apis.addPost(postData)
-        //     .then(response => {
-        //         console.log("my response------------------");
-        //         console.log(response);
-        //         this.props.history.push("/admin/posts/readPosts");
-        //     })
-        //     .catch(error => {
-        //         console.log("my error----------------------");
-        //         console.log(error);
-        //         alert(error);
-        //     });
+        /*
+        * vinhnq21: màn add và edit chỉ khác nhau ở 2 chổ:
+        * 1. gọi api nào khi submit
+        * 2. có fetch item hiện tại không
+        * */
+        apis.updatePost(postData)
+            .then(response => {
+                console.log("my response------------------");
+                console.log(response);
+                this.props.history.push("/admin/posts/readPosts");
+            })
+            .catch(error => {
+                console.log("my error----------------------");
+                console.log(error);
+                alert(error);
+            });
     }
 
     render() {
@@ -167,7 +228,8 @@ class EditPost extends Component {
                             </div>
                             <div className="form-group">
                                 <label>Post Category</label>
-                                <select name="categoryId" value={this.state.categoryId} onChange={this.handleInputChange}
+                                <select name="categoryId" value={this.state.categoryId}
+                                        onChange={this.handleInputChange}
                                         className="form-control" id="postCategory">
                                     {/*<option value="0">1</option>*/}
                                     {/*<option value="1">2</option>*/}
@@ -185,52 +247,76 @@ class EditPost extends Component {
                             <div className="form-group">
                                 <label htmlFor="exampleFormControlFile1">Avatar</label>
                                 {/*<input type="file" className="form-control-file" id="exampleFormControlFile1"/>*/}
-                                <ImageUpload initialImage={this.state.avatar} changeHandler={this.handleComponentChange}/>
+                                {
+                                    this.state.avatar && <ImageUpload initialImage={this.state.avatar}
+                                                                      changeHandler={this.handleComponentChange}/>
+                                }
+
                             </div>
                             <div className="form-group">
                                 <label>Language</label>
-                                <select name="languageId" value={this.state.languageId} onChange={this.handleInputChange}
+                                <select name="languageId" value={this.state.languageId}
+                                        onChange={this.handleInputChange}
                                         className="form-control" id="language">
-                                    <option value="0">Tiếng Việt</option>
-                                    <option value="1">English</option>
+                                    {/*<option value="0">Tiếng Việt</option>*/}
+                                    {/*<option value="1">English</option>*/}
+                                    {
+                                        this.state.allLanguages && this.state.allLanguages.map((language) => {
+                                            return (
+                                                <option value={language.id}>{language.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label>Post Content</label>
-                                <TextEditor initialContent={this.state.postContent} changeHandler={this.handleComponentChange}/>
+                                {
+                                    this.state.postContent && <TextEditor initialContent={this.state.postContent}
+                                                                          changeHandler={this.handleComponentChange}/>
+                                }
                                 {/*<textarea name="editor1" className="form-control" placeholder="Page Body"*/}
                                 {/*defaultValue="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">*/}
                                 {/*</textarea>*/}
                             </div>
                             <div className="checkbox">
                                 <label>
-                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange}
-                                           type="checkbox" defaultChecked/> <b>isActive</b>
+                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange} checked={this.state.isActive}
+                                           type="checkbox"/> <b>isActive</b>
                                 </label>
                             </div>
                             <div className="checkbox">
                                 <label>
-                                    <input name="isVisible" value={this.state.isVisible}
-                                           onChange={this.handleInputChange} type="checkbox" defaultChecked/>
+                                    <input name="isVisible" value={this.state.isVisible} checked={this.state.isVisible === 1}
+                                           onChange={this.handleInputChange} type="checkbox"/>
                                     <b>isVisible</b>
                                 </label>
                             </div>
                             <div className="form-group">
                                 <label>Meta Tags</label>
-                                <input name="metaKeywords" value={this.state.metaKeywords} onChange={this.handleInputChange}
+                                <input name="metaKeywords" value={this.state.metaKeywords}
+                                       onChange={this.handleInputChange}
                                        type="text" className="form-control" placeholder="Add Some Tags..."/>
                             </div>
                             <div className="form-group">
                                 <label>Meta Description</label>
-                                <input name="metaDescription" value={this.state.metaDescription} onChange={this.handleInputChange}
+                                <input name="metaDescription" value={this.state.metaDescription}
+                                       onChange={this.handleInputChange}
                                        type="text" className="form-control" placeholder="Add Meta Description..."/>
                             </div>
                             <div className="form-group">
                                 <label>Domain</label>
                                 <select name="domainId" value={this.state.domainId} onChange={this.handleInputChange}
                                         className="form-control" id="domain">
-                                    <option value="0">ViettelPay.vn</option>
-                                    <option value="1">Bảo Hiểm</option>
+                                    {/*<option value="0">ViettelPay.vn</option>*/}
+                                    {/*<option value="1">Bảo Hiểm</option>*/}
+                                    {
+                                        this.state.allDomains && this.state.allDomains.map((domain) => {
+                                            return (
+                                                <option value={domain.id}>{domain.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">

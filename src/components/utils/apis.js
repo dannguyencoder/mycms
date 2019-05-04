@@ -48,7 +48,7 @@ export function updatePost(postData) {
 }
 
 export function deletePost(postId) {
-    return axiosInstance.delete(`/deletePost/${postId}`);
+    return axiosInstance.delete(`/post/deletePost/${postId}`);
 }
 
 export function addCategory(categoryObject) {
@@ -88,4 +88,12 @@ export function updateCategory(categoryData) {
 
 export function deleteCategory(categoryId) {
     return axiosInstance.delete(`/category/deleteCategory/${categoryId}`);
+}
+
+export function getAllDomains() {
+    return axiosInstance.get(`/domain/getDomains`);
+}
+
+export function getAllLanguages() {
+    return axiosInstance.get(`/language/getLanguages`);
 }

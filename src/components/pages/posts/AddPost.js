@@ -12,7 +12,7 @@ class AddPost extends Component {
         super(props);
         this.state = {
             title: '',
-            categoryId: 0,
+            categoryId: 1,
             avatar: '',
             languageId: 1,
             postContent: '',
@@ -32,6 +32,8 @@ class AddPost extends Component {
 
     componentDidMount() {
         this.getAllCategories();
+        this.getAllLanguages();
+        this.getAllDomains();
     }
 
     getAllCategories() {
@@ -56,21 +58,65 @@ class AddPost extends Component {
 
     };
 
+    getAllDomains() {
+        apis.getAllDomains()
+            .then(response => {
+                console.log("domains-----------");
+                console.log(response);
+                const allDomains = response.data;
+                if (allDomains.length > 0) {
+                    this.setState({
+                        allDomains: allDomains,
+                        domainId: allDomains[0].id
+                    })
+                }
+            })
+            .catch(error => {
+                console.log("error getting domains----------");
+                console.log(error);
+                this.setState({
+                    allDomains: []
+                });
+            });
+    }
+
+    getAllLanguages() {
+        apis.getAllLanguages()
+            .then(response => {
+                console.log("languages------------");
+                console.log(response);
+                const allLanguages = response.data;
+                if (allLanguages.length > 0) {
+                    this.setState({
+                        allLanguages: allLanguages,
+                        languageId: allLanguages[0].id
+                    })
+                }
+            })
+            .catch(error => {
+                console.log("error getting languages------------");
+                console.log(error);
+                this.setState({
+                    allLanguages: []
+                });
+            });
+    }
+
     handleInputChange(event) {
         const target = event.target;
         console.log(target.checked);
         let value;
         if (target.type === 'checkbox') {
             if (target.checked) {
-                value = 0;
-            } else {
                 value = 1;
+            } else {
+                value = 0;
             }
         } else {
             value = target.value;
         }
         const name = target.name;
-
+    alert(name)
         this.setState({
             [name]: value
         });
@@ -98,6 +144,11 @@ class AddPost extends Component {
         const postData = this.state;
         postData.postContent = postData.outputHTML;
 
+        /*
+        * vinhnq21: màn add và edit chỉ khác nhau ở 2 chổ:
+        * 1. gọi api nào khi submit
+        * 2. có fetch item hiện tại không
+        * */
         apis.addPost(postData)
             .then(response => {
                 console.log("my response------------------");
@@ -135,7 +186,7 @@ class AddPost extends Component {
                                     {/*<option value="2">3</option>*/}
                                     {/*<option value="3">4</option>*/}
                                     {
-                                        this.state.allCategories.map(category => {
+                                        this.state.allCategories && this.state.allCategories.map(category => {
                                             return (
                                                 <option key={category.id} value={category.id}>{category.name}</option>
                                             );
@@ -153,8 +204,15 @@ class AddPost extends Component {
                                 <select name="languageId" value={this.state.languageId}
                                         onChange={this.handleInputChange}
                                         className="form-control" id="language">
-                                    <option value="0">Tiếng Việt</option>
-                                    <option value="1">English</option>
+                                    {/*<option value="0">Tiếng Việt</option>*/}
+                                    {/*<option value="1">English</option>*/}
+                                    {
+                                        this.state.allLanguages && this.state.allLanguages.map((language) => {
+                                            return (
+                                                <option value={language.id}>{language.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">
@@ -194,8 +252,15 @@ class AddPost extends Component {
                                 <label>Domain</label>
                                 <select name="domainId" value={this.state.domainId} onChange={this.handleInputChange}
                                         className="form-control" id="domain">
-                                    <option value="0">ViettelPay.vn</option>
-                                    <option value="1">Bảo Hiểm</option>
+                                    {/*<option value="0">ViettelPay.vn</option>*/}
+                                    {/*<option value="1">Bảo Hiểm</option>*/}
+                                    {
+                                        this.state.allDomains && this.state.allDomains.map((domain) => {
+                                            return (
+                                                <option value={domain.id}>{domain.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">

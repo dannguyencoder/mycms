@@ -14,15 +14,15 @@ class ImageUpload extends React.Component {
         this.handleUploadImage = this.handleUploadImage.bind(this);
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (prevState.avatar !== nextProps.initialImage) {
-            return {
-                ...prevState,
-                avatar: nextProps.initialImage
-            }
-        }
-        return prevState;
-    }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     if (prevState.avatar !== nextProps.initialImage) {
+    //         return {
+    //             ...prevState,
+    //             avatar: nextProps.initialImage
+    //         }
+    //     }
+    //     return prevState;
+    // }
 
     handleUploadImage(ev) {
         ev.preventDefault();

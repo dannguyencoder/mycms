@@ -8,6 +8,30 @@ import * as apis from '../../utils/apis';
 
 class EditCategory extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            parentId: 1,
+            friendlyUrl: '',
+            order: 0,
+            isActive: 1,
+            isVisible: 1,
+            metaKeywords: '',
+            metaDescription: '',
+            userId: 1,
+            template: 1,
+            languageId: 1,
+            domainId: 1
+        };
+
+
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleComponentChange = this.handleComponentChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
     fetchCurrentCategory() {
         const currentCategoryId = this.props.location.state.categoryId;
         console.log("current category id--------------");
@@ -36,31 +60,81 @@ class EditCategory extends Component {
     }
 
     componentDidMount() {
+        this.getAllCategories();
+        this.getAllDomains();
+        this.getAllLanguages();
+        /*
+        * vinhnq21: màn add và edit chỉ khác nhau ở 2 chổ:
+        * 1. gọi api nào khi submit
+        * 2. có fetch item hiện tại không
+        * */
         this.fetchCurrentCategory();
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            parentId: '',
-            friendlyUrl: '',
-            order: '',
-            isActive: '',
-            isVisible: '',
-            metaKeywords: '',
-            metaDescription: '',
-            userId: '',
-            template: '',
-            languageId: '',
-            domainId: ''
-        };
+    getAllCategories() {
+        apis.getAllCategories()
+            .then(response => {
+                const allCategories = response.data;
+                if (allCategories.length > 0) {
+                    this.setState({
+                        allCategories: allCategories,
+                        parentId: allCategories[0].id
+                    });
+                }
 
+            })
+            .catch((error) => {
+                console.log("error-------------");
+                console.log(error);
+                this.setState({
+                    allCategories: []
+                })
+            });
 
+    };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleComponentChange = this.handleComponentChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+    getAllDomains() {
+        apis.getAllDomains()
+            .then(response => {
+                console.log("domains-----------");
+                console.log(response);
+                const allDomains = response.data;
+                if (allDomains.length > 0) {
+                    this.setState({
+                        allDomains: allDomains,
+                        domainId: allDomains[0].id
+                    })
+                }
+            })
+            .catch(error => {
+                console.log("error getting domains----------");
+                console.log(error);
+                this.setState({
+                    allDomains: []
+                });
+            });
+    }
+
+    getAllLanguages() {
+        apis.getAllLanguages()
+            .then(response => {
+                console.log("languages------------");
+                console.log(response);
+                const allLanguages = response.data;
+                if (allLanguages.length > 0) {
+                    this.setState({
+                        allLanguages: allLanguages,
+                        languageId: allLanguages[0].id
+                    })
+                }
+            })
+            .catch(error => {
+                console.log("error getting languages------------");
+                console.log(error);
+                this.setState({
+                    allLanguages: []
+                });
+            });
     }
 
     handleInputChange(event) {
@@ -69,9 +143,9 @@ class EditCategory extends Component {
         let value;
         if (target.type === 'checkbox') {
             if (target.checked) {
-                value = 0;
-            } else {
                 value = 1;
+            } else {
+                value = 0;
             }
         } else {
             value = target.value;
@@ -81,8 +155,10 @@ class EditCategory extends Component {
         this.setState({
             [name]: value
         });
-        console.log("current state");
-        console.log(this.state);
+        setTimeout(() => {
+            console.log("current state");
+            console.log(this.state);
+        }, 2000);
     }
 
     handleComponentChange(componentData) {
@@ -104,6 +180,15 @@ class EditCategory extends Component {
         console.log("submit data-----------");
         console.log(this.state);
 
+        delete categoryData.allDomains;
+        delete categoryData.allLanguages;
+        delete categoryData.allCategories;
+
+        /*
+        * vinhnq21: màn add và edit chỉ khác nhau ở 2 chổ:
+        * 1. gọi api nào khi submit
+        * 2. có fetch item hiện tại không
+        * */
         apis.updateCategory(categoryData)
             .then(response => {
                 console.log("my response------------------");
@@ -135,10 +220,17 @@ class EditCategory extends Component {
                                 <label>Parent Category</label>
                                 <select name="parentId" value={this.state.parentId} onChange={this.handleInputChange}
                                         className="form-control" id="parentCategory">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    {/*<option value="0">0</option>*/}
+                                    {/*<option value="1">1</option>*/}
+                                    {/*<option value="2">2</option>*/}
+                                    {/*<option value="3">3</option>*/}
+                                    {
+                                        this.state.allCategories && this.state.allCategories.map(category => {
+                                            return (
+                                                <option key={category.id} value={category.id}>{category.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">
@@ -168,14 +260,14 @@ class EditCategory extends Component {
                             {/*</div>*/}
                             <div className="checkbox">
                                 <label>
-                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange}
-                                           type="checkbox" defaultChecked/> <b>isActive</b>
+                                    <input name="isActive" value={this.state.isActive} checked={this.state.isActive === 1} onChange={this.handleInputChange}
+                                           type="checkbox"/> <b>isActive</b>
                                 </label>
                             </div>
                             <div className="checkbox">
                                 <label>
-                                    <input name="isVisible" value={this.state.isVisible}
-                                           onChange={this.handleInputChange} type="checkbox" defaultChecked/>
+                                    <input name="isVisible" value={this.state.isVisible} checked={this.state.isVisible === 1}
+                                           onChange={this.handleInputChange} type="checkbox"/>
                                     <b>isVisible</b>
                                 </label>
                             </div>
@@ -212,16 +304,28 @@ class EditCategory extends Component {
                                 <label>Language</label>
                                 <select name="languageId" value={this.state.languageId} onChange={this.handleInputChange}
                                         className="form-control" id="language">
-                                    <option value="0">Tiếng Việt</option>
-                                    <option value="1">English</option>
+                                    {/*<option value="0">Tiếng Việt</option>*/}
+                                    {/*<option value="1">English</option>*/}
+                                    {
+                                        this.state.allLanguages && this.state.allLanguages.map((language) => {
+                                            return (
+                                                <option key={language.id} value={language.id}>{language.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <div className="form-group">
                                 <label>Domain</label>
                                 <select name="domainId" value={this.state.domainId} onChange={this.handleInputChange}
                                         className="form-control" id="domain">
-                                    <option value="0">ViettelPay.vn</option>
-                                    <option value="1">Bảo Hiểm</option>
+                                    {
+                                        this.state.allDomains && this.state.allDomains.map((domain) => {
+                                            return (
+                                                <option key={domain.id} value={domain.id}>{domain.name}</option>
+                                            );
+                                        })
+                                    }
                                 </select>
                             </div>
                             <input type="submit" className="btn btn-default" value="Submit"/>

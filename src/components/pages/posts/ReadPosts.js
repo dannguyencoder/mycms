@@ -43,18 +43,11 @@ class ReadPosts extends Component {
             .then((response) => {
                 console.log("Deleted post----------------");
                 console.log(response);
-                this.setState((prevState) => {
-                    return {
-                        deletedPost: response.data
-                    }
-                })
+                this.getAllPosts();
             })
             .catch((error) => {
                 console.log("Error-----------------------");
                 console.log(error);
-                this.setState((prevState) => {
-                    return {error};
-                })
             })
     };
 
@@ -108,7 +101,7 @@ class ReadPosts extends Component {
                                                         postId: post.id
                                                     }
                                                 }}>Edit</Link>
-                                                <Link className="btn btn-danger" to="#">Delete</Link></td>
+                                                <Link className="btn btn-danger" to="#" onClick={() => this.deletePost(post.id)}>Delete</Link></td>
                                         </tr>
                                     )
                                 })

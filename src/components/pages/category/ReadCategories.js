@@ -94,7 +94,7 @@ class ReadCategories extends Component {
                                     <tr key={category.id}>
                                         <td>{category.name}</td>
                                         <td>{category.friendlyUrl}</td>
-                                        <td>{category.isActive}</td>
+                                        <td>{category.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
                                         <td><Link
                                             className="btn btn-default"
                                             to={{
