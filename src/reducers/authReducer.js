@@ -3,12 +3,12 @@ export default (state = {}, action) => {
         case 'LOGIN':
             return {
                 ...state,
-                token: action.token
+                loginData: action.loginData
             };
         case 'LOGOUT':
             return {
                 ...state,
-                error: action.error
+                errorInfo: action.errorInfo
             };
         default:
             return state;

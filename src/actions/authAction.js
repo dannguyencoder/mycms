@@ -11,7 +11,7 @@ export const startLogin = (loginData) => {
         // return  => call api login and then, catch => dispatch action on state of store => set token state on reducer
         return apis.login(loginData)
             .then((response) => {
-                dispatch(login(loginData));
+                dispatch(login(response.data));
             })
             .catch((error) => {
                 dispatch(showError());
@@ -25,7 +25,7 @@ export const logout = () => ({
 
 export const startLogout = () => {
     return (dispatch) => {
-        // return  => call api logout and then, catch => dispatch action on state of store
+        // return  => call api logout and then, catch => dispatch action on state of store => delete token state on reducer
         return apis.logout()
             .then((response) => {
                 dispatch(logout());
