@@ -99,6 +99,6 @@ export function updateCategory(categoryData) {
 export function deleteCategory(categoryId) {
     return axiosInstance.delete(`/category/deleteCategory/${categoryId}`);
 }
-export function updateUser(formData){
-    return axiosInstance.patch('/updateUser/:',formData)
+export function updateUser(formData) {
+    return axiosInstance.patch(`/user/updateUser/1`, formData)
 }

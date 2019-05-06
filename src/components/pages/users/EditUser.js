@@ -2,9 +2,10 @@
 import React, { Component } from 'react';
 import DropDown from '../../partials/user-component/dropdown_simple';
 import { validateEmail } from '../../utils/validateForm';
+import ImageUpload from "../../utils/ImageUpload";
 import * as apis from '../../utils/apis'
 
-import ComponentUpload from '../../partials/upload-image-partial/component-upload';
+// import ComponentUpload from '../../partials/upload-image-partial/component-upload';
 
 class EditUser extends Component {
 
@@ -26,6 +27,7 @@ class EditUser extends Component {
 
         this.submit = this.submit.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleComponentChange = this.handleComponentChange.bind(this)
     }
 
     validateForm = () => {
@@ -79,13 +81,14 @@ class EditUser extends Component {
     submit = (event) => {
         if (this.validateForm()) {
             //get formDAta from state=> send apis =>update
-            const formData = new FormData()
-            formData.append('email', this.state.email)
-            formData.append('avarta', this.state.avarta)
-            formData.append('active', this.state.isActive)
-            formData.append('roleId', this.state.role)
-            formData.append('userId',this.state.user.id)
-            apis.updateUser(formData).then(result => { }).catch(error => { })
+            const formData = this.state
+            return apis.updateUser(formData).then(result => {
+                alert('Cap nhat thanh cong')
+                window.location.href = '/admin/users/readUsers'
+            }).catch(error => {
+
+                console.log(error)
+            })
         } else {
             alert('form is not illegal ')
         }
@@ -107,8 +110,11 @@ class EditUser extends Component {
         this.setState({
             [name]: value
         });
-
-        setTimeout(() => { console.log(this.state) }, 2000)
+        console.log(this.state)
+    }
+    
+    handleComponentChange(componentData) {
+        this.setState({...this.state, ...componentData});
     }
 
     getUserInformation = () => {
@@ -168,14 +174,16 @@ class EditUser extends Component {
                                     <label>Email: </label></div>
                                 <div className="col-md-10">
                                     <input type="text" className="form-control" placeholder="Email"
-                                        id="email" name="email" defaultValue={this.state.user.email} />
+                                        id="email" name="email" defaultValue={this.state.user.email}
+                                         onChange={this.handleInputChange} />
                                 </div>
                             </div>
                             <div className="form-group col-md-12">
                                 <div className="col-md-2">
                                     <label>Avatar: </label></div>
                                 <div className="col-md-10">
-                                    <ComponentUpload avarta={this.state.user.avarta} />
+                                    {/* <ComponentUpload avarta={this.state.user.avarta} onChange={this.handleInputChange} handleInputChange= {this.handleInputChange}  /> */}
+                                    <ImageUpload changeHandler={this.handleComponentChange}/>
                                 </div>
                             </div>
                             <div className="form-group col-md-12">

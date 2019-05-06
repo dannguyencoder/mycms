@@ -7,7 +7,8 @@ class ReadUsers extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: []
+            users: [],
+            user_id: -1
         }
     }
     //Lay tat ca User duoc phep xem, them, sua, xoa tu User nay
@@ -16,9 +17,11 @@ class ReadUsers extends Component {
         const cookies = new Cookies()
         const userId = cookies.get('user_id')
         if (userId != undefined) {
-            formData.append('user_id', userId)
+            this.setState({ user_id: userId })
+            const formData = this.state
             return apis.getUsersByAdminId(formData)
-                .then(response => { 
+                .then(response => {
+                    console.log(response)
                     this.setState({
                         users: response.data
                     })
@@ -26,8 +29,9 @@ class ReadUsers extends Component {
                 .catch(error => {
                     console.log(error)
                 })
-        }else{
-            console.log('You must login to continue!')
+        } else {
+            alert('You must login to continue!')
+            window.location.href = '/login'
         }
     }
     componentDidMount() {
@@ -66,7 +70,7 @@ class ReadUsers extends Component {
                                     return (
                                         <tr key={Math.random}>
                                             <td>{user.email}</td>
-                                            <td>mjohnson@gmail.com</td>
+                                            <td>{user.Role.name}</td>
                                             <td>{user.createdAt}</td>
                                             <td>{user.isActive === 1 ? <input type="checkbox" checked disabled /> : <input type="checkbox" disabled />}</td>
                                             <td>{user.isAdmin === 1 ? <input type="checkbox" checked disabled /> : <input type="checkbox" disabled />}</td>

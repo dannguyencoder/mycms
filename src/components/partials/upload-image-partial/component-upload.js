@@ -12,7 +12,7 @@ export default class ComponentUpload extends Component {
     super(props);
     this.state = {
       // uploading: false,
-      images: ''
+      images: [{ public_id: '', src:'' }]
     };
 
     this.onChange = this.onChange.bind(this);
@@ -24,7 +24,7 @@ export default class ComponentUpload extends Component {
       const lstImage = []
       response.data.images.map((image, i) => {
         const imageObj = {}
-        imageObj.src = 'http://localhost:3001/images/' + image
+        imageObj.src = 'http://localhost:3002/images/' + image
         imageObj.public_id = 'id_' + i
         lstImage[i] = imageObj
       })
@@ -79,23 +79,18 @@ export default class ComponentUpload extends Component {
   }
 
   render() {
+    
     const { uploading, images } = this.state
 
     const content = () => {
-      switch (true) {
-        // case uploading:
-        //   return <Spinner />
-        case this.state.images.length > 0:
-          return <Images images={this.state.images} removeImage={this.removeImage} />
-        default:
-          return <Buttons onChange={this.onChange} />
-      }
+      return <Images images={this.state.images} removeImage={this.removeImage} handleInputChange={this.props.handleInputChange} onChangeBtn={this.onChange} />
+
     }
 
     return (
       <div>
         <div className='buttons'>
-          {content()}
+
         </div>
       </div >
     )

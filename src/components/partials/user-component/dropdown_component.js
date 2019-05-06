@@ -3,19 +3,14 @@ import React from "react";
 class DropDown extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
   }
 
   onChangeDropdown = e => {
-    console.log(e.target.value);
     this.props.callbackFn(e.target.value);
   };
   
   render() {
     const makeDropDown = () => {
-      this.props.data.map(x => {
-        console.log(x.id)
-      })
       
       return this.props.data.map(x => {
         return (
