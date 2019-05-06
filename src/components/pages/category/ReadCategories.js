@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import * as apis from '../../utils/apis';
+import * as apis from '../../../apis/apis';
 
 class ReadCategories extends Component {
 

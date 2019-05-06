@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 import DropDown from '../../partials/user-component/dropdown_component'
 
-import { validateEmail } from '../../utils/validateForm';
+import { validateEmail } from '../../elements/validateForm';
 class Login extends Component {
     constructor(props) {
         super(props);

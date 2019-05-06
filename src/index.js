@@ -1,5 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Index from './components/pages/Index';
+import { Provider} from 'react-redux';
+import { createStore } from 'redux';
 
-ReactDOM.render(<Index/>, document.querySelector('#root'));
+import Index from './components/pages/Index';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Index/>
+    </Provider>,
+    document.querySelector('#root'));

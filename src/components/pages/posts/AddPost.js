@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import TextEditor from "../../utils/TextEditor";
-import ImageUpload from "../../utils/ImageUpload";
+import TextEditor from "../../elements/TextEditor";
+import ImageUpload from "../../elements/ImageUpload";
 import axios from 'axios';
 
-import * as apis from '../../utils/apis';
+import * as apis from '../../../apis/apis';
 
 
 class AddPost extends Component {

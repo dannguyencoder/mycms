@@ -2,7 +2,7 @@ import 'braft-editor/dist/index.css'
 import React from 'react'
 import BraftEditor from 'braft-editor'
 
-import * as apis from './apis.js';
+import * as apis from '../../apis/apis.js';
 
 const mediaItems = apis.getAllImages();
 const myUploadFn = (param) => {

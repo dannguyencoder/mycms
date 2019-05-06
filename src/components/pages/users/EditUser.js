@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import DropDown from '../../partials/user-component/dropdown_simple';
-import { validateEmail } from '../../utils/validateForm';
+import { validateEmail } from '../../elements/validateForm';
 
 import ComponentUpload from '../../partials/upload-image-partial/component-upload';
 

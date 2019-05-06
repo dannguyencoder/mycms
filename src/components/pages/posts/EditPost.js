@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import TextEditor from "../../utils/TextEditor";
-import ImageUpload from "../../utils/ImageUpload";
-import * as apis from "../../utils/apis";
+import TextEditor from "../../elements/TextEditor";
+import ImageUpload from "../../elements/ImageUpload";
+import * as apis from "../../../apis/apis";
 
 class EditPost extends Component {
 
