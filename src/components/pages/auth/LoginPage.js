@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startLogin } from '../../../actions/auth';
+import { startLogin } from '../../../actions/authAction';
 
 export const LoginPage = ({ startLogin }) => (
     <div className="box-layout">
@@ -12,8 +12,12 @@ export const LoginPage = ({ startLogin }) => (
     </div>
 );
 
+const mapStateToProps = (state, ownProps) => ({
+    token: state.token
+});
+
 const mapDispatchToProps = (dispatch) => ({
     startLogin: () => dispatch(startLogin())
 });
 
-export default connect(undefined, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

@@ -1,4 +1,6 @@
-export const showError = (error) => ({
-    type: 'ADD_POST',
-    error: error
+import * as apis from '../apis/apis';
+
+export const showError = (errorInfo) => ({
+    type: 'ERROR',
+    error: errorInfo
 });

@@ -90,8 +90,12 @@ export function getRoles(userId) {
 
 }
 
-export function login(formData) {
-    return axiosInstance.post('/user/login', formData);
+export function login(loginData) {
+    return axiosInstance.post('/user/login', loginData);
+}
+
+export function logout() {
+    return axiosInstance.post('/user/logout');
 }
 
 export function getDomain(formData) {

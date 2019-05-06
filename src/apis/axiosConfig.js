@@ -16,7 +16,7 @@ export const globalAxiosConfig = {
     // `baseURL` will be prepended to `url` unless `url` is absolute.
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
-    baseURL: 'http://localhost:3002/',
+    baseURL: 'http://localhost:3001/',
 
     // `transformRequest` allows changes to the request data before it is sent to the server
     // This is only applicable for request methods 'PUT', 'POST', and 'PATCH'

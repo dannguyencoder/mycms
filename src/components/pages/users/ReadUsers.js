@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import * as apis from '../../utils/apis';
+import * as apis from '../../../apis/apis'
 
 class ReadUsers extends Component {
     constructor(props) {

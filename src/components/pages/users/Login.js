@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 import DropDown from '../../partials/user-component/dropdown_component'
-import * as apis from '../../utils/apis'
-import { validateEmail } from '../../utils/validateForm';
+import * as apis from '../../../apis/apis'
+import { validateEmail } from '../../../utils/validateForm';
+
 class Login extends Component {
     constructor(props) {
         super(props);
