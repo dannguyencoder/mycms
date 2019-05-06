@@ -2,7 +2,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import http from 'http';
 import https from 'https';
-import {globalAxiosConfig} from './axiosConfig'
+import { globalAxiosConfig } from './axiosConfig'
 
 const axiosInstance = axios.create(globalAxiosConfig);
 
@@ -82,12 +82,41 @@ export function getSingleCategory(categoryId) {
     return axiosInstance.get(`/category/getCategory/${categoryId}`);
 }
 
+
+export function getRoles(userId) {
+    var data = new FormData()
+    data.append('user_id', '1')
+    return axiosInstance.post('/user/getRoles', data);
+
+}
+
+export function login(formData) {
+    return axiosInstance.post('/user/login', formData);
+}
+
+export function getDomain(formData) {
+    return axiosInstance.post('/domain/getDomains', formData)
+}
+export function getUsersByAdminId(formData) {
+    return axiosInstance.get('/user/getUsers', formData)
+}
+
+export function getUserInformation(id) {
+    return axiosInstance.get('/user/getUser/' + id)
+}
+
+export async function getDataImage(data) {
+    return axiosInstance.post('/utils/image-upload', data)
+}
 export function updateCategory(categoryData) {
     return axiosInstance.patch(`/category/updateCategory/${categoryData.id}`, categoryData);
 }
 
 export function deleteCategory(categoryId) {
     return axiosInstance.delete(`/category/deleteCategory/${categoryId}`);
+}
+export function updateUser(formData) {
+    return axiosInstance.patch(`/user/updateUser/1`, formData)
 }
 
 export function getAllDomains() {

@@ -63,7 +63,6 @@ export const routes = [
     {
         path: "/domain/addDomain",
         component: AddDomain
-
     }
     // {
     //     path: "/users",

@@ -29,21 +29,17 @@ class ImageUpload extends React.Component {
 
         const data = new FormData();
         data.append('file', this.uploadInput.files[0]);
-        // data.append('filename', this.uploadInput.files[0].name);
-        // console.log("file--------------------");
-        // console.log(this.uploadInput.files[0]);
-        // console.log("data--------------------");
-        // console.log(data);
+        
 
-        fetch('http://localhost:3001/images/upload', {
+        fetch('http://localhost:3002/images/upload', {
             method: 'POST',
             body: data,
         }).then((response) => {
             response.json().then((body) => {
                 console.log(body);
-                this.setState({avatar: `http://localhost:3001/${body.file}`});
+                this.setState({avatar: `http://localhost:3002/${body.file}`});
                 console.log(this.state);
-                this.props.changeHandler({avatar: `http://localhost:3001/${body.file}`});
+                this.props.changeHandler({avatar: `http://localhost:3002/${body.file}`});
             });
         });
     }

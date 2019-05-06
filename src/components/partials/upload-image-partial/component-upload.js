@@ -2,28 +2,45 @@ import React, { Component } from 'react'
 // import Spinner from './Spinner'
 import Images from './Images'
 import Buttons from './Buttons'
+import * as apis from '../../utils/apis'
 
 // import { API_URL } from '../../../config'
 // import './App.css'
-const fetch = require("node-fetch")
 
 export default class ComponentUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // uploading: false,
-      images: ''
+      images: [{ public_id: '', src:'' }]
     };
 
     this.onChange = this.onChange.bind(this);
-  }
+    this.getDataImage = this.getDataImage.bind(this);
 
+  }
+  getDataImage = async (data) => {
+    return await apis.getDataImage(data).then(response => {
+      const lstImage = []
+      response.data.images.map((image, i) => {
+        const imageObj = {}
+        imageObj.src = 'http://localhost:3002/images/' + image
+        imageObj.public_id = 'id_' + i
+        lstImage[i] = imageObj
+      })
+      this.setState({
+        images: lstImage
+      })
+    }).catch(error => {
+      console.log(error);
+    })
+  }
 
   onChange = e => {
     const files = Array.from(e.target.files)
     if (files.length > 3) {
       const msg = 'Only 3 images can be uploaded at a time'
-      console.log(msg)
+      alert(msg)
       return false;
     }
 
@@ -32,11 +49,11 @@ export default class ComponentUpload extends Component {
 
       // #2 Catching wrong file types on the client
       if (types.every(type => file.type !== type)) {
-        console.log('file type is illegal ')
+        alert('file type is illegal ')
         return false
       }
       if (file.size > 150000) {
-        console.log('file size is too large')
+        alert('file size is too large')
         return false
       }
 
@@ -48,33 +65,12 @@ export default class ComponentUpload extends Component {
       data.append('file', file)
     })
     data.append('category', 'User')
-    const url = "http://localhost:3002/image/image-upload";
-    const getData = async url => {
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          body: data,
 
-        });
-        const json = await response.json();
-        const lstImage = []
-        json.images.map((image, i) => {
-          const imageObj = {}
-          imageObj.src = 'http://localhost:3002/images/' + image
-          imageObj.public_id = 'id_' + i
-          lstImage[i] = imageObj
-        })
-        this.setState({
-          images: lstImage
-        })
-        console.log(this.state.images)
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData(url);
 
+    this.getDataImage(data);
   }
+
+
 
   removeImage = id => {
     this.setState({
@@ -83,23 +79,18 @@ export default class ComponentUpload extends Component {
   }
 
   render() {
+    
     const { uploading, images } = this.state
 
     const content = () => {
-      switch (true) {
-        // case uploading:
-        //   return <Spinner />
-        case this.state.images.length > 0:
-          return <Images images={this.state.images} removeImage={this.removeImage} />
-        default:
-          return <Buttons onChange={this.onChange} />
-      }
+      return <Images images={this.state.images} removeImage={this.removeImage} handleInputChange={this.props.handleInputChange} onChangeBtn={this.onChange} />
+
     }
 
     return (
       <div>
         <div className='buttons'>
-          {content()}
+
         </div>
       </div >
     )
