@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
 import DomainForm from './DomainForm';
 import * as apis from "../../../apis/apis";
 
-class AddDomain extends React.Component {
+class EditDomain extends Component {
 
     constructor(props) {
         super(props);
-
+        const currentDomainId = this.props.location.state.domainId;
+        console.log("current domain id: ");
+        console.log(this.props);
+        this.state = {
+            domainId: currentDomainId
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(domainData) {
-        apis.addDomain(domainData)
+        apis.updateDomain(domainData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
@@ -27,9 +32,9 @@ class AddDomain extends React.Component {
 
     render() {
         return (
-            <DomainForm isAdd={true} onSubmit={this.handleSubmit} />
+            <DomainForm isEdit={true} domainId={this.state.domainId} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default AddDomain;
+export default EditDomain;

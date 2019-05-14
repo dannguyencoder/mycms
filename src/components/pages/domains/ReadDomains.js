@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom';
 
 import * as apis from "../../../apis/apis";
 
-class ReadUsers extends Component {
+class ReadDomains extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            allUsers: []
+            allDomains: []
         }
     }
 
-    deleteUser(userId) {
-        apis.deleteUser(userId)
+    deleteDomain(domainId) {
+        apis.deleteDomain(domainId)
             .then(response => {
                 console.log(response);
-                this.getAllUsers();
+                this.getAllDomains();
             })
             .catch(error => {
                 console.log(error)
             });
     }
 
-    getAllUsers() {
+    getAllDomains() {
         // const getDataCategories = async () => {
         //    try {
         //        const response = await apis.getAllCategories();
@@ -43,74 +43,70 @@ class ReadUsers extends Component {
         //
         // getDataCategories();
 
-        apis.getAllUsers()
+        apis.getAllDomains()
             .then(response => {
                 this.setState({
-                    allUsers: response.data
+                    allDomains: response.data
                 });
             })
             .catch((error) => {
                 console.log("error-------------")
                 console.log(error);
                 this.setState({
-                    allUsers: []
+                    allDomains: []
                 })
             });
 
     };
 
     componentDidMount() {
-        this.getAllUsers();
+        this.getAllDomains();
     }
 
     render() {
         return (
             <div className="panel panel-default">
                 <div className="panel-heading main-color-bg">
-                    <h3 className="panel-title">Users</h3>
+                    <h3 className="panel-title">Domains</h3>
                 </div>
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-md-12">
                             <input className="form-control" type="text"
-                                   placeholder="Filter Users..."/>
+                                   placeholder="Filter Domains..."/>
                         </div>
                     </div>
                     <br/>
                     <table className="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>Name</th>
+                            <th>URL</th>
                             <th>isActive</th>
-                            <th>isAdmin</th>
+                            <th>isVisible</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
 
                         {
-                            this.state.allUsers.map(user => {
+                            this.state.allDomains.map(domain => {
                                 return (
-                                    <tr key={user.id}>
-                                        <td>{user.username}</td>
-                                        <td>{user.password}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.role}</td>
-                                        <td>{user.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
-                                        <td>{user.isAdmin === 1 ? "Là Admin" : "Không là Admin"}</td>
+                                    <tr key={domain.id}>
+                                        <td>{domain.name}</td>
+                                        <td>{domain.url}</td>
+                                        <td>{domain.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
+                                        <td>{domain.isVisible === 1 ? "Hiển thị" : "Không hiển thị"}</td>
                                         <td><Link
                                             className="btn btn-default"
                                             to={{
-                                                pathname: "/admin/users/editUser",
+                                                pathname: "/admin/domains/editDomain",
                                                 state: {
-                                                    userId: user.id
+                                                    domainId: domain.id
                                                 }
                                             }}>Edit</Link>
                                             <Link
-                                                className="btn btn-danger" to="#" onClick={() => this.deleteUser(user.id)}>Delete</Link></td>
+                                                className="btn btn-danger" to="#" onClick={() => this.deleteDomain(domain.id)}>Delete</Link></td>
                                     </tr>
                                 );
                             })
@@ -124,4 +120,4 @@ class ReadUsers extends Component {
     }
 }
 
-export default ReadUsers;
+export default ReadDomains;

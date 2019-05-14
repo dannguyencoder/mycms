@@ -4,13 +4,13 @@ export default (state = {}, action) => {
             return {
                 ...state,
                 isLoggedIn: true,
-                loginData: action.loginData
+                token: action.token
             };
         case 'LOGOUT':
             return {
                 ...state,
                 isLoggedIn: false,
-                loginData: null
+                token: null
             };
         default:
             return state;

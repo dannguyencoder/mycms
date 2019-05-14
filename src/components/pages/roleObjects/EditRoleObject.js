@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
-import UserForm from './UserForm';
+import RoleObjectForm from './RoleObjectForm';
 import * as apis from "../../../apis/apis";
 
-class EditUser extends Component {
+class EditRoleObject extends Component {
 
     constructor(props) {
         super(props);
-        const currentUserId = this.props.location.state.userId;
-        console.log("current user id: ");
+        const currentRoleObjectId = this.props.location.state.roleObjectId;
+        console.log("current role-object id: ");
         console.log(this.props);
         this.state = {
-            userId: currentUserId
+            roleObjectId: currentRoleObjectId
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(userData) {
-        apis.updateUser(userData)
+    handleSubmit(roleObjectData) {
+        apis.updateRoleObject(roleObjectData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/users/readUsers")
+                this.props.history.push("/admin/roleObjects/readRoleObjects")
             })
             .catch(error => {
                 console.log("my error----------------------");
@@ -32,9 +32,9 @@ class EditUser extends Component {
 
     render() {
         return (
-            <UserForm isEdit={true} userId={this.state.userId} onSubmit={this.handleSubmit} />
+            <RoleObjectForm isEdit={true} roleObjectId={this.state.roleObjectId} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default EditUser;
+export default EditRoleObject;

@@ -1,8 +1,8 @@
 import React from 'react';
-import UserForm from './UserForm';
+import ObjectForm from './ObjectForm';
 import * as apis from "../../../apis/apis";
 
-class AddUser extends React.Component {
+class AddObject extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,12 +10,12 @@ class AddUser extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(userData) {
-        apis.addUser(userData)
+    handleSubmit(objectData) {
+        apis.addObject(objectData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/users/readUsers")
+                this.props.history.push("/admin/objects/readObjects")
             })
             .catch(error => {
                 console.log("my error----------------------");
@@ -27,9 +27,9 @@ class AddUser extends React.Component {
 
     render() {
         return (
-            <UserForm isAdd={true} onSubmit={this.handleSubmit} />
+            <ObjectForm isAdd={true} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default AddUser;
+export default AddObject;

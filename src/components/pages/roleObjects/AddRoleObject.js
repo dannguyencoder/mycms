@@ -1,8 +1,8 @@
 import React from 'react';
-import UserForm from './UserForm';
+import RoleObjectForm from './RoleObjectForm';
 import * as apis from "../../../apis/apis";
 
-class AddUser extends React.Component {
+class AddRoleObject extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,12 +10,12 @@ class AddUser extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(userData) {
-        apis.addUser(userData)
+    handleSubmit(roleObjectData) {
+        apis.addRoleObject(roleObjectData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/users/readUsers")
+                this.props.history.push("/admin/roleObjects/readRoleObjects")
             })
             .catch(error => {
                 console.log("my error----------------------");
@@ -27,9 +27,9 @@ class AddUser extends React.Component {
 
     render() {
         return (
-            <UserForm isAdd={true} onSubmit={this.handleSubmit} />
+            <RoleObjectForm isAdd={true} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default AddUser;
+export default AddRoleObject;

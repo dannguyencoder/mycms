@@ -57,6 +57,11 @@ class AdminHeader extends Component {
                                         <li><Link to="/admin/posts/addPost">Add Post</Link></li>
                                         <li><Link to="/admin/users/addUser">Add User</Link></li>
                                         <li><Link to="/admin/category/addCategory">Add Category</Link></li>
+                                        <li><Link to="/admin/domains/addDomain">Add Domain</Link></li>
+                                        <li><Link to="/admin/languages/addLanguage">Add Language</Link></li>
+                                        <li><Link to="/admin/objects/addObject">Add Object</Link></li>
+                                        <li><Link to="/admin/roles/addRole">Add Role</Link></li>
+                                        <li><Link to="/admin/roleObjects/addRoleObject">Add Role-Object</Link></li>
                                     </ul>
                                 </div>
                             </div>

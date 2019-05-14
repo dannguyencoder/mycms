@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
-import UserForm from './UserForm';
+import ObjectForm from './ObjectForm';
 import * as apis from "../../../apis/apis";
 
-class EditUser extends Component {
+class EditObject extends Component {
 
     constructor(props) {
         super(props);
-        const currentUserId = this.props.location.state.userId;
-        console.log("current user id: ");
+        const currentObjectId = this.props.location.state.objectId;
+        console.log("current object id: ");
         console.log(this.props);
         this.state = {
-            userId: currentUserId
+            objectId: currentObjectId
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(userData) {
-        apis.updateUser(userData)
+    handleSubmit(objectData) {
+        apis.updateObject(objectData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/users/readUsers")
+                this.props.history.push("/admin/objects/readObjects")
             })
             .catch(error => {
                 console.log("my error----------------------");
@@ -32,9 +32,9 @@ class EditUser extends Component {
 
     render() {
         return (
-            <UserForm isEdit={true} userId={this.state.userId} onSubmit={this.handleSubmit} />
+            <ObjectForm isEdit={true} objectId={this.state.objectId} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default EditUser;
+export default EditObject;

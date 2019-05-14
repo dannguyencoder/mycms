@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/ImageUploadPreview.css';
 
 class ImageUpload extends React.Component {
     constructor(props) {

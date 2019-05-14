@@ -1,8 +1,8 @@
 import React from 'react';
-import UserForm from './UserForm';
+import LanguageForm from './LanguageForm';
 import * as apis from "../../../apis/apis";
 
-class AddUser extends React.Component {
+class AddLanguage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,12 +10,12 @@ class AddUser extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(userData) {
-        apis.addUser(userData)
+    handleSubmit(languageData) {
+        apis.addLanguage(languageData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/users/readUsers")
+                this.props.history.push("/admin/languages/readLanguages")
             })
             .catch(error => {
                 console.log("my error----------------------");
@@ -27,9 +27,9 @@ class AddUser extends React.Component {
 
     render() {
         return (
-            <UserForm isAdd={true} onSubmit={this.handleSubmit} />
+            <LanguageForm isAdd={true} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default AddUser;
+export default AddLanguage;

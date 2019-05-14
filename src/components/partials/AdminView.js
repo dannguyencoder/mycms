@@ -3,7 +3,7 @@ import SideNav from '../partials/SideNav'
 
 
 //Routes
-import { routes } from '../../routes/routes';
+import { adminRoutes } from '../../routes/adminRoutes';
 import RouteWithSubRoutes from '../../routes/RouteWithSubRoutes';
 class AdminView extends Component {
     render() {
@@ -19,7 +19,7 @@ class AdminView extends Component {
 
                         <div className="col-md-9">
 
-                        {routes.map(function (route, i) {
+                        {adminRoutes.map(function (route, i) {
                                 return <RouteWithSubRoutes key={i} {...route} />;
                             })}
 

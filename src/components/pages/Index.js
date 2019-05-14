@@ -1,39 +1,33 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
 import { BrowserRouter as Router } from 'react-router-dom';
+import {Route} from 'react-router-dom';
+
 //Partials
 import Header from '../partials/Header'
 import Footer from '../partials/Footer'
 
 import Modal from '../partials/Modal'
 import AdminView from '../partials/AdminView';
-import Login from '../pages/users/Login'
+import Login from '../pages/auth/Login';
 
-
-//Home
-//Users
+// styles
+import '../../styles/styles.scss'
 
 
 class Index extends Component {
+
     constructor(props) {
         super(props);
-        this.state = {
-            login: false
-        };
         // this.handleInputChange = this.handleInputChange.bind(this);
-    }
-    componentWillMount() {
-        //if pathName = '/login' => get View not sideBar
-        const pathName = window.location.pathname
-        if (pathName === '/login') {
-            this.setState({ login: true })
-        }
     }
 
     render() {
         return (
             <Router>
                 <Header />
-                {this.state.login === false ? <AdminView /> : <Login />}
+                <AdminView />
                 <Modal />
                 <Footer />
             </Router>
@@ -41,4 +35,11 @@ class Index extends Component {
     }
 }
 
-export default Index;
+const mapStateToProps = (state, ownProps) => ({
+    isLoggedIn: state.isLoggedIn
+});
+
+export default connect(mapStateToProps)(Index);
+
+
+

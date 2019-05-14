@@ -18,6 +18,22 @@ class AdminSideNav extends Component {
                     <Link to="/admin/category/readCategories" className="list-group-item"><span
                         className="glyphicon glyphicon-user" aria-hidden="true"></span> Categories <span
                         className="badge">203</span></Link>
+                    <Link to="/admin/domains/readDomains" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Domains <span
+                        className="badge">203</span></Link>
+                    <Link to="/admin/languages/readLanguages" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Languages <span
+                        className="badge">203</span></Link>
+                    <Link to="/admin/objects/readObjects" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Objects <span
+                        className="badge">203</span></Link>
+                    <Link to="/admin/roles/readRoles" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Roles <span
+                        className="badge">203</span></Link>
+                    <Link to="/admin/roleObjects/readRoleObjects" className="list-group-item"><span
+                        className="glyphicon glyphicon-user" aria-hidden="true"></span> Role Objects <span
+                        className="badge">203</span></Link>
+
                 </div>
 
                 <div className="well">

@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom';
 
 import * as apis from "../../../apis/apis";
 
-class ReadUsers extends Component {
+class ReadObjects extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            allUsers: []
+            allObjects: []
         }
     }
 
-    deleteUser(userId) {
-        apis.deleteUser(userId)
+    deleteObject(objectId) {
+        apis.deleteObject(objectId)
             .then(response => {
                 console.log(response);
-                this.getAllUsers();
+                this.getAllObjects();
             })
             .catch(error => {
                 console.log(error)
             });
     }
 
-    getAllUsers() {
+    getAllObjects() {
         // const getDataCategories = async () => {
         //    try {
         //        const response = await apis.getAllCategories();
@@ -43,74 +43,76 @@ class ReadUsers extends Component {
         //
         // getDataCategories();
 
-        apis.getAllUsers()
+        apis.getAllObjects()
             .then(response => {
                 this.setState({
-                    allUsers: response.data
+                    allObjects: response.data
                 });
             })
             .catch((error) => {
                 console.log("error-------------")
                 console.log(error);
                 this.setState({
-                    allUsers: []
+                    allObjects: []
                 })
             });
 
     };
 
     componentDidMount() {
-        this.getAllUsers();
+        this.getAllObjects();
     }
 
     render() {
         return (
             <div className="panel panel-default">
                 <div className="panel-heading main-color-bg">
-                    <h3 className="panel-title">Users</h3>
+                    <h3 className="panel-title">Objects</h3>
                 </div>
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-md-12">
                             <input className="form-control" type="text"
-                                   placeholder="Filter Users..."/>
+                                   placeholder="Filter Objects..."/>
                         </div>
                     </div>
                     <br/>
                     <table className="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>Name</th>
+                            <th>URL</th>
+                            <th>Parent ID</th>
+                            <th>Order</th>
+                            <th>Domain</th>
                             <th>isActive</th>
-                            <th>isAdmin</th>
+                            <th>isVisible</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
 
                         {
-                            this.state.allUsers.map(user => {
+                            this.state.allObjects.map(object => {
                                 return (
-                                    <tr key={user.id}>
-                                        <td>{user.username}</td>
-                                        <td>{user.password}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.role}</td>
-                                        <td>{user.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
-                                        <td>{user.isAdmin === 1 ? "Là Admin" : "Không là Admin"}</td>
+                                    <tr key={object.id}>
+                                        <td>{object.name}</td>
+                                        <td>{object.url}</td>
+                                        <td>{object.parentId}</td>
+                                        <td>{object.order}</td>
+                                        <td>{object.domain.name}</td>
+                                        <td>{object.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
+                                        <td>{object.isVisible === 1 ? "Hiển thị" : "Không hiển thị"}</td>
                                         <td><Link
                                             className="btn btn-default"
                                             to={{
-                                                pathname: "/admin/users/editUser",
+                                                pathname: "/admin/objects/editObject",
                                                 state: {
-                                                    userId: user.id
+                                                    objectId: object.id
                                                 }
                                             }}>Edit</Link>
                                             <Link
-                                                className="btn btn-danger" to="#" onClick={() => this.deleteUser(user.id)}>Delete</Link></td>
+                                                className="btn btn-danger" to="#" onClick={() => this.deleteObject(object.id)}>Delete</Link></td>
                                     </tr>
                                 );
                             })
@@ -124,4 +126,4 @@ class ReadUsers extends Component {
     }
 }
 
-export default ReadUsers;
+export default ReadObjects;

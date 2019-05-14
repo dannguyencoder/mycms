@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom';
 
 import * as apis from "../../../apis/apis";
 
-class ReadUsers extends Component {
+class ReadLanguages extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            allUsers: []
+            allLanguages: []
         }
     }
 
-    deleteUser(userId) {
-        apis.deleteUser(userId)
+    deleteLanguage(languageId) {
+        apis.deleteLanguage(languageId)
             .then(response => {
                 console.log(response);
-                this.getAllUsers();
+                this.getAllLanguages();
             })
             .catch(error => {
                 console.log(error)
             });
     }
 
-    getAllUsers() {
+    getAllLanguages() {
         // const getDataCategories = async () => {
         //    try {
         //        const response = await apis.getAllCategories();
@@ -43,74 +43,74 @@ class ReadUsers extends Component {
         //
         // getDataCategories();
 
-        apis.getAllUsers()
+        apis.getAllLanguages()
             .then(response => {
+                console.log("response language data");
+                console.log(response);
                 this.setState({
-                    allUsers: response.data
+                    allLanguages: response.data
                 });
             })
             .catch((error) => {
                 console.log("error-------------")
                 console.log(error);
                 this.setState({
-                    allUsers: []
+                    allLanguages: []
                 })
             });
 
     };
 
     componentDidMount() {
-        this.getAllUsers();
+        this.getAllLanguages();
     }
 
     render() {
         return (
             <div className="panel panel-default">
                 <div className="panel-heading main-color-bg">
-                    <h3 className="panel-title">Users</h3>
+                    <h3 className="panel-title">Languages</h3>
                 </div>
                 <div className="panel-body">
                     <div className="row">
                         <div className="col-md-12">
                             <input className="form-control" type="text"
-                                   placeholder="Filter Users..."/>
+                                   placeholder="Filter Languages..."/>
                         </div>
                     </div>
                     <br/>
                     <table className="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>Language name</th>
+                            <th>Language code</th>
+                            <th>Domain</th>
                             <th>isActive</th>
-                            <th>isAdmin</th>
+                            <th>isVisible</th>
                             <th></th>
                         </tr>
                         </thead>
                         <tbody>
 
                         {
-                            this.state.allUsers.map(user => {
+                            this.state.allLanguages.map(language => {
                                 return (
-                                    <tr key={user.id}>
-                                        <td>{user.username}</td>
-                                        <td>{user.password}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.role}</td>
-                                        <td>{user.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
-                                        <td>{user.isAdmin === 1 ? "Là Admin" : "Không là Admin"}</td>
+                                    <tr key={language.id}>
+                                        <td>{language.name}</td>
+                                        <td>{language.code}</td>
+                                        <td>{language.domain.name}</td>
+                                        <td>{language.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
+                                        <td>{language.isAdmin === 1 ? "Hiển thị" : "Không hiển thị"}</td>
                                         <td><Link
                                             className="btn btn-default"
                                             to={{
-                                                pathname: "/admin/users/editUser",
+                                                pathname: "/admin/languages/editLanguage",
                                                 state: {
-                                                    userId: user.id
+                                                    languageId: language.id
                                                 }
                                             }}>Edit</Link>
                                             <Link
-                                                className="btn btn-danger" to="#" onClick={() => this.deleteUser(user.id)}>Delete</Link></td>
+                                                className="btn btn-danger" to="#" onClick={() => this.deleteLanguage(language.id)}>Delete</Link></td>
                                     </tr>
                                 );
                             })
@@ -124,4 +124,4 @@ class ReadUsers extends Component {
     }
 }
 
-export default ReadUsers;
+export default ReadLanguages;

@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
-import UserForm from './UserForm';
+import LanguageForm from './LanguageForm';
 import * as apis from "../../../apis/apis";
 
-class EditUser extends Component {
+class EditLanguage extends Component {
 
     constructor(props) {
         super(props);
-        const currentUserId = this.props.location.state.userId;
-        console.log("current user id: ");
+        const currentLanguageId = this.props.location.state.languageId;
+        console.log("current language id: ");
         console.log(this.props);
         this.state = {
-            userId: currentUserId
+            languageId: currentLanguageId
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(userData) {
-        apis.updateUser(userData)
+    handleSubmit(languageData) {
+        apis.updateLanguage(languageData)
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/users/readUsers")
+                this.props.history.push("/admin/languages/readLanguages")
             })
             .catch(error => {
                 console.log("my error----------------------");
@@ -32,9 +32,9 @@ class EditUser extends Component {
 
     render() {
         return (
-            <UserForm isEdit={true} userId={this.state.userId} onSubmit={this.handleSubmit} />
+            <LanguageForm isEdit={true} languageId={this.state.languageId} onSubmit={this.handleSubmit} />
         );
     }
 }
 
-export default EditUser;
+export default EditLanguage;

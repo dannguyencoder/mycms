@@ -2,8 +2,16 @@ import axios from 'axios';
 import Qs from 'qs';
 import http from 'http';
 import https from 'https';
-
+import Cookies from "universal-cookie";
 let CancelToken = axios.CancelToken;
+
+// get user token from Cookies
+const cookies = new Cookies();
+const token = cookies.get('token');
+// test
+// const token = '';
+console.log("user token from cookies");
+console.log(token);
 
 // These are the available config options for making requests. Only the url is required. Requests will default to GET if method is not specified.
 export const globalAxiosConfig = {
@@ -38,7 +46,7 @@ export const globalAxiosConfig = {
     // }],
 
     // `headers` are custom headers to be sent
-    // headers: {'X-Requested-With': 'XMLHttpRequest'},
+    headers: {'Authorization': 'Bearer ' + token},
 
     // `params` are the URL parameters to be sent with the request
     // Must be a plain object or a URLSearchParams object
