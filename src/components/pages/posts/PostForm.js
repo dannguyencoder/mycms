@@ -255,7 +255,7 @@ class PostForm extends Component {
                                     {
                                         this.state.allLanguages && this.state.allLanguages.map((language) => {
                                             return (
-                                                <option value={language.id}>{language.name}</option>
+                                                <option key={language.id} value={language.id}>{language.name}</option>
                                             );
                                         })
                                     }
