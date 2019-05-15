@@ -98,7 +98,7 @@ class ReadCategories extends Component {
                                         <td><Link
                                             className="btn btn-default"
                                             to={{
-                                                pathname: "/admin/category/editCategory",
+                                                pathname: "/admin/categories/editCategory",
                                                 state: {
                                                     categoryId: category.id
                                                 }

@@ -9,6 +9,7 @@ class ObjectForm extends React.Component {
             name: '',
             url: '',
             parentId: 1,
+            order: 1,
             isActive: 1,
             isVisible: 1
         };
@@ -210,7 +211,13 @@ class ObjectForm extends React.Component {
                            </div>
                            <div className="form-group">
                                <label>Order</label>
-                               <input name="order" type="number" value={this.state.order} onChange={this.handleInputChange} className="form-control" placeholder="Object Order"/>
+                               <select name="order" value={this.state.order} onChange={this.handleInputChange}
+                                       className="form-control" id="order">
+                                   <option value="0">0</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                               </select>
                            </div>
                            <div className="checkbox">
                                <label>
@@ -221,7 +228,8 @@ class ObjectForm extends React.Component {
                            <div className="checkbox">
                                <label>
                                    <input name="isVisible" value={this.state.isVisible}
-                                          onChange={this.handleInputChange} type="checkbox" defaultChecked/>
+                                          checked={this.state.isVisible === 1}
+                                          onChange={this.handleInputChange} type="checkbox"/>
                                    <b>isVisible</b>
                                </label>
                            </div>

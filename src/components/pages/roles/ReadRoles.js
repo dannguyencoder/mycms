@@ -45,6 +45,8 @@ class ReadRoles extends Component {
 
         apis.getAllRoles()
             .then(response => {
+                console.log("response getting roles");
+                console.log(response);
                 this.setState({
                     allRoles: response.data
                 });
@@ -94,7 +96,7 @@ class ReadRoles extends Component {
                                 return (
                                     <tr key={role.id}>
                                         <td>{role.name}</td>
-                                        <td>{role.domain}</td>
+                                        <td>{role.domain.name}</td>
                                         <td>{role.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
                                         <td>{role.isVisible === 1 ? "Hiển thị" : "Không hiển thị"}</td>
                                         <td><Link

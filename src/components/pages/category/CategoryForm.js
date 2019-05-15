@@ -33,7 +33,7 @@ class CategoryForm extends Component {
     }
 
     fetchCurrentCategory() {
-        const currentCategoryId = this.props.location.state.categoryId;
+        const currentCategoryId = this.props.categoryId;
         console.log("current category id--------------");
         console.log(currentCategoryId);
 
@@ -194,17 +194,6 @@ class CategoryForm extends Component {
         * */
 
         this.props.onSubmit(categoryData);
-        apis.updateCategory(categoryData)
-            .then(response => {
-                console.log("my response------------------");
-                console.log(response);
-                this.props.history.push("/admin/category/readCategories")
-            })
-            .catch(error => {
-                console.log("my error----------------------");
-                console.log(error);
-                alert(error);
-            });
     }
 
     render() {

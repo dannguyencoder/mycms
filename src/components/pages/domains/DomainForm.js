@@ -163,7 +163,8 @@ class DomainForm extends React.Component {
                            <div className="checkbox">
                                <label>
                                    <input name="isVisible" value={this.state.isVisible}
-                                          onChange={this.handleInputChange} type="checkbox" defaultChecked/>
+                                          checked={this.state.isVisible === 1}
+                                          onChange={this.handleInputChange} type="checkbox"/>
                                    <b>isVisible</b>
                                </label>
                            </div>

@@ -25,7 +25,7 @@ class EditCategory extends Component {
             .then(response => {
                 console.log("my response------------------");
                 console.log(response);
-                this.props.history.push("/admin/category/readCategories")
+                this.props.history.push("/admin/categories/readCategories")
             })
             .catch(error => {
                 console.log("my error----------------------");

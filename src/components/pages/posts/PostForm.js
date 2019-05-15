@@ -30,7 +30,7 @@ class PostForm extends Component {
     }
 
     fetchCurrentPost() {
-        const currentPostId = this.props.location.state.postId;
+        const currentPostId = this.props.postId;
         console.log("current post id--------------");
         console.log(currentPostId);
 
@@ -273,7 +273,7 @@ class PostForm extends Component {
                             </div>
                             <div className="checkbox">
                                 <label>
-                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange} checked={this.state.isActive}
+                                    <input name="isActive" value={this.state.isActive} onChange={this.handleInputChange} checked={this.state.isActive === 1}
                                            type="checkbox"/> <b>isActive</b>
                                 </label>
                             </div>
@@ -305,7 +305,7 @@ class PostForm extends Component {
                                     {
                                         this.state.allDomains && this.state.allDomains.map((domain) => {
                                             return (
-                                                <option value={domain.id}>{domain.name}</option>
+                                                <option key={domain.id} value={domain.id}>{domain.name}</option>
                                             );
                                         })
                                     }

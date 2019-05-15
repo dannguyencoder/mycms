@@ -192,7 +192,7 @@ class RoleObjectForm extends React.Component {
                                                <div className="checkbox">
                                                    <label>
                                                        <input name="isVisible" value={this.state.isVisible}
-                                                              onChange={this.handleInputChange} type="checkbox" defaultChecked/>
+                                                              onChange={this.handleInputChange} type="checkbox"/>
                                                        <b>isVisible</b>
                                                    </label>
                                                </div>

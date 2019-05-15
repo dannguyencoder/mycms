@@ -71,15 +71,15 @@ export const adminRoutes = [
         component: AddPost
     },
     {
-        path: "/admin/category/addCategory",
+        path: "/admin/categories/addCategory",
         component: AddCategory
     },
     {
-        path: "/admin/category/editCategory",
+        path: "/admin/categories/editCategory",
         component: EditCategory
     },
     {
-        path: "/admin/category/readCategories",
+        path: "/admin/categories/readCategories",
         component: ReadCategories
     },
     {
