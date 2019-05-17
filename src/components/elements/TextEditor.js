@@ -136,10 +136,11 @@ export default class TextEditor extends React.Component {
     handleChange = (editorState) => {
         this.setState({
             editorState: editorState,
-            outputHTML: editorState.toHTML()
+            outputHTML: editorState.toHTML(),
+            postContent: editorState.toHTML()
         })
 
-        this.props.changeHandler({outputHTML: editorState.toHTML()});
+        this.props.changeHandler({outputHTML: editorState.toHTML(), postContent: editorState.toHTML()});
 
     }
 

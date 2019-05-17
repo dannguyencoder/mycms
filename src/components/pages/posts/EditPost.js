@@ -16,6 +16,8 @@ class EditPost extends Component {
     }
 
     handleSubmit(postData) {
+        console.log('post data to upload');
+        console.log(postData);
         apis.updatePost(postData)
             .then(response => {
                 console.log("my response------------------");

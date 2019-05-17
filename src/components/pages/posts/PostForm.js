@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import BraftEditor from 'braft-editor'
+
 import TextEditor from "../../elements/TextEditor";
 import ImageUpload from "../../elements/ImageUpload";
 import * as apis from "../../../apis/apis";
@@ -180,6 +182,11 @@ class PostForm extends Component {
         // console.log("---total State");
         // console.log(this.state);
         this.setState({...this.state, ...componentData});
+        console.log('current state data from parent after component change state');
+        console.log({
+            ...this.state,
+            ...componentData
+        })
         // console.log("final state: ")
         // console.log(this.state);
     }
@@ -213,6 +220,7 @@ class PostForm extends Component {
         } else {
             console.log("current post content");
             console.log(this.state.postContent);
+
             return (
                 this.state.postContent && <TextEditor initialContent={this.state.postContent}
                                                       changeHandler={this.handleComponentChange}/>

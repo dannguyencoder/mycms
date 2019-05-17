@@ -55,7 +55,7 @@ class AdminHeader extends Component {
 
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link to="/">Welcome, {this.props.user.username}</Link></li>
+                                <li><Link to="/">Welcome, {this.props.user.username ? this.props.user.username : 'Anonymous'}</Link></li>
                                 <li><Link onClick={() => this.logout()} to="/">Logout</Link></li>
                             </ul>
                         </div>

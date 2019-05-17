@@ -73,7 +73,7 @@ class ImageUpload extends React.Component {
                 <div>
                     <button onClick={this.handleUploadImage}>Upload</button>
                 </div>
-                <img className="ImageUploadPreview" src={this.state.avatar} alt="Your Avatar"/>
+                <img className="ImageUploadPreview" src={this.props.initialImage} alt="Your Avatar"/>
             </React.Fragment>
         );
     }
