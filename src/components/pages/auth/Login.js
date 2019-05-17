@@ -80,48 +80,53 @@ class Login extends React.Component {
         console.log("login submit data");
         console.log(loginData);
 
-        apis.login(loginData)
-            .then((response) => {
-                console.log("success in getting response login");
-                console.log(response);
-                if (response.status === 200) {
-                    const token = response.data.token;
-                    console.log("token from server");
-                    console.log(token);
-                    // set token to cookie
-                    if (token) {
-                        this.props.login(token, response.data.user);
+        // debug
+        this.props.login('test token', {
+            username: 'test username'
+        });
 
-                        console.log('current function from props');
-                        console.log(this.props);
-                        console.log('Current state from store login');
-                        console.log(this.props);
-
-                        // set token to Cookie
-                        const cookies = new Cookies();
-                        cookies.set('token', token);
-                        cookies.set('user', JSON.stringify(response.data.user));
-                        console.log("cookies token set: ");
-                        console.log(cookies.get('token'));
-                        console.log(cookies.get('user'));
-
-
-
-                        this.props.history.push("/admin/home");
-                        setTimeout(() => {
-                            console.log("current state from store");
-                            console.log(this.state.isLoggedIn);
-                        }, 2000)
-                    } else {
-                        console.error("Error: Token is empty");
-                    }
-
-                }
-            })
-            .catch((error) => {
-                console.log("Error login-----");
-                console.log(error);
-            })
+        // apis.login(loginData)
+        //     .then((response) => {
+        //         console.log("success in getting response login");
+        //         console.log(response);
+        //         if (response.status === 200) {
+        //             const token = response.data.token;
+        //             console.log("token from server");
+        //             console.log(token);
+        //             // set token to cookie
+        //             if (token) {
+        //
+        //
+        //                 console.log('current function from props');
+        //                 console.log(this.props);
+        //                 console.log('Current state from store login');
+        //                 console.log(this.props);
+        //
+        //                 // set token to Cookie
+        //                 const cookies = new Cookies();
+        //                 cookies.set('token', token);
+        //                 cookies.set('user', JSON.stringify(response.data.user));
+        //                 console.log("cookies token set: ");
+        //                 console.log(cookies.get('token'));
+        //                 console.log(cookies.get('user'));
+        //
+        //
+        //
+        //                 this.props.history.push("/admin/home");
+        //                 setTimeout(() => {
+        //                     console.log("current state from store");
+        //                     console.log(this.state.isLoggedIn);
+        //                 }, 2000)
+        //             } else {
+        //                 console.error("Error: Token is empty");
+        //             }
+        //
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         console.log("Error login-----");
+        //         console.log(error);
+        //     })
     }
 
 
