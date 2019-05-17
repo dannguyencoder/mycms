@@ -7,7 +7,7 @@ import * as apis from '../../apis/apis.js';
 const mediaItems = apis.getAllImages();
 const myUploadFn = (param) => {
 
-    const serverURL = 'http://localhost:3001/images/upload'
+    const serverURL = 'http://localhost:3002/images/upload'
     const xhr = new XMLHttpRequest
     const fd = new FormData()
 
@@ -16,7 +16,7 @@ const myUploadFn = (param) => {
         // 上传成功后调用param.success并传入上传后的文件地址
         const responseImageJSON = JSON.parse(xhr.responseText);
         param.success({
-            url: `http://localhost:3001/${responseImageJSON.file}`,
+            url: `http://localhost:3002/${responseImageJSON.file}`,
             meta: {
                 id: 'Replace this video id',
                 title: 'Replace this video title',
@@ -126,6 +126,9 @@ export default class TextEditor extends React.Component {
             })
             .catch(error => {
                 console.log(error);
+                this.setState({
+                    mediaItems: []
+                });
             });
 
     }

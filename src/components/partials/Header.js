@@ -107,8 +107,8 @@ class AdminHeader extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    token: state.token,
-    user: state.user ? state.user : {}
+    token: state.auth.token,
+    user: state.auth.user ? state.auth.user : {}
 });
 
 export default connect(mapStateToProps)(AdminHeader);

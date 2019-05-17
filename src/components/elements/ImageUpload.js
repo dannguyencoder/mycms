@@ -31,15 +31,15 @@ class ImageUpload extends React.Component {
         data.append('file', this.uploadInput.files[0]);
         
 
-        fetch('http://localhost:3001/images/upload', {
+        fetch('http://localhost:3002/images/upload', {
             method: 'POST',
             body: data,
         }).then((response) => {
             response.json().then((body) => {
                 console.log(body);
-                this.setState({avatar: `http://localhost:3001/${body.file}`});
+                this.setState({avatar: `http://localhost:3002/${body.file}`});
                 console.log(this.state);
-                this.props.changeHandler({avatar: `http://localhost:3001/${body.file}`});
+                this.props.changeHandler({avatar: `http://localhost:3002/${body.file}`});
             });
         });
     }
@@ -58,6 +58,10 @@ class ImageUpload extends React.Component {
     }
 
     render() {
+        console.log('current avatar');
+        console.log(this.state.avatar);
+        console.log('current props avatar value initialImage');
+        console.log(this.props.initialImage);
         return (
             <React.Fragment>
                 <div>

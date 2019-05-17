@@ -43,6 +43,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "env-cmd": "^8.0.2"
+    "env-cmd": "^8.0.2",
+    "node-sass": "^4.12.0"
   }
 }

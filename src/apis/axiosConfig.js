@@ -25,7 +25,7 @@ export const globalAxiosConfig = {
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
     // local
-    baseURL: 'http://localhost:3001/',
+    baseURL: 'http://localhost:3002/',
     // test server 76
     // baseURL: 'http://10.60.110.76:3001/',
     // live server
