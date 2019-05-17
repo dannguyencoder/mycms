@@ -1,13 +1,37 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux';
+
+import Cookies from 'universal-cookie';
 
 class AdminHeader extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            username: 'No name'
+        }
 
     }
 
+    logout() {
+        // set token to Cookie
+        const cookies = new Cookies();
+        cookies.set('token', null);
+        console.log("removed user token from cookie: ");
+        console.log(cookies.get('token'));
+
+        // redirect
+        this.props.history.push("/");
+    }
+
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        console.log('next props');
+        console.log(nextProps);
+    }
+
     render() {
+        console.log('current props data');
+        console.log(this.props);
 
         return (
             <React.Fragment>
@@ -31,8 +55,8 @@ class AdminHeader extends Component {
 
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
-                                <li><Link to="/">Welcome, Vinh</Link></li>
-                                <li><Link to="/">Logout</Link></li>
+                                <li><Link to="/">Welcome, {this.props.user.username}</Link></li>
+                                <li><Link onClick={() => this.logout()} to="/">Logout</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -82,4 +106,9 @@ class AdminHeader extends Component {
     }
 }
 
-export default AdminHeader;
+const mapStateToProps = (state, ownProps) => ({
+    token: state.token,
+    user: state.user ? state.user : {}
+});
+
+export default connect(mapStateToProps)(AdminHeader);

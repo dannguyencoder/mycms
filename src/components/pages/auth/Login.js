@@ -90,13 +90,22 @@ class Login extends React.Component {
                     console.log(token);
                     // set token to cookie
                     if (token) {
-                        this.props.login(token);
+                        this.props.login(token, response.data.user);
+
+                        console.log('current function from props');
+                        console.log(this.props);
+                        console.log('Current state from store login');
+                        console.log(this.props);
 
                         // set token to Cookie
                         const cookies = new Cookies();
                         cookies.set('token', token);
+                        cookies.set('user', JSON.stringify(response.data.user));
                         console.log("cookies token set: ");
                         console.log(cookies.get('token'));
+                        console.log(cookies.get('user'));
+
+
 
                         this.props.history.push("/admin/home");
                         setTimeout(() => {
@@ -152,11 +161,18 @@ class Login extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
-    token: state.token
+    token: state.token,
+    payload: state.payload
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    login: (token) => dispatch({type: 'LOGIN', token: token})
+    login: (token, userInfo) => dispatch({
+        type: 'LOGIN',
+        payload: {
+            token: token,
+            user: userInfo
+        }})
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
+

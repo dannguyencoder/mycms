@@ -85,9 +85,10 @@ export default class TextEditor extends React.Component {
 
     constructor(props) {
         super(props);
+        const intialContent = props.initialContent ? props.initialContent : '';
         this.state = {
-            editorState: BraftEditor.createEditorState(props.initialContent),
-            outputHTML: props.initialContent,
+            editorState: BraftEditor.createEditorState(intialContent),
+            outputHTML: intialContent,
             mediaItems: []
         }
     }

@@ -204,6 +204,37 @@ class PostForm extends Component {
         this.props.onSubmit(postData);
     }
 
+    renderTextEditor() {
+        if (this.props.isAdd) {
+            return (
+                <TextEditor
+                            changeHandler={this.handleComponentChange}/>
+            )
+        } else {
+            console.log("current post content");
+            console.log(this.state.postContent);
+            return (
+                this.state.postContent && <TextEditor initialContent={this.state.postContent}
+                                                      changeHandler={this.handleComponentChange}/>
+            )
+        }
+
+    }
+
+    renderImageUpload() {
+        if (this.props.isAdd) {
+            return (
+                <ImageUpload
+                             changeHandler={this.handleComponentChange}/>
+            );
+        } else {
+            return (
+                <ImageUpload initialImage={this.state.avatar}
+                                                  changeHandler={this.handleComponentChange}/>
+            );
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -240,8 +271,7 @@ class PostForm extends Component {
                                 <label htmlFor="exampleFormControlFile1">Avatar</label>
                                 {/*<input type="file" className="form-control-file" id="exampleFormControlFile1"/>*/}
                                 {
-                                    this.state.avatar && <ImageUpload initialImage={this.state.avatar}
-                                                                      changeHandler={this.handleComponentChange}/>
+                                    this.renderImageUpload()
                                 }
 
                             </div>
@@ -264,8 +294,8 @@ class PostForm extends Component {
                             <div className="form-group">
                                 <label>Post Content</label>
                                 {
-                                    this.state.postContent && <TextEditor initialContent={this.state.postContent}
-                                                                          changeHandler={this.handleComponentChange}/>
+                                    this.renderTextEditor()
+
                                 }
                                 {/*<textarea name="editor1" className="form-control" placeholder="Page Body"*/}
                                 {/*defaultValue="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">*/}

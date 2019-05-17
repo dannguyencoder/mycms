@@ -1,10 +1,16 @@
 export default (state = {}, action) => {
+    console.log('current action data');
+    console.log(action.payload);
+    // console.log(action.payload.token);
+    // console.log(action.payload.user);
+    console.log('end payload data')
     switch(action.type) {
         case 'LOGIN':
             return {
                 ...state,
                 isLoggedIn: true,
-                token: action.token
+                token: action.payload.token,
+                user: action.payload.user
             };
         case 'LOGOUT':
             return {

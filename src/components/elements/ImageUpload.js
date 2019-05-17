@@ -6,8 +6,9 @@ class ImageUpload extends React.Component {
 
         console.log("props");
         console.log(props);
+        const initialImage = props.initialImage ? props.initialImage : ''
         this.state = {
-            avatar: props.initialImage
+            avatar: initialImage
         };
 
         this.handleUploadImage = this.handleUploadImage.bind(this);
@@ -30,15 +31,15 @@ class ImageUpload extends React.Component {
         data.append('file', this.uploadInput.files[0]);
         
 
-        fetch('http://localhost:3002/images/upload', {
+        fetch('http://localhost:3001/images/upload', {
             method: 'POST',
             body: data,
         }).then((response) => {
             response.json().then((body) => {
                 console.log(body);
-                this.setState({avatar: `http://localhost:3002/${body.file}`});
+                this.setState({avatar: `http://localhost:3001/${body.file}`});
                 console.log(this.state);
-                this.props.changeHandler({avatar: `http://localhost:3002/${body.file}`});
+                this.props.changeHandler({avatar: `http://localhost:3001/${body.file}`});
             });
         });
     }
