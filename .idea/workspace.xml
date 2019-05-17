@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56e78033-a4b5-4be6-994d-1a12a586ccc1" name="Default Changelist" comment="fix deadly bugs">
+    <list default="true" id="56e78033-a4b5-4be6-994d-1a12a586ccc1" name="Default Changelist" comment="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/ImageUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/ImageUpload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/elements/TextEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TextEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/posts/EditPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/posts/EditPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/partials/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/Header.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -101,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/pages/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="285">
+              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -113,11 +108,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/partials/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
+            <state relative-caret-position="270">
+              <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminRoutes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/adminRoutes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -181,15 +188,6 @@
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddPost.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pages/posts/AddPost.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -302,8 +300,8 @@
         <option value="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" />
         <option value="$PROJECT_DIR$/src/components/elements/TextEditor.js" />
         <option value="$PROJECT_DIR$/src/components/pages/posts/EditPost.js" />
-        <option value="$PROJECT_DIR$/src/components/partials/Header.js" />
         <option value="$PROJECT_DIR$/src/components/pages/Home.js" />
+        <option value="$PROJECT_DIR$/src/components/partials/Header.js" />
       </list>
     </option>
   </component>
@@ -324,8 +322,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="135" />
-    <option name="y" value="40" />
+    <option name="x" value="484" />
+    <option name="y" value="49" />
     <option name="width" value="1182" />
     <option name="height" value="1012" />
   </component>
@@ -395,6 +393,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -476,7 +480,7 @@
       <workItem from="1557826761426" duration="24240000" />
       <workItem from="1557997177073" duration="1993000" />
       <workItem from="1557999927540" duration="6039000" />
-      <workItem from="1558074697368" duration="7824000" />
+      <workItem from="1558074697368" duration="8420000" />
     </task>
     <task id="LOCAL-00001" summary="set-up routes">
       <created>1554709320580</created>
@@ -646,14 +650,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558078344456</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store">
+      <created>1558085056956</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1558085056956</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356063000" />
+    <option name="totallyTimeSpent" value="356659000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="135" y="40" width="1182" height="1012" extended-state="0" />
+    <frame x="484" y="49" width="1182" height="1012" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27072757" />
@@ -712,7 +723,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="set-up routes" />
     <MESSAGE value="fix closing tags" />
     <MESSAGE value="fix Route Link and exact to Route" />
     <MESSAGE value="add braft-editor to edit users" />
@@ -737,7 +747,8 @@
     <MESSAGE value="fix language unique key on post form" />
     <MESSAGE value="fix bugs" />
     <MESSAGE value="fix deadly bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix deadly bugs" />
+    <MESSAGE value="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -812,13 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/adminRoutes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1051,17 +1055,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/partials/Header.js">
+    <entry file="file://$PROJECT_DIR$/src/components/pages/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
+        <state relative-caret-position="285">
+          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/Home.js">
+    <entry file="file://$PROJECT_DIR$/src/routes/adminRoutes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="690">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

@@ -45,13 +45,13 @@ class AdminHeader extends Component {
                                 <span className="icon-bar"></span>
                                 <span className="icon-bar"></span>
                             </button>
-                            <Link className="navbar-brand" to="#">AdminStrap</Link>
+                            <Link className="navbar-brand" to="#">Admin CMS</Link>
                         </div>
                         <div id="navbar" className="collapse navbar-collapse">
                             <ul className="nav navbar-nav">
-                                <li className="active"><Link to="/">Dashboard</Link></li>
+                                <li className="active"><Link to="/admin/home">Home</Link></li>
                                 {/* foreach Domain */}
-                                <li><Link to="/">Home</Link></li>
+                                {/*<li><Link to="/">Home</Link></li>*/}
 
                             </ul>
                             <ul className="nav navbar-nav navbar-right">
@@ -66,8 +66,8 @@ class AdminHeader extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-10">
-                                <h1><span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Users
-                                    <small>Manage Site Users</small>
+                                <h1><span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+                                    <small>Manage Site Content</small>
                                 </h1>
                             </div>
                             <div className="col-md-2">
