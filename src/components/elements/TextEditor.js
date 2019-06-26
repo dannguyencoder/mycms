@@ -7,7 +7,7 @@ import * as apis from '../../apis/apis.js';
 const mediaItems = apis.getAllImages();
 const myUploadFn = (param) => {
 
-    const serverURL = 'http://localhost:3002/images/upload'
+    const serverURL = 'http://localhost:8080/uploadFile';
     const xhr = new XMLHttpRequest
     const fd = new FormData()
 
@@ -27,19 +27,19 @@ const myUploadFn = (param) => {
                 poster: 'http://replace.this.video.poster/image.png', // 指定视频播放器的封面
             }
         })
-    }
+    };
 
     const progressFn = (event) => {
         // 上传进度发生变化时调用param.progress
         param.progress(event.loaded / event.total * 100)
-    }
+    };
 
     const errorFn = (response) => {
         // 上传发生错误时调用param.error
         param.error({
             msg: 'unable to upload.'
         })
-    }
+    };
 
     xhr.upload.addEventListener("progress", progressFn, false)
     xhr.addEventListener("load", successFn, false)
@@ -50,7 +50,7 @@ const myUploadFn = (param) => {
     xhr.open('POST', serverURL, true)
     xhr.send(fd)
 
-}
+};
 
 const myValidateFn = (file) => {
     return new Promise((resolve, reject) => {
@@ -58,13 +58,13 @@ const myValidateFn = (file) => {
             file.size < 4096 * 100 ? resolve() : reject()
         }, 0)
     })
-}
+};
 
 const acceptedMediaTypes = {
     image: 'image/png,image/jpeg,image/gif,image/webp,image/apng,image/svg',
     video: 'video/mp4',
     audio: 'audio/mp3'
-}
+};
 
 const mImageControls = [
     'float-left',
@@ -79,7 +79,7 @@ const mImageControls = [
     'link',
     'size',
     'remove'
-]
+];
 
 export default class TextEditor extends React.Component {
 
@@ -172,8 +172,8 @@ export default class TextEditor extends React.Component {
                             uploadFn: myUploadFn,
                             validateFn: myValidateFn,
                             pasteImage: true,
-                            accepts: acceptedMediaTypes,
-                            items: mediaItems
+                            accepts: acceptedMediaTypes
+                            // items: mediaItems
                         }}
                         // media={{uploadFn: myUploadFn, validateFn: myValidateFn, pasteImage: true, accepts: acceptedMediaTypes}}
                         // media={{uploadFn: myUploadFn}}

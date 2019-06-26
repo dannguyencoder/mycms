@@ -45,6 +45,10 @@ class ReadCategories extends Component {
 
         apis.getAllCategories()
             .then(response => {
+
+                console.log("response getting categories");
+                console.log(response);
+
                 this.setState({
                     allCategories: response.data
                 });

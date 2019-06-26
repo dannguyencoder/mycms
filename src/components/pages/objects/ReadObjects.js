@@ -96,11 +96,11 @@ class ReadObjects extends Component {
                             this.state.allObjects.map(object => {
                                 return (
                                     <tr key={object.id}>
-                                        <td>{object.name}</td>
+                                        <td>{object.objectName}</td>
                                         <td>{object.url}</td>
                                         <td>{object.parentId}</td>
-                                        <td>{object.order}</td>
-                                        <td>{object.domain.name}</td>
+                                        <td>{object.objectOrder}</td>
+                                        <td>{object.domainName}</td>
                                         <td>{object.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
                                         <td>{object.isVisible === 1 ? "Hiển thị" : "Không hiển thị"}</td>
                                         <td><Link

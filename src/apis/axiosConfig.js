@@ -25,7 +25,7 @@ export const globalAxiosConfig = {
     // It can be convenient to set `baseURL` for an instance of axios to pass relative URLs
     // to methods of that instance.
     // local
-    baseURL: 'http://localhost:3002/',
+    baseURL: 'http://localhost:8080/',
     // test server 76
     // baseURL: 'http://10.60.110.76:3001/',
     // live server
@@ -51,7 +51,10 @@ export const globalAxiosConfig = {
     // }],
 
     // `headers` are custom headers to be sent
-    headers: {'Authorization': 'Bearer ' + token},
+    headers: {
+        'Authorization': 'Bearer ' + token,
+        "crossorigin": true
+    },
 
     // `params` are the URL parameters to be sent with the request
     // Must be a plain object or a URLSearchParams object

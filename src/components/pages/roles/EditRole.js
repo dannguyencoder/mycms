@@ -7,7 +7,7 @@ class EditRole extends Component {
     constructor(props) {
         super(props);
         const currentRoleId = this.props.location.state.roleId;
-        console.log("current role id: ");
+        console.log("current role id: " + currentRoleId);
         console.log(this.props);
         this.state = {
             roleId: currentRoleId

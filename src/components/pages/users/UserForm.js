@@ -10,6 +10,7 @@ class UserForm extends React.Component {
             password: '',
             email: '',
             roleId: 0,
+            domainId: 2,
             isActive: 1,
             isAdmin: 0
         };

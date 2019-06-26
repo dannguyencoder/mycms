@@ -6,7 +6,7 @@ class ObjectForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
+            objectName: '',
             url: '',
             parentId: 1,
             order: 1,
@@ -168,8 +168,8 @@ class ObjectForm extends React.Component {
                    <div className="panel-body">
                        <form onSubmit={this.handleSubmit}>
                            <div className="form-group">
-                               <label>Name</label>
-                               <input name="name" type="text" value={this.state.name} onChange={this.handleInputChange} className="form-control" placeholder="Object name"/>
+                               <label>Object Name</label>
+                               <input name="objectName" type="text" value={this.state.objectName} onChange={this.handleInputChange} className="form-control" placeholder="Object name"/>
                            </div>
                            <div className="form-group">
                                <label>URL</label>
@@ -186,7 +186,7 @@ class ObjectForm extends React.Component {
                                    {
                                        this.state.allObjects && this.state.allObjects.map(object => {
                                            return (
-                                               <option key={object.id} value={object.id}>{object.name}</option>
+                                               <option key={object.id} value={object.id}>{object.objectName}</option>
                                            );
                                        })
                                    }

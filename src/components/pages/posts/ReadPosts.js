@@ -89,11 +89,11 @@ class ReadPosts extends Component {
                                     return (
                                         <tr key={post.id}>
                                             <td>{post.title}</td>
-                                            <td>{post.category.name}</td>
+                                            <td>{post.categoryName}</td>
                                             <td><img src={post.avatar} style={{width: 100, height: 100}}/></td>
                                             <td>{post.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
-                                            <td>{post.domain.name}</td>
-                                            <td>{post.language.name}</td>
+                                            <td>{post.domainName}</td>
+                                            <td>{post.languageName}</td>
                                             <td>
                                                 <Link className="btn btn-default" to={{
                                                     pathname: "/admin/posts/editPost",

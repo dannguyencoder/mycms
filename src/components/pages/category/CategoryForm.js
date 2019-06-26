@@ -14,12 +14,12 @@ class CategoryForm extends Component {
             name: '',
             parentId: 1,
             friendlyUrl: '',
-            order: 0,
+            categoryOrder: 0,
             isActive: 1,
             isVisible: 1,
             metaKeywords: '',
             metaDescription: '',
-            userId: 1,
+            userId: 6,
             template: 1,
             languageId: 1,
             domainId: 1
@@ -79,6 +79,7 @@ class CategoryForm extends Component {
             .then(response => {
                 const allCategories = response.data;
                 if (allCategories.length > 0) {
+                    console.log("all categories: ", allCategories);
                     this.setState({
                         allCategories: allCategories,
                         parentId: allCategories[0].id
@@ -179,7 +180,7 @@ class CategoryForm extends Component {
         event.preventDefault();
 
         const categoryData = this.state;
-        categoryData.friendlyUrl = "/" + categoryData.friendlyUrl.replace("/", "");
+        // categoryData.friendlyUrl = "/" + categoryData.friendlyUrl.replace("/", "");
         console.log("submit data-----------");
         console.log(this.state);
 
@@ -239,7 +240,7 @@ class CategoryForm extends Component {
                             </div>
                             <div className="form-group">
                                 <label>Order</label>
-                                <select name="order" value={this.state.order} onChange={this.handleInputChange}
+                                <select name="categoryOrder" value={this.state.categoryOrder} onChange={this.handleInputChange}
                                         className="form-control" id="order">
                                     <option value="0">0</option>
                                     <option value="1">1</option>

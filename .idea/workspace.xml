@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56e78033-a4b5-4be6-994d-1a12a586ccc1" name="Default Changelist" comment="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store">
+    <list default="true" id="56e78033-a4b5-4be6-994d-1a12a586ccc1" name="Default Changelist" comment="change some text content to fit current app state">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/partials/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/apis.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/apis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/axiosConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/axiosConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/ImageUpload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/ImageUpload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/elements/TextEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/elements/TextEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/category/CategoryForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/category/CategoryForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/category/ReadCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/category/ReadCategories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/languages/ReadLanguages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/languages/ReadLanguages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/objects/ObjectForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/objects/ObjectForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/objects/ReadObjects.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/objects/ReadObjects.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/posts/ReadPosts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/posts/ReadPosts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/roles/EditRole.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/roles/EditRole.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/roles/ReadRoles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/roles/ReadRoles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/roles/RoleForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/roles/RoleForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/users/ReadUsers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/users/ReadUsers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/users/UserForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/users/UserForm.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -84,86 +99,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pages/auth/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-854">
-              <caret line="97" column="36" lean-forward="true" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pages/Home.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/partials/Header.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminRoutes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/adminRoutes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="81" column="32" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageUpload.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/elements/ImageUpload.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="69" column="36" lean-forward="true" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TextEditor.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/elements/TextEditor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="142" column="101" selection-start-line="142" selection-start-column="101" selection-end-line="142" selection-end-column="101" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditPost.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pages/posts/EditPost.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apis.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="apis.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/apis/apis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
+            <state relative-caret-position="330">
+              <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -171,11 +111,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReadPosts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/pages/posts/ReadPosts.js">
+      <file leaf-file-name="TextEditor.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/elements/TextEditor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="100" column="71" lean-forward="true" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
+            <state relative-caret-position="-861">
+              <caret line="81" column="2" selection-start-line="81" selection-start-column="2" selection-end-line="81" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/auth/Login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1590">
+              <caret line="177" column="24" lean-forward="true" selection-start-line="177" selection-start-column="24" selection-end-line="177" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserForm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/users/UserForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LanguageForm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/languages/LanguageForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="178" column="71" selection-start-line="178" selection-start-column="71" selection-end-line="178" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageUpload.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/elements/ImageUpload.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleForm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/roles/RoleForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2310">
+              <caret line="155" column="47" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryForm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/category/CategoryForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -183,11 +180,20 @@
       <file leaf-file-name="PostForm.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/pages/posts/PostForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="199" column="28" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="28" />
+            <state relative-caret-position="300">
+              <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReadCategories.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/pages/category/ReadCategories.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -204,12 +210,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>defaultva</find>
-      <find>User</find>
-      <find>handleComponentChange</find>
-      <find>will</find>
-      <find>post</find>
-      <find>languageId</find>
       <find>content</find>
       <find>TYPE</find>
       <find>imageur</find>
@@ -234,6 +234,12 @@
       <find>initialconte</find>
       <find>current state fro</find>
       <find>localhost</find>
+      <find>allow</find>
+      <find>access</find>
+      <find>header</find>
+      <find>language</find>
+      <find>initialImage</find>
+      <find>getAllImages</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
@@ -251,10 +257,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/pages/auth/LoginPage.js" />
         <option value="$PROJECT_DIR$/src/actions/authAction.js" />
         <option value="$PROJECT_DIR$/src/actions/errorAction.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/users/UserForm.js" />
         <option value="$PROJECT_DIR$/src/components/pages/users/EditUser.js" />
         <option value="$PROJECT_DIR$/src/components/pages/users/AddUser.js" />
         <option value="$PROJECT_DIR$/src/routes/routes.js" />
@@ -268,40 +272,42 @@
         <option value="$PROJECT_DIR$/src/components/pages/languages/EditLanguage.js" />
         <option value="$PROJECT_DIR$/src/components/pages/languages/AddLanguage.js" />
         <option value="$PROJECT_DIR$/src/components/pages/roles/AddRole.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/roles/EditRole.js" />
         <option value="$PROJECT_DIR$/src/components/pages/objects/AddObject.js" />
         <option value="$PROJECT_DIR$/src/components/pages/objects/EditObject.js" />
         <option value="$PROJECT_DIR$/src/components/pages/roleObjects/AddRoleObject.js" />
         <option value="$PROJECT_DIR$/src/components/pages/roleObjects/EditRoleObject.js" />
-        <option value="$PROJECT_DIR$/src/apis/apis.js" />
         <option value="$PROJECT_DIR$/src/components/pages/domains/AddDomain.js" />
         <option value="$PROJECT_DIR$/src/components/pages/domains/ReadDomains.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/objects/ReadObjects.js" />
         <option value="$PROJECT_DIR$/src/components/pages/roleObjects/ReadRoleObjects.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/languages/ReadLanguages.js" />
         <option value="$PROJECT_DIR$/src/components/pages/category/AddCategory.js" />
         <option value="$PROJECT_DIR$/src/components/pages/posts/AddPost.js" />
         <option value="$PROJECT_DIR$/src/routes/adminRoutes.js" />
-        <option value="$PROJECT_DIR$/src/components/partials/SideNav.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/category/ReadCategories.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/category/CategoryForm.js" />
         <option value="$PROJECT_DIR$/src/components/pages/category/EditCategory.js" />
         <option value="$PROJECT_DIR$/src/components/pages/roleObjects/RoleObjectForm.js" />
         <option value="$PROJECT_DIR$/src/components/pages/domains/DomainForm.js" />
         <option value="$PROJECT_DIR$/src/components/pages/languages/LanguageForm.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/roles/RoleForm.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/objects/ObjectForm.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/roles/ReadRoles.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/users/ReadUsers.js" />
         <option value="$PROJECT_DIR$/src/reducers/authReducer.js" />
         <option value="$PROJECT_DIR$/src/components/pages/auth/Login.js" />
-        <option value="$PROJECT_DIR$/src/apis/axiosConfig.js" />
-        <option value="$PROJECT_DIR$/src/components/elements/ImageUpload.js" />
-        <option value="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" />
-        <option value="$PROJECT_DIR$/src/components/elements/TextEditor.js" />
         <option value="$PROJECT_DIR$/src/components/pages/posts/EditPost.js" />
         <option value="$PROJECT_DIR$/src/components/pages/Home.js" />
         <option value="$PROJECT_DIR$/src/components/partials/Header.js" />
+        <option value="$PROJECT_DIR$/src/components/partials/SideNav.js" />
+        <option value="$PROJECT_DIR$/src/apis/axiosConfig.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/languages/ReadLanguages.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/users/ReadUsers.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/objects/ReadObjects.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/roles/ReadRoles.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/posts/ReadPosts.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/objects/ObjectForm.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/roles/EditRole.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/roles/RoleForm.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/category/ReadCategories.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/category/CategoryForm.js" />
+        <option value="$PROJECT_DIR$/src/components/elements/ImageUpload.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/users/UserForm.js" />
+        <option value="$PROJECT_DIR$/src/components/pages/posts/PostForm.js" />
+        <option value="$PROJECT_DIR$/src/components/elements/TextEditor.js" />
+        <option value="$PROJECT_DIR$/src/apis/apis.js" />
       </list>
     </option>
   </component>
@@ -339,6 +345,11 @@
             <path>
               <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
@@ -385,7 +396,63 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="category" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="domains" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="languages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="objects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="roleObjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="roles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
@@ -398,7 +465,66 @@
               <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reducers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="store" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="elements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="viettel_cms_frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="viettel_cms_frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -480,7 +606,12 @@
       <workItem from="1557826761426" duration="24240000" />
       <workItem from="1557997177073" duration="1993000" />
       <workItem from="1557999927540" duration="6039000" />
-      <workItem from="1558074697368" duration="8420000" />
+      <workItem from="1558074697368" duration="14063000" />
+      <workItem from="1559006667389" duration="1193000" />
+      <workItem from="1560473142107" duration="6228000" />
+      <workItem from="1560819203324" duration="1947000" />
+      <workItem from="1560911422642" duration="6601000" />
+      <workItem from="1561340148246" duration="9142000" />
     </task>
     <task id="LOCAL-00001" summary="set-up routes">
       <created>1554709320580</created>
@@ -657,11 +788,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558085056956</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="change some text content to fit current app state">
+      <created>1558085674804</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1558085674804</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356659000" />
+    <option name="totallyTimeSpent" value="387413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="484" y="49" width="1182" height="1012" extended-state="0" />
@@ -670,12 +808,13 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27072757" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.500846" side_tool="true" weight="0.34257206" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3282353" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32915717" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286334" />
+      <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3436807" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49915397" visible="true" weight="0.34257206" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
@@ -687,7 +826,6 @@
       <window_info anchor="right" id="DB Browser" order="3" weight="0.20759717" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3282353" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -723,7 +861,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix closing tags" />
     <MESSAGE value="fix Route Link and exact to Route" />
     <MESSAGE value="add braft-editor to edit users" />
     <MESSAGE value="edit braft-editor to edit users" />
@@ -748,7 +885,8 @@
     <MESSAGE value="fix bugs" />
     <MESSAGE value="fix deadly bugs" />
     <MESSAGE value="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. user props directly in child component instead of converting it to state&#10;2. change TextEditor to ouput postContent instead of outputHTML&#10;3. Setup welcome message on Home screen and Header area using redux store" />
+    <MESSAGE value="change some text content to fit current app state" />
+    <option name="LAST_COMMIT_MESSAGE" value="change some text content to fit current app state" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -756,27 +894,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/pages/domains/AddDomain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/domains/EditDomain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="34" column="65" selection-start-line="34" selection-start-column="65" selection-end-line="34" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/domains/ReadDomains.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="102" column="73" selection-start-line="102" selection-start-column="73" selection-end-line="102" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/roleObjects/ReadRoleObjects.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -798,13 +915,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/objects/ReadObjects.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/users/EditUser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -816,27 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="11" lean-forward="true" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/languages/ReadLanguages.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/partials/SideNav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/category/ReadCategories.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="100" column="76" selection-start-line="100" selection-start-column="76" selection-end-line="100" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -861,62 +950,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/languages/LanguageForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="178" column="71" selection-start-line="178" selection-start-column="71" selection-end-line="178" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/roleObjects/RoleObjectForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="194" column="111" selection-start-line="194" selection-start-column="111" selection-end-line="194" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/roles/RoleForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="172" column="71" selection-start-line="172" selection-start-column="71" selection-end-line="172" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/users/UserForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-410">
-          <caret line="135" column="8" lean-forward="true" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/category/CategoryForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="239" column="28" lean-forward="true" selection-start-line="239" selection-start-column="28" selection-end-line="248" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/objects/ObjectForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1860">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/roles/ReadRoles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="98" column="61" selection-start-line="98" selection-start-column="61" selection-end-line="98" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/users/ReadUsers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -925,14 +962,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
@@ -966,9 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#79#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -980,13 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/apis/axiosConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/posts/AddPost.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -994,74 +1015,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/posts/ReadPosts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="100" column="71" lean-forward="true" selection-start-line="100" selection-start-column="71" selection-end-line="100" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/elements/ImageUpload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="69" column="36" lean-forward="true" selection-start-line="69" selection-start-column="36" selection-end-line="69" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/elements/TextEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="142" column="101" selection-start-line="142" selection-start-column="101" selection-end-line="142" selection-end-column="101" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/posts/PostForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="199" column="28" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/apis/apis.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/posts/EditPost.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="255">
           <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/pages/auth/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-854">
-          <caret line="97" column="36" lean-forward="true" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/pages/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="780">
           <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1074,10 +1038,168 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/partials/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="975">
           <caret line="69" column="62" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/SideNav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/Footer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/validateForm.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/languages/ReadLanguages.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/users/ReadUsers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="102" column="60" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/objects/ReadObjects.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="98" column="59" selection-start-line="98" selection-start-column="59" selection-end-line="98" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/roles/ReadRoles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="98" column="57" selection-start-line="98" selection-start-column="57" selection-end-line="98" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/posts/ReadPosts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/apis/axiosConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="27" column="38" lean-forward="true" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/objects/ObjectForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2550">
+          <caret line="171" column="54" selection-start-line="171" selection-start-column="54" selection-end-line="171" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/roles/EditRole.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/roles/RoleForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2310">
+          <caret line="155" column="47" selection-start-line="155" selection-start-column="47" selection-end-line="155" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/category/ReadCategories.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/category/CategoryForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/elements/ImageUpload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/auth/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="177" column="24" lean-forward="true" selection-start-line="177" selection-start-column="24" selection-end-line="177" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/users/UserForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/languages/LanguageForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="178" column="71" selection-start-line="178" selection-start-column="71" selection-end-line="178" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/pages/posts/PostForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/elements/TextEditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-861">
+          <caret line="81" column="2" selection-start-line="81" selection-start-column="2" selection-end-line="81" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/apis/apis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="59" column="1" lean-forward="true" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -26,7 +26,7 @@ axiosInstance.interceptors.response.use((response) => {
 export function getAllImages() {
     // console.log("axiosInstance=========")
     // console.log(axiosInstance);
-    return axiosInstance.get('/images/getAllImages');
+    return axiosInstance.get('/getAllImages');
     // axiosInstance.get('/images/getAllImages')
     //     .then(response => {
     //         returnData = response.data;
@@ -48,23 +48,23 @@ export function getAllImages() {
 
 export function addPost(postObject) {
 
-    return axiosInstance.post('/post/addPost', postObject);
+    return axiosInstance.post('/posts', postObject);
 }
 
 export function getAllPosts() {
-    return axiosInstance.get('/post/getPosts');
+    return axiosInstance.get('/posts');
 }
 
 export function getSinglePost(postId) {
-    return axiosInstance.get(`/post/getPost/${postId}`);
+    return axiosInstance.get(`/posts/${postId}`);
 }
 
 export function updatePost(postData) {
-    return axiosInstance.patch(`/post/updatePost/${postData.id}`, postData);
+    return axiosInstance.patch(`/posts`, postData);
 }
 
 export function deletePost(postId) {
-    return axiosInstance.delete(`/post/deletePost/${postId}`);
+    return axiosInstance.delete(`/posts/${postId}`);
 }
 
 export function addCategory(categoryObject) {
@@ -72,13 +72,13 @@ export function addCategory(categoryObject) {
     console.log("upload data--------------");
     console.log(categoryObject);
 
-    return axiosInstance.post('/category/addCategory', categoryObject)
+    return axiosInstance.post('/categories', categoryObject)
 }
 
 export function getAllCategories() {
     // try {
     //     const data = ;
-    return axiosInstance.get('/category/getCategories');
+    return axiosInstance.get('/categories');
     // } catch (error) {
     //     throw error;
     // }
@@ -95,142 +95,142 @@ export function getAllCategories() {
 }
 
 export function getSingleCategory(categoryId) {
-    return axiosInstance.get(`/category/getCategory/${categoryId}`);
+    return axiosInstance.get(`/categories/${categoryId}`);
 }
 
 export function updateCategory(categoryData) {
-    return axiosInstance.patch(`/category/updateCategory/${categoryData.id}`, categoryData);
+    return axiosInstance.patch(`/categories`, categoryData);
 }
 
 export function deleteCategory(categoryId) {
-    return axiosInstance.delete(`/category/deleteCategory/${categoryId}`);
+    return axiosInstance.delete(`/categories/${categoryId}`);
 }
 
 export function getAllUsers() {
 
-    return axiosInstance.get(`/user/getUsers`);
+    return axiosInstance.get(`/users`);
 }
 
 export function getSingleUser(userId) {
-    return axiosInstance.get(`/user/getUser/${userId}`);
+    return axiosInstance.get(`/users/${userId}`);
 }
 
 export function addUser(userData) {
-    return axiosInstance.post(`/user/addUser`, userData);
+    return axiosInstance.post(`/users`, userData);
 }
 
 export function updateUser(userData) {
-    return axiosInstance.patch(`/user/updateUser/${userData.id}`, userData)
+    return axiosInstance.patch(`/users`, userData)
 }
 
 export function deleteUser(userId) {
-    return axiosInstance.delete(`/user/deleteUser/${userId}`)
+    return axiosInstance.delete(`/users/${userId}`)
 }
 
 export function login(loginData) {
-    return axiosInstance.post('/user/login', loginData);
+    return axiosInstance.post('/users/login', loginData);
 }
 
 export function logout() {
-    return axiosInstance.post('/user/logout');
+    return axiosInstance.post('/users/logout');
 }
 
 export function addDomain(domainObject) {
-    return axiosInstance.post('/domain/addDomain', domainObject);
+    return axiosInstance.post('/domains', domainObject);
 }
 
 export function getAllDomains() {
-    return axiosInstance.get('/domain/getDomains');
+    return axiosInstance.get('/domains');
 }
 
 export function getSingleDomain(domainId) {
-    return axiosInstance.get(`/domain/getDomain/${domainId}`);
+    return axiosInstance.get(`/domains/${domainId}`);
 }
 
 export function updateDomain(domainData) {
-    return axiosInstance.patch(`/domain/updateDomain/${domainData.id}`, domainData);
+    return axiosInstance.patch(`/domains`, domainData);
 }
 
 export function deleteDomain(domainId) {
-    return axiosInstance.delete(`/domain/deleteDomain/${domainId}`);
+    return axiosInstance.delete(`/domains/${domainId}`);
 }
 
 export function addLanguage(languageObject) {
-    return axiosInstance.post('/language/addLanguage', languageObject);
+    return axiosInstance.post('/languages', languageObject);
 }
 
 export function getAllLanguages() {
-    return axiosInstance.get('/language/getLanguages');
+    return axiosInstance.get('/languages');
 }
 
 export function getSingleLanguage(languageId) {
-    return axiosInstance.get(`/language/getLanguage/${languageId}`);
+    return axiosInstance.get(`/languages/${languageId}`);
 }
 
 export function updateLanguage(languageData) {
-    return axiosInstance.patch(`/language/updateLanguage/${languageData.id}`, languageData);
+    return axiosInstance.patch(`/languages`, languageData);
 }
 
 export function deleteLanguage(languageId) {
-    return axiosInstance.delete(`/language/deleteLanguage/${languageId}`);
+    return axiosInstance.delete(`/languages/${languageId}`);
 }
 
 export function addObject(objectObject) {
-    return axiosInstance.post('/object/addObject', objectObject);
+    return axiosInstance.post('/objects', objectObject);
 }
 
 export function getAllObjects() {
-    return axiosInstance.get('/object/getObjects');
+    return axiosInstance.get('/objects');
 }
 
 export function getSingleObject(objectId) {
-    return axiosInstance.get(`/object/getObject/${objectId}`);
+    return axiosInstance.get(`/objects/${objectId}`);
 }
 
 export function updateObject(objectData) {
-    return axiosInstance.patch(`/object/updateObject/${objectData.id}`, objectData);
+    return axiosInstance.patch(`/objects`, objectData);
 }
 
 export function deleteObject(objectId) {
-    return axiosInstance.delete(`/object/deleteObject/${objectId}`);
+    return axiosInstance.delete(`/objects/${objectId}`);
 }
 
 export function addRole(roleObject) {
-    return axiosInstance.post('/role/addRole', roleObject);
+    return axiosInstance.post('/roles', roleObject);
 }
 
 export function getAllRoles() {
-    return axiosInstance.get('/role/getRoles');
+    return axiosInstance.get('/roles');
 }
 
 export function getSingleRole(roleId) {
-    return axiosInstance.get(`/role/getRole/${roleId}`);
+    return axiosInstance.get(`/roles/${roleId}`);
 }
 
 export function updateRole(roleData) {
-    return axiosInstance.patch(`/role/updateRole/${roleData.id}`, roleData);
+    return axiosInstance.patch(`/roles`, roleData);
 }
 
 export function deleteRole(roleId) {
-    return axiosInstance.delete(`/role/deleteRole/${roleId}`);
+    return axiosInstance.delete(`/roles/${roleId}`);
 }
 
 export function addRoleObject(roleObjectObject) {
-    return axiosInstance.post('/roleObject/addRoleObject', roleObjectObject);
+    return axiosInstance.post('/roleObjects', roleObjectObject);
 }
 
 export function getAllRoleObjects() {
-    return axiosInstance.get('/roleObject/getRoleObjects');
+    return axiosInstance.get('/roleObjects');
 }
 
 export function getSingleRoleObject(roleObjectId) {
-    return axiosInstance.get(`/roleObject/getRoleObject/${roleObjectId}`);
+    return axiosInstance.get(`/roleObjects/${roleObjectId}`);
 }
 
 export function updateRoleObject(roleObjectData) {
-    return axiosInstance.patch(`/roleObject/updateRoleObject/${roleObjectData.id}`, roleObjectData);
+    return axiosInstance.patch(`/roleObjects`, roleObjectData);
 }
 
 export function deleteRoleObject(roleObjectId) {
-    return axiosInstance.delete(`/roleObject/deleteRoleObject/${roleObjectId}`);
+    return axiosInstance.delete(`/roleObjects/${roleObjectId}`);
 }

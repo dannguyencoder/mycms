@@ -84,6 +84,7 @@ class ReadUsers extends Component {
                             <th>Password</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th>Domain</th>
                             <th>isActive</th>
                             <th>isAdmin</th>
                             <th></th>
@@ -98,7 +99,8 @@ class ReadUsers extends Component {
                                         <td>{user.username}</td>
                                         <td>{user.password}</td>
                                         <td>{user.email}</td>
-                                        <td>{user.role.name}</td>
+                                        <td>{user.roleName}</td>
+                                        <td>{user.domainName}</td>
                                         <td>{user.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
                                         <td>{user.isAdmin === 1 ? "Là Admin" : "Không là Admin"}</td>
                                         <td><Link

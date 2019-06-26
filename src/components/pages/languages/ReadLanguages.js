@@ -98,9 +98,9 @@ class ReadLanguages extends Component {
                                     <tr key={language.id}>
                                         <td>{language.name}</td>
                                         <td>{language.code}</td>
-                                        <td>{language.domain.name}</td>
+                                        <td>{language.domainName}</td>
                                         <td>{language.isActive === 1 ? "Hoạt động" : "Không hoạt động"}</td>
-                                        <td>{language.isAdmin === 1 ? "Hiển thị" : "Không hiển thị"}</td>
+                                        <td>{language.isVisible === 1 ? "Hiển thị" : "Không hiển thị"}</td>
                                         <td><Link
                                             className="btn btn-default"
                                             to={{

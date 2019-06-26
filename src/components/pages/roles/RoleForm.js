@@ -20,7 +20,9 @@ class RoleForm extends React.Component {
     }
 
     fetchCurrentRole() {
+
         if (this.props.roleId) {
+            console.log("beginning fetch current role for roleId: " + this.props.roleId);
             const currentRoleId = this.props.roleId;
             console.log("current role id--------------");
             console.log(currentRoleId);
@@ -56,6 +58,8 @@ class RoleForm extends React.Component {
         * 2. có fetch item hiện tại không
         * */
         if (this.props.isEdit) {
+            console.log("isEdit: ", this.props.isEdit);
+            console.log("current role id: " + this.props.roleId);
             this.fetchCurrentRole();
         }
     }
@@ -142,7 +146,7 @@ class RoleForm extends React.Component {
                        <form onSubmit={this.handleSubmit}>
                            <div className="form-group">
                                <label>Name</label>
-                               <input name="name" type="text" value={this.state.name} onChange={this.handleInputChange} className="form-control" placeholder="Role name"/>
+                                   <input name="name" type="text" value={this.state.name} onChange={this.handleInputChange} className="form-control" placeholder="Role name"/>
                            </div>
                            <div className="form-group">
                                <label>Domain</label>
