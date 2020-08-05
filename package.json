@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "draft-js": "^0.10.5",
-    "express-fileupload": "^1.1.4",
+    "express-fileupload": "^1.1.9",
     "node-fetch": "^2.3.0",
     "qs": "^6.7.0",
     "react": "^16.8.6",
